@@ -1,65 +1,345 @@
-import Image from "next/image";
+import Logo from '@/assets/Logo.svg'
+import Avatar from '@/assets/Avatar.svg'
+import Image from 'next/image'
+import { Inter } from 'next/font/google'
+import SectionSwiper from './components/section-swiper'
+import WoodTable1 from '@/assets/wood_table_1.png'
+import WoodTable2 from '@/assets/wood_table_2.png'
+import WoodTable3 from '@/assets/wood_table_3.png'
+import Letter from '@/assets/letter.png'
+import DecorImage1 from '@/assets/decor_image_1.png'
+import DecorImage2 from '@/assets/decor_image_2.png'
+import DecorImage3 from '@/assets/decor_image_3.png'
+import DecorImage4 from '@/assets/decor_image_4.png'
+import DecorImage5 from '@/assets/decor_image_5.png'
+import DecorImage6 from '@/assets/decor_image_6.png'
+import DecorImage7 from '@/assets/decor_image_7.png'
+import DecorImage8 from '@/assets/decor_image_8.png'
+import DecorImage9 from '@/assets/decor_image_9.png'
+import DecorImage10 from '@/assets/decor_image_10.png'
+import DecorImage11 from '@/assets/decor_image_11.png'
+import DecorImage12 from '@/assets/decor_image_12.png'
+import Sponsor1 from '@/assets/sponsor-1.png'
+import Sponsor2 from '@/assets/sponsor-2.png'
+import Button from '@/components/button'
+import LiveNow from '@/assets/live-now.png'
+import Link from 'next/link'
 
+const duplicatedSponsors = [Sponsor1, Sponsor2, Sponsor1, Sponsor2, Sponsor1, Sponsor2]
+
+const inter = Inter({ subsets: ['latin'] })
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <>
+      <header className='px-3 fixed z-20 top-0 w-screen pt-3.5 pb-16 flex justify-between items-center bg-linear-to-b from-black/72 to-transparent'>
+        <div className='flex items-center gap-6'>
+          <svg
+            width='20'
+            height='17'
+            viewBox='0 0 20 17'
+            fill='none'
+            id='hamburger-menu-icon'
+            xmlns='http://www.w3.org/2000/svg'>
+            <rect width='20' height='3' fill='#D9D9D9' />
+            <rect y='7' width='20' height='3' fill='#D9D9D9' />
+            <rect y='14' width='20' height='3' fill='#D9D9D9' />
+          </svg>
+          <Image src={Logo} alt='Logo' className='h-10' />
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+        <div className='flex items-center gap-6'>
+          <Image src={Avatar} alt='Avatar' className='h-10' />
+          <button
+            className={`flex items-center gap-1 bg-[#F5BC41] text-[#0A0A0B] rounded-xs h-9 px-2.5 text-sm font-semibold ${inter.className}`}>
+            <svg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'>
+              <path
+                fillRule='evenodd'
+                clipRule='evenodd'
+                d='M12.3528 1.16675C12.7015 1.16675 13.0133 1.38385 13.1343 1.71088L14.5266 5.47336L18.289 6.8656C18.6161 6.98661 18.8332 7.29844 18.8332 7.64714C18.8332 7.99584 18.6161 8.30767 18.289 8.42868L14.5266 9.82092L13.1343 13.5834C13.0133 13.9104 12.7015 14.1275 12.3528 14.1275C12.0041 14.1275 11.6922 13.9104 11.5712 13.5834L10.179 9.82092L6.41652 8.42868C6.08949 8.30767 5.87239 7.99584 5.87239 7.64714C5.87239 7.29844 6.08949 6.98661 6.41652 6.8656L10.179 5.47336L11.5712 1.71088C11.6922 1.38385 12.0041 1.16675 12.3528 1.16675ZM12.3528 4.40137L11.6091 6.41112C11.5247 6.63922 11.3449 6.81906 11.1168 6.90347L9.10701 7.64714L11.1168 8.39082C11.3449 8.47522 11.5247 8.65506 11.6091 8.88316L12.3528 10.8929L13.0965 8.88316C13.1809 8.65506 13.3607 8.47522 13.5888 8.39082L15.5986 7.64714L13.5888 6.90347C13.3607 6.81906 13.1809 6.63922 13.0965 6.41112L12.3528 4.40137ZM5.29396 10.5785C5.57004 10.5785 5.82821 10.7153 5.98333 10.9437L7.22623 12.7737L9.05627 14.0166C9.28467 14.1717 9.42141 14.4299 9.42141 14.706C9.42141 14.9821 9.28467 15.2402 9.05627 15.3953L7.22623 16.6382L5.98333 18.4683C5.82821 18.6967 5.57004 18.8334 5.29396 18.8334C5.01787 18.8334 4.7597 18.6967 4.60458 18.4683L3.36168 16.6382L1.53164 15.3953C1.30325 15.2402 1.1665 14.9821 1.1665 14.706C1.1665 14.4299 1.30325 14.1717 1.53164 14.0166L3.36168 12.7737L4.60458 10.9437C4.7597 10.7153 5.01787 10.5785 5.29396 10.5785ZM5.29396 12.8951L4.65097 13.8418C4.59187 13.9288 4.51682 14.0039 4.4298 14.063L3.48307 14.706L4.4298 15.3489C4.51682 15.4081 4.59187 15.4831 4.65097 15.5701L5.29396 16.5169L5.93694 15.5701C5.99604 15.4831 6.07109 15.4081 6.15811 15.3489L7.10484 14.706L6.15811 14.063C6.07109 14.0039 5.99604 13.9288 5.93694 13.8418L5.29396 12.8951Z'
+                fill='currentColor'
+              />
+            </svg>
+            <span>TIÊN TRI</span>
+          </button>
         </div>
+      </header>
+      <main className='hidden relative'>
+        <SectionSwiper />
       </main>
-    </div>
-  );
+      <main className='relative z-10 w-screen overflow-hidden'>
+        <section className='relative min-h-screen w-screen'>
+          <div className='absolute inset-0 flex flex-col'>
+            <Image src={WoodTable1} alt='Wood Table 1' className='w-full h-auto object-cover shrink-0' />
+            <div
+              className='flex-1 h-full'
+              style={{
+                backgroundImage: `url(${WoodTable2.src})`,
+                backgroundSize: '100% auto',
+                backgroundRepeat: 'repeat-y',
+              }}></div>
+            <Image src={WoodTable3} alt='Wood Table 3' className='w-full h-auto object-cover shrink-0' />
+          </div>
+          <div className='relative z-10 min-h-screen'>
+            <Image
+              src={Letter}
+              alt='Letter'
+              className='absolute top-1/2 left-1/2 -translate-x-1/2 w-full max-w-96 -translate-y-3/4'
+            />
+            <Image src={DecorImage1} alt='Decor Image 1' className='absolute top-0 right-0 w-48' />
+            <Image
+              src={DecorImage2}
+              alt='Decor Image 2'
+              className='absolute bottom-1/8 right-0 translate-x-[45%] w-48 blur-[2.5px]'
+            />
+            <Image
+              src={DecorImage3}
+              alt='Decor Image 3'
+              className='absolute bottom-1/5 -translate-x-1/4 left-0 w-32 scale-x-[-1]'
+            />
+            <Image
+              src={DecorImage5}
+              alt='Decor Image 5'
+              className='absolute top-0 left-1/2 -translate-x-1/2 min-w-7xl opacity-80'
+            />
+            <Image src={DecorImage11} alt='Decor Image 11' className='absolute top-0 left-0 w-screen' />
+            <Image src={DecorImage4} alt='Decor Image 4' className='absolute top-0 inset-x-0 blur-[2.5px]' />
+            <Button className='absolute! left-1/2 -translate-x-1/2 bottom-1/6'>Tìm hiểu</Button>
+          </div>
+          <div className='p-3 relative pb-48'>
+            <div className='rounded-xs border-4 border-black bg-[linear-gradient(207deg,#FFF5D3_33.1%,#DEBF97_97.67%)] py-8 px-4 space-y-4'>
+              <h2 className='text-center text-2xl font-extrabold w-full font-grenze'>Lời Ngỏ Đến Hành Trình mới</h2>
+              <p className='font-medium'>
+                <span className='font-semibold'>Thân gửi: </span>
+                Các Họa sĩ, Tác giả và Cộng đồng Yêu mến Truyện tranh Việt Nam,
+                <br />
+                <br /> Bản hùng ca của niềm đam mê và khát vọng sáng tạo lại ngân vang. Nếu WoW Yourself mùa 1 là hình
+                tượng Cá Chép vượt Vũ Môn, là lời hiệu triệu &quot;Show Yourself - Know Yourself - Grow Yourself,&quot;
+                thì nay, chúng ta cùng nhau đứng trước ngưỡng cửa của một hải trình mới. <br />
+                <br /> <strong>WoW Yourself 2</strong> không chỉ là một cuộc thi—đó là lời hẹn ước cùng ánh trăng đại
+                dương, là hành trình &quot;Vươn mình ra biển lớn&quot;. Đây là nơi tài năng được gieo mầm (Sow
+                Yourself), hòa mình vào dòng chảy nghệ thuật (Flow Yourself), và cuối cùng, tỏa sáng rực rỡ bằng chính
+                bản thể sáng tạo (Glow Yourself). Chúng tôi đặt niềm tin vào từng nét vẽ, từng câu chuyện One-shot tối
+                thiểu 15 trang, nơi tinh hoa và chuyên môn được đề cao. Với sự dẫn dắt của Ban Cố Vấn, với{' '}
+                <strong>mục tiêu vươn tới Triển lãm Truyện tranh & Nghệ thuật 2026 tại Đà Nẵng,</strong> chúng tôi khao
+                khát khẳng định: <strong> Truyện tranh Việt là một vũ trụ nghệ thuật độc lập, giàu sức sống.</strong>{' '}
+                <br />
+                <br />
+                Cảm ơn vì đã cùng PunkgaMe kiến tạo nên những bước tiến lịch sử. Hãy can đảm cất cánh, vươn mình khỏi
+                dòng sông quen thuộc, để ngọn lửa sáng tạo của Việt Nam rực cháy trên bầu trời bao la.
+                <br />
+                <br /> Trân trọng và Hẹn ngày Tỏa Sáng,
+                <br />
+                <br />
+                <strong>PunkgaMe.</strong>
+              </p>
+            </div>
+            <Image
+              src={DecorImage6}
+              alt='Decor Image 6'
+              className='absolute top-0 -translate-y-[60%] opacity-90 right-0 w-48'
+            />
+          </div>
+        </section>
+        <section className='px-3 pt-48 relative pb-40'>
+          <div
+            className='absolute inset-0 pointer-events-none'
+            style={{
+              backgroundImage: `url(${DecorImage7.src})`,
+              backgroundRepeat: 'no-repeat',
+              backgroundSize: 'auto 100%',
+              backgroundPosition: 'center center',
+              opacity: 0.03,
+            }}></div>
+          <div className='relative z-10'>
+            <div className='space-y-7'>
+              <div>
+                <h2 className='text-3xl font-extrabold font-grenze leading-none'>
+                  WoW Yourself 2<br /> Tồng Giải Thưởng Đến
+                </h2>
+                <div className='text-[#345EB1] text-[50px] font-grenze font-extrabold leading-10.5'>80.000.000 vnđ</div>
+              </div>
+              <p className='font-semibold text-sm'>
+                Hệ thống giải thưởng &quot;khủng&quot; bao gồm tiền mặt và hiện vật giá trị, trải dài qua 3 vòng thi.
+                Vinh danh xứng đáng cho các Cá nhân xuất sắc, Nhóm đoàn kết và cả Ban cố vấn tận tâm.
+              </p>
+            </div>
+            <div className='space-y-6'>
+              <Image src={DecorImage8} alt='Decor Image 8' className='w-full h-auto max-w-sm' />
+              <div className='space-y-9 pb-20'>
+                <h3 className='text-3xl font-extrabold font-grenze'>
+                  Cơ hội tham gia
+                  <br /> <span className='text-[#D73930]'>Triển Lãm Tranh</span>
+                  <br />
+                  <span className='text-[#D73930] text-[50px] leading-none'>tại Đà Nẵng 2026</span>
+                </h3>
+                <p className='text-sm font-semibold'>
+                  Top 40 thí sinh vượt qua Vòng 1 sẽ được vinh danh và trưng bày tác phẩm tại sự kiện nghệ thuật quy mô
+                  lớn thứ 2 của PunkgaMe, dự kiến tổ chức tại TP.Đà Nẵng.
+                </p>
+                <Button className='px-10!'>Thể lệ cuộc thi</Button>
+              </div>
+            </div>
+            <div className='space-y-6 flex flex-col items-end'>
+              <Image src={DecorImage9} alt='Decor Image 9' className='w-full h-auto max-w-sm' />
+              <div className='space-y-9 pb-20'>
+                <h3 className='text-3xl font-extrabold font-grenze'>
+                  Cơ hội
+                  <br /> <span className='text-[#345EB1]'>Xuất Bản lần Đầu Tiên</span>
+                  <br />
+                  <span className='text-[#345EB1] text-[50px] leading-none'>Ngay Trong Tầm Tay</span>
+                </h3>
+                <p className='text-sm font-semibold'>
+                  Tác phẩm của Top 10 chung cuộc (8 BGK chọn + 2 Khán giả bình chọn) sẽ được xuất bản trong Tuyển tập
+                  truyện tranh WoW Yourself Mùa 2 (Ấn phẩm vật lý) và cơ hội được Ren Animation Studio chuyển thể thành
+                  phim hoạt hình.
+                </p>
+                <Button className='px-10!'>Tham gia ngay</Button>
+              </div>
+            </div>
+          </div>
+          <div
+            className='w-full absolute bottom-0 left-0 h-12.5'
+            style={{
+              backgroundImage: `url(${DecorImage10.src})`,
+              backgroundRepeat: 'repeat',
+              backgroundSize: 'auto 100%',
+            }}></div>
+        </section>
+        <section className='bg-[#D73930] py-16 space-y-8 px-3'>
+          <h2 className='text-center w-full text-[#FFFF7C] font-extrabold text-[50px] font-grenze'>Ban Cố Vấn</h2>
+          <div className='grid gap-x-3 gap-y-8 grid-cols-2'>
+            <div className='flex flex-col gap-3 items-center'>
+              <div className='w-full aspect-square border-4 border-black rounded-sm bg-gray-200'></div>
+              <div className='text-[#FFFF7C] font-extrabold font-grenze text-2xl'>Dương Minh Ngọc</div>
+            </div>
+            <div className='flex flex-col gap-3 items-center'>
+              <div className='w-full aspect-square border-4 border-black rounded-sm bg-gray-200'></div>
+              <div className='text-[#FFFF7C] font-extrabold font-grenze text-2xl'>Dương Minh Ngọc</div>
+              <div className='tex-sm font-medium text-white'>BLUE QUILIN</div>
+            </div>
+            <div className='flex flex-col gap-3 items-center'>
+              <div className='w-full aspect-square border-4 border-black rounded-sm bg-gray-200'></div>
+              <div className='text-[#FFFF7C] font-extrabold font-grenze text-2xl'>Dương Minh Ngọc</div>
+            </div>
+            <div className='flex flex-col gap-3 items-center'>
+              <div className='w-full aspect-square border-4 border-black rounded-sm bg-gray-200'></div>
+              <div className='text-[#FFFF7C] font-extrabold font-grenze text-2xl'>Dương Minh Ngọc</div>
+              <div className='tex-sm font-medium text-white'>BLUE QUILIN</div>
+            </div>
+          </div>
+        </section>
+        <section className='bg-[#D73930] pt-40 pb-80 relative'>
+          <div className='w-screen overflow-hidden'>
+            <div
+              className='flex animate-scroll max-w-none w-max min-w-0'
+              style={{ animation: `scroll ${duplicatedSponsors.length * 2}s linear infinite` }}>
+              {duplicatedSponsors.map((sponsor, index) => (
+                <div key={`${index}`} className='shrink-0 '>
+                  <Image src={sponsor} alt={`Sponsor ${index + 1}`} className='h-12.5 w-auto' />
+                </div>
+              ))}
+              {duplicatedSponsors.map((sponsor, index) => (
+                <div key={`${index}`} className='shrink-0 '>
+                  <Image src={sponsor} alt={`Sponsor ${index + 1}`} className='h-12.5 w-auto' />
+                </div>
+              ))}
+            </div>
+          </div>
+          <div
+            className='w-full absolute bottom-0 left-0 h-12.5'
+            style={{
+              backgroundImage: `url(${DecorImage10.src})`,
+              backgroundRepeat: 'repeat',
+              backgroundSize: 'auto 100%',
+            }}></div>
+          <Image
+            src={DecorImage12}
+            alt='Decor Image 12'
+            className='absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/3 w-screen max-w-md'
+          />
+        </section>
+        <section className='py-40 px-3 space-y-24'>
+          <div>
+            <div className='flex gap-4 border-b border-black pb-8'>
+              <div className='font-grenze font-extrabold text-[#D73930] text-[122px] leading-12'>01</div>
+              <div className='flex text-[#4D3B2B] font-grenze text-[50px] leading-8.25 font-extrabold'>
+                <div className='w-14'>
+                  <div>25</div>
+                  <div>10</div>
+                </div>
+                <div className='w-14'>
+                  <div>11</div>
+                  <div>12</div>
+                </div>
+              </div>
+              <div className='flex text-[#4D3B2B] font-grenze text-[50px] leading-8.25 font-extrabold'>
+                <div className='w-14'>
+                  <div>20</div>
+                  <div>25</div>
+                </div>
+              </div>
+            </div>
+            <div className='pt-8 space-y-7'>
+              <div className='flex gap-4'>
+                <Image src={LiveNow} alt='Live Now' className='h-14 w-auto' />
+                <div className='space-y-2 text-[#4D3B2B] font-extrabold font-grenze text-2xl leading-6'>
+                  <div>Vòng 1</div>
+                  <div>25/11/2025 - 10/12/2025</div>
+                </div>
+              </div>
+              <div className='text-[#D73930] font-grenze text-4xl font-extrabold leading-7.5'>
+                Gửi tôi, họa sĩ truyện tranh tương lai
+              </div>
+              <div className='space-y-4'>
+                <p className='text-sm font-semibold'>
+                  Đề bài: Vẽ truyện ngắn từ 1-3 trang với chủ đề: “Gửi tôi, hoạ sĩ truyện tranh tương lai”. Hình thức
+                  thể hiện đa dạng, không giới hạn cách trình bày tuy nhiên khổ giấy thể hiện bắt buộc phải là kích
+                  thước A4.
+                </p>
+                <Link href={'#'} className='text-[#4D3B2B] font-semibold w-full block text-end text-sm underline'>
+                  Chi tiết
+                </Link>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div className='flex gap-4 border-b border-black pb-8'>
+              <div className='font-grenze font-extrabold text-[#B6A690] text-[122px] leading-12'>02</div>
+              <div className='flex text-[#917D6B] font-grenze text-[50px] leading-8.25 font-extrabold'>
+                <div className='w-14'>
+                  <div>12</div>
+                  <div>22</div>
+                </div>
+                <div className='w-14'>
+                  <div>12</div>
+                  <div>12</div>
+                </div>
+              </div>
+              <div className='flex text-[#917D6B] font-grenze text-[50px] leading-8.25 font-extrabold'>
+                <div className='w-14'>
+                  <div>20</div>
+                  <div>25</div>
+                </div>
+              </div>
+            </div>
+            <div className='pt-8 space-y-7'>
+              <div className='flex gap-4'>
+                <div className='space-y-2 text-[#4D3B2B] font-extrabold font-grenze text-2xl leading-6'>
+                  <div>Vòng 2</div>
+                  <div>12/12/2025 - 22/12/2025</div>
+                </div>
+              </div>
+              <div className='text-[#4D3B2B] font-grenze text-4xl font-extrabold leading-7.5'>Hải lưu khát vọng</div>
+              <div className='space-y-4'>
+                <p className='text-sm font-semibold'>
+                  Đề bài: Vẽ truyện ngắn từ 1-3 trang với chủ đề: “Gửi tôi, hoạ sĩ truyện tranh tương lai”. Hình thức
+                  thể hiện đa dạng, không giới hạn cách trình bày tuy nhiên khổ giấy thể hiện bắt buộc phải là kích
+                  thước A4.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </>
+  )
 }
