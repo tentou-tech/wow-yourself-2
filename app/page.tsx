@@ -12,8 +12,6 @@ import DecorImage8 from '@/assets/decor_image_8.png'
 import DecorImage9 from '@/assets/decor_image_9.png'
 import Letter from '@/assets/letter.png'
 import LiveNow from '@/assets/live-now.png'
-import Sponsor1 from '@/assets/sponsor-1.png'
-import Sponsor2 from '@/assets/sponsor-2.png'
 import WoodTable1 from '@/assets/wood_table_1.png'
 import WoodTable2 from '@/assets/wood_table_2.png'
 import WoodTable3 from '@/assets/wood_table_3.png'
@@ -22,8 +20,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import Header from './components/header'
 import SectionSwiper from './components/section-swiper'
-
-const duplicatedSponsors = [Sponsor1, Sponsor2, Sponsor1, Sponsor2, Sponsor1, Sponsor2]
+import Sponsors from '@/assets/sponsors.png'
 
 export default function Home() {
   return (
@@ -198,17 +195,13 @@ export default function Home() {
           <div className='w-screen overflow-hidden'>
             <div
               className='flex animate-scroll max-w-none w-max min-w-0'
-              style={{ animation: `scroll ${duplicatedSponsors.length * 2}s linear infinite` }}>
-              {duplicatedSponsors.map((sponsor, index) => (
-                <div key={`${index}`} className='shrink-0 '>
-                  <Image src={sponsor} alt={`Sponsor ${index + 1}`} className='h-12.5 w-auto' />
-                </div>
-              ))}
-              {duplicatedSponsors.map((sponsor, index) => (
-                <div key={`${index}`} className='shrink-0 '>
-                  <Image src={sponsor} alt={`Sponsor ${index + 1}`} className='h-12.5 w-auto' />
-                </div>
-              ))}
+              style={{ animation: `scroll 10s linear infinite` }}>
+              <div className='shrink-0 '>
+                <Image src={Sponsors} alt={`Sponsors`} className='h-12.5 w-auto' />
+              </div>
+              <div className='shrink-0 '>
+                <Image src={Sponsors} alt={`Sponsors`} className='h-12.5 w-auto' />
+              </div>
             </div>
           </div>
           <div

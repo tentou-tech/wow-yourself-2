@@ -20,7 +20,7 @@ export default function Section1() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowButton(true)
-    }, 2300)
+    }, 2000)
 
     return () => clearTimeout(timer)
   }, [])
