@@ -1,13 +1,7 @@
-import Logo from '@/assets/Logo.svg'
-import Avatar from '@/assets/Avatar.svg'
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
-import SectionSwiper from './components/section-swiper'
-import WoodTable1 from '@/assets/wood_table_1.png'
-import WoodTable2 from '@/assets/wood_table_2.png'
-import WoodTable3 from '@/assets/wood_table_3.png'
-import Letter from '@/assets/letter.png'
 import DecorImage1 from '@/assets/decor_image_1.png'
+import DecorImage10 from '@/assets/decor_image_10.png'
+import DecorImage11 from '@/assets/decor_image_11.png'
+import DecorImage12 from '@/assets/decor_image_12.png'
 import DecorImage2 from '@/assets/decor_image_2.png'
 import DecorImage3 from '@/assets/decor_image_3.png'
 import DecorImage4 from '@/assets/decor_image_4.png'
@@ -16,56 +10,29 @@ import DecorImage6 from '@/assets/decor_image_6.png'
 import DecorImage7 from '@/assets/decor_image_7.png'
 import DecorImage8 from '@/assets/decor_image_8.png'
 import DecorImage9 from '@/assets/decor_image_9.png'
-import DecorImage10 from '@/assets/decor_image_10.png'
-import DecorImage11 from '@/assets/decor_image_11.png'
-import DecorImage12 from '@/assets/decor_image_12.png'
+import Letter from '@/assets/letter.png'
+import LiveNow from '@/assets/live-now.png'
 import Sponsor1 from '@/assets/sponsor-1.png'
 import Sponsor2 from '@/assets/sponsor-2.png'
+import WoodTable1 from '@/assets/wood_table_1.png'
+import WoodTable2 from '@/assets/wood_table_2.png'
+import WoodTable3 from '@/assets/wood_table_3.png'
 import Button from '@/components/button'
-import LiveNow from '@/assets/live-now.png'
+import Image from 'next/image'
 import Link from 'next/link'
+import Header from './components/header'
+import SectionSwiper from './components/section-swiper'
 
 const duplicatedSponsors = [Sponsor1, Sponsor2, Sponsor1, Sponsor2, Sponsor1, Sponsor2]
 
-const inter = Inter({ subsets: ['latin'] })
 export default function Home() {
   return (
     <>
-      <header className='px-3 fixed z-20 top-0 w-screen pt-3.5 pb-16 flex justify-between items-center bg-linear-to-b from-black/72 to-transparent'>
-        <div className='flex items-center gap-6'>
-          <svg
-            width='20'
-            height='17'
-            viewBox='0 0 20 17'
-            fill='none'
-            id='hamburger-menu-icon'
-            xmlns='http://www.w3.org/2000/svg'>
-            <rect width='20' height='3' fill='#D9D9D9' />
-            <rect y='7' width='20' height='3' fill='#D9D9D9' />
-            <rect y='14' width='20' height='3' fill='#D9D9D9' />
-          </svg>
-          <Image src={Logo} alt='Logo' className='h-10' />
-        </div>
-        <div className='flex items-center gap-6'>
-          <Image src={Avatar} alt='Avatar' className='h-10' />
-          <button
-            className={`flex items-center gap-1 bg-[#F5BC41] text-[#0A0A0B] rounded-xs h-9 px-2.5 text-sm font-semibold ${inter.className}`}>
-            <svg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'>
-              <path
-                fillRule='evenodd'
-                clipRule='evenodd'
-                d='M12.3528 1.16675C12.7015 1.16675 13.0133 1.38385 13.1343 1.71088L14.5266 5.47336L18.289 6.8656C18.6161 6.98661 18.8332 7.29844 18.8332 7.64714C18.8332 7.99584 18.6161 8.30767 18.289 8.42868L14.5266 9.82092L13.1343 13.5834C13.0133 13.9104 12.7015 14.1275 12.3528 14.1275C12.0041 14.1275 11.6922 13.9104 11.5712 13.5834L10.179 9.82092L6.41652 8.42868C6.08949 8.30767 5.87239 7.99584 5.87239 7.64714C5.87239 7.29844 6.08949 6.98661 6.41652 6.8656L10.179 5.47336L11.5712 1.71088C11.6922 1.38385 12.0041 1.16675 12.3528 1.16675ZM12.3528 4.40137L11.6091 6.41112C11.5247 6.63922 11.3449 6.81906 11.1168 6.90347L9.10701 7.64714L11.1168 8.39082C11.3449 8.47522 11.5247 8.65506 11.6091 8.88316L12.3528 10.8929L13.0965 8.88316C13.1809 8.65506 13.3607 8.47522 13.5888 8.39082L15.5986 7.64714L13.5888 6.90347C13.3607 6.81906 13.1809 6.63922 13.0965 6.41112L12.3528 4.40137ZM5.29396 10.5785C5.57004 10.5785 5.82821 10.7153 5.98333 10.9437L7.22623 12.7737L9.05627 14.0166C9.28467 14.1717 9.42141 14.4299 9.42141 14.706C9.42141 14.9821 9.28467 15.2402 9.05627 15.3953L7.22623 16.6382L5.98333 18.4683C5.82821 18.6967 5.57004 18.8334 5.29396 18.8334C5.01787 18.8334 4.7597 18.6967 4.60458 18.4683L3.36168 16.6382L1.53164 15.3953C1.30325 15.2402 1.1665 14.9821 1.1665 14.706C1.1665 14.4299 1.30325 14.1717 1.53164 14.0166L3.36168 12.7737L4.60458 10.9437C4.7597 10.7153 5.01787 10.5785 5.29396 10.5785ZM5.29396 12.8951L4.65097 13.8418C4.59187 13.9288 4.51682 14.0039 4.4298 14.063L3.48307 14.706L4.4298 15.3489C4.51682 15.4081 4.59187 15.4831 4.65097 15.5701L5.29396 16.5169L5.93694 15.5701C5.99604 15.4831 6.07109 15.4081 6.15811 15.3489L7.10484 14.706L6.15811 14.063C6.07109 14.0039 5.99604 13.9288 5.93694 13.8418L5.29396 12.8951Z'
-                fill='currentColor'
-              />
-            </svg>
-            <span>TIÊN TRI</span>
-          </button>
-        </div>
-      </header>
-      <main className='hidden relative'>
+      <Header />
+      <main className='hidden relative lg:block'>
         <SectionSwiper />
       </main>
-      <main className='relative z-10 w-screen overflow-hidden'>
+      <main className='relative z-10 w-screen overflow-hidden lg:hidden'>
         <section className='relative min-h-screen w-screen'>
           <div className='absolute inset-0 flex flex-col'>
             <Image src={WoodTable1} alt='Wood Table 1' className='w-full h-auto object-cover shrink-0' />
@@ -82,7 +49,7 @@ export default function Home() {
             <Image
               src={Letter}
               alt='Letter'
-              className='absolute top-1/2 left-1/2 -translate-x-1/2 w-full max-w-96 -translate-y-3/4'
+              className='absolute top-1/2 left-1/2 -translate-x-1/2 w-[90vw] sm:w-[80vw] -translate-y-3/4'
             />
             <Image src={DecorImage1} alt='Decor Image 1' className='absolute top-0 right-0 w-48' />
             <Image

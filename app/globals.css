@@ -1,8 +1,8 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 :root {
-  --background: #F5EACE;
-  --foreground: #0A0A0B;
+  --background: #f5eace;
+  --foreground: #0a0a0b;
 }
 
 @theme inline {
@@ -43,4 +43,48 @@ body {
   100% {
     transform: translateX(-50%);
   }
+}
+@keyframes show-up {
+  0% {
+    transform: scale(3);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.show-up-animation {
+  animation: show-up 1s ease-in-out forwards;
+}
+
+@keyframes leaves-show-up {
+  0% {
+    opacity: 0;
+    transform: scale(1.5);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.leaves-show-animation {
+  animation: leaves-show-up 1s ease-in-out forwards;
+  animation-delay: .5s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes letter-show-up {
+  0% {
+    opacity: 0;
+    transform: scale(3);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.letter-show-animation {
+  animation: letter-show-up 1s ease-in-out forwards;
+  animation-delay: 1.5s;
+  animation-fill-mode: forwards;
 }

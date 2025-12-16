@@ -1,9 +1,28 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 'use client'
-import { Swiper, SwiperSlide } from 'swiper/react'
-import { Mousewheel } from 'swiper/modules'
-
 import 'swiper/css'
+import { Mousewheel } from 'swiper/modules'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { useState } from 'react'
+import Section1 from './section-1'
+import Section2 from './section-2'
+import Section3 from './section-3'
+
 export default function SectionSwiper() {
+  const [previousIndex, setPreviousIndex] = useState(0)
+
+  const handleSlideChange = (swiper: any) => {
+    const currentIndex = swiper.activeIndex
+
+    if (currentIndex > previousIndex) {
+      document.getElementsByTagName('header')[0].style.transform = 'translateY(-100%)'
+    } else if (currentIndex < previousIndex) {
+      document.getElementsByTagName('header')[0].style.transform = 'translateY(0)'
+    }
+
+    setPreviousIndex(currentIndex)
+  }
+
   return (
     <Swiper
       direction='vertical'
@@ -19,19 +38,21 @@ export default function SectionSwiper() {
         invert: false,
       }}
       touchEventsTarget='container'
+      onSlideChange={handleSlideChange}
       simulateTouch={true}
       touchRatio={1}
       touchAngle={45}
       modules={[Mousewheel]}
       className='page-swiper'>
-      {Array.from({ length: 5 }).map((_, i) => (
-        <SwiperSlide key={i}>
-          <section className='section'>
-            <h1>Section {i + 1}</h1>
-            <p>Scrollable HTML content</p>
-          </section>
-        </SwiperSlide>
-      ))}
+      <SwiperSlide className='z-20'>
+        <Section1 />
+      </SwiperSlide>
+      <SwiperSlide className='z-10'>
+        <Section2 />
+      </SwiperSlide>
+      <SwiperSlide className='z-20'>
+        <Section3 />
+      </SwiperSlide>
     </Swiper>
   )
 }
