@@ -8,7 +8,7 @@ const playpenSans = Playpen_Sans({
 })
 
 const grenze = Grenze_Gotisch({
-  weight: ['400', '700', '800'],
+  weight: ['400', '600', '700', '800'],
   variable: '--font-grenze',
   subsets: ['latin'],
 })
