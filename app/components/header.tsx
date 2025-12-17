@@ -1,5 +1,4 @@
 'use client'
-import Avatar from '@/assets/Avatar.svg'
 import Logo from '@/assets/Logo.svg'
 import { Inter } from 'next/font/google'
 import Image from 'next/image'
@@ -22,35 +21,33 @@ export default function Header() {
 
   return (
     <>
-      <header className={`px-3 lg:px-6 fixed z-20 top-0 w-screen pt-3.5 lg:pt-5 pb-16 flex justify-between items-center bg-linear-to-b from-black/72 to-transparent transition-transform duration-300`}>
+      <header
+        className={`px-3 lg:px-6 fixed z-20 top-0 w-screen pt-3.5 lg:pt-5 pb-16 flex justify-between items-center bg-linear-to-b from-black/72 to-transparent transition-transform duration-300`}>
         <div className='flex items-center gap-6 lg:gap-10'>
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className='lg:hidden p-2'
-            aria-label='Toggle menu'>
-            <svg
-              width='20'
-              height='17'
-              viewBox='0 0 20 17'
-              fill='none'
-              xmlns='http://www.w3.org/2000/svg'>
+          <button onClick={() => setIsOpen(!isOpen)} className='lg:hidden p-2' aria-label='Toggle menu'>
+            <svg width='20' height='17' viewBox='0 0 20 17' fill='none' xmlns='http://www.w3.org/2000/svg'>
               <rect width='20' height='3' fill='#D9D9D9' />
               <rect y='7' width='20' height='3' fill='#D9D9D9' />
               <rect y='14' width='20' height='3' fill='#D9D9D9' />
             </svg>
           </button>
-          <Image src={Logo} alt='Logo' className='h-10.5' />
+          <Link href='/'>
+            <Image src={Logo} alt='Logo' className='h-10.5' />
+          </Link>
           <nav className='hidden lg:flex gap-8 items-center'>
             {navItems.map((item) => (
-              <Link key={item.label} href={item.href} className={`text-white uppercase font-semibold ${inter.className}`}>
+              <Link
+                key={item.label}
+                href={item.href}
+                className={`text-white uppercase font-semibold ${inter.className}`}>
                 {item.label}
               </Link>
             ))}
           </nav>
         </div>
         <div className='flex items-center gap-6'>
-          <Image src={Avatar} alt='Avatar' className='h-10' />
-          <button
+          <Link
+            href='/tien-tri-tai-ba'
             className={`flex items-center gap-1 bg-[#F5BC41] text-[#0A0A0B] rounded-xs lg:rounded-sm h-9 lg:h-10 px-2.5 lg:px-4 text-sm font-semibold ${inter.className}`}>
             <svg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'>
               <path
@@ -62,28 +59,29 @@ export default function Header() {
             </svg>
             <span className='lg:hidden'>TIÊN TRI</span>
             <span className='hidden lg:inline'>TIÊN TRI TÀI BA</span>
-          </button>
+          </Link>
         </div>
       </header>
 
       {/* Mobile Menu */}
-      <div className={`fixed inset-0 z-50 lg:hidden transition-opacity duration-300 ${
-        isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
-      }`}>
-        {/* Backdrop */}
-        <div
-          className='absolute inset-0 bg-black/30'
-          onClick={() => setIsOpen(false)}
-        />
-        {/* Sidebar */}
-        <nav className={`absolute left-0 top-0 h-screen w-64 bg-black/50 pt-24 px-6 space-y-6 transition-transform duration-300 ease-out ${
-          isOpen ? 'translate-x-0' : '-translate-x-full'
+      <div
+        className={`fixed inset-0 z-50 lg:hidden transition-opacity duration-300 ${
+          isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
         }`}>
+        {/* Backdrop */}
+        <div className='absolute inset-0 bg-black/30' onClick={() => setIsOpen(false)} />
+        {/* Sidebar */}
+        <nav
+          className={`absolute left-0 top-0 h-screen w-64 bg-black/50 pt-24 px-6 space-y-6 transition-transform duration-300 ease-out ${
+            isOpen ? 'translate-x-0' : '-translate-x-full'
+          }`}>
           {navItems.map((item, index) => (
             <Link
               key={item.label}
               href={item.href}
-              className={`block text-white uppercase font-semibold text-lg ${inter.className} transition-all duration-300 ease-out transform ${
+              className={`block text-white uppercase font-semibold text-lg ${
+                inter.className
+              } transition-all duration-300 ease-out transform ${
                 isOpen ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'
               }`}
               style={{
@@ -98,4 +96,3 @@ export default function Header() {
     </>
   )
 }
-
