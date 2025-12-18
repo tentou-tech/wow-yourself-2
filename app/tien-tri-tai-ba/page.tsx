@@ -7,13 +7,15 @@ import DecorImage20 from '@/assets/decor_image_20.jpg'
 import Avatar from '@/assets/Avatar.svg'
 import { Inter } from 'next/font/google'
 import Chart from './components/chart'
+import CommunityPrize from './components/community-prize'
+import RewardRedemption from './components/reward-redemption'
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Page() {
   return (
-    <div className={inter.className}>
+    <div className={`${inter.className} overflow-x-hidden`}>
       <Header />
-      <div className='w-screen h-45 z-40 bg-[#345EB0] relative p-6'>
+      <div className='h-45 z-40 bg-[#345EB0] relative p-6'>
         <div
           className='origin-center absolute inset-0 pointer-events-none opacity-15'
           style={{ backgroundImage: `url(${DecorImage7.src})`, backgroundSize: '100% auto' }}></div>
@@ -23,7 +25,7 @@ export default function Page() {
           className='absolute hidden md:block right-0 bottom-0 w-auto h-[110%]'
         />
         <div
-          className='h-10 w-screen absolute bottom-0 left-0 scale-y-[-1] bg-repeat'
+          className='h-10 absolute bottom-0 left-0 right-0 scale-y-[-1] bg-repeat'
           style={{ backgroundImage: `url(${Divider.src})`, backgroundSize: 'auto 100%' }}></div>
         <div className='relative'>
           <div className='w-25 h-25 rounded-full bg-[#FF9548]'></div>
@@ -34,7 +36,7 @@ export default function Page() {
           </div>
         </div>
       </div>
-      <div className='grid grid-cols-1 lg:grid-cols-[1fr_460px] gap-8 mt-4'>
+      <div className='grid grid-cols-1 lg:grid-cols-[1fr_460px] gap-8 mt-4 px-3'>
         <div className='space-y-2.5'>
           <div className='pb-2.5 px-3 flex flex-col gap-2.5 md:flex-row md:items-center md:justify-between border-b border-black/20'>
             <div className='flex items-center gap-4'>
@@ -102,11 +104,15 @@ export default function Page() {
               </div>
             </div>
           </div>
+          <div className='pt-4 space-y-4 px-3'>
+            <div className='font-grenze font-bold text-[32px]'>Rankings</div>
+            <Chart />
+          </div>
+          <div className='pt-4 space-y-4 px-3'>
+            <RewardRedemption />
+          </div>
         </div>
-      </div>
-      <div className='pt-4 space-y-4 px-3'>
-        <div className='font-grenze font-bold text-[32px]'>Rankings</div>
-        <Chart />
+        <CommunityPrize />
       </div>
     </div>
   )
