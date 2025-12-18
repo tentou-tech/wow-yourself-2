@@ -6,6 +6,7 @@ import DecorImage19 from '@/assets/decor_image_19.png'
 import DecorImage20 from '@/assets/decor_image_20.jpg'
 import Avatar from '@/assets/Avatar.svg'
 import { Inter } from 'next/font/google'
+import Chart from './components/chart'
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Page() {
@@ -102,6 +103,10 @@ export default function Page() {
             </div>
           </div>
         </div>
+      </div>
+      <div className='pt-4 space-y-4 px-3'>
+        <div className='font-grenze font-bold text-[32px]'>Rankings</div>
+        <Chart />
       </div>
     </div>
   )
