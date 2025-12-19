@@ -4,19 +4,20 @@ import { Inter } from 'next/font/google'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useState } from 'react'
+import { SwiperClass } from 'swiper/react'
 
 const inter = Inter({ subsets: ['latin'] })
 
 const navItems = [
-  { label: 'Lời Ngỏ', href: '#' },
-  { label: 'Giải Thưởng', href: '#' },
-  { label: 'Ban Cố Vấn', href: '#' },
-  { label: 'Đối Tác', href: '#' },
-  { label: 'Đang Diễn Ra', href: '#' },
+  { label: 'Lời Ngỏ', href: '#', index: 1 },
+  { label: 'Giải Thưởng', href: '#', index: 2 },
+  { label: 'Ban Cố Vấn', href: '#', index: 3 },
+  { label: 'Đối Tác', href: '#', index: 4 },
+  { label: 'Đang Diễn Ra', href: '#', index: 5 },
   { label: 'Team', href: '#' },
 ]
 
-export default function Header() {
+export default function Header({ swiperRef }: { swiperRef?: React.RefObject<SwiperClass | null> }) {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
@@ -36,12 +37,12 @@ export default function Header() {
           </Link>
           <nav className='hidden lg:flex gap-8 items-center'>
             {navItems.map((item) => (
-              <Link
+              <div
                 key={item.label}
-                href={item.href}
-                className={`text-white uppercase font-semibold ${inter.className}`}>
+                onClick={() => (item.index !== undefined ? swiperRef?.current?.slideTo(item.index) : undefined)}
+                className={`text-white uppercase cursor-pointer font-semibold ${inter.className}`}>
                 {item.label}
-              </Link>
+              </div>
             ))}
           </nav>
         </div>

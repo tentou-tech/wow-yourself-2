@@ -25,11 +25,11 @@ import Sponsors from '@/assets/sponsors.png'
 export default function Home() {
   return (
     <>
-      <Header />
       <main className='hidden relative lg:block'>
         <SectionSwiper />
       </main>
       <main className='relative z-10 w-screen overflow-hidden lg:hidden'>
+        <Header />
         <section className='relative min-h-screen w-screen'>
           <div className='absolute inset-0 flex flex-col'>
             <Image src={WoodTable1} alt='Wood Table 1' className='w-full h-auto object-cover shrink-0' />
