@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from 'react';
 import Header from './components/header'
 import DecorImage7 from '@/assets/decor_image_7.png'
 import Divider from '@/assets/Divider.png'
@@ -7,13 +10,30 @@ import DecorImage20 from '@/assets/decor_image_20.jpg'
 import Avatar from '@/assets/Avatar.svg'
 import { Inter } from 'next/font/google'
 import Chart from './components/chart'
+import CommunityPrize from './components/community-prize'
+import GuidePopup from './components/guide-popup'
+import RewardRedemption from './components/reward-redemption'
+import CheckinSuccessPopup from './components/checkin-success-popup';
+import QuizPopup from './components/quiz-popup';
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Page() {
+  const [isCheckinSuccessOpen, setIsCheckinSuccessOpen] = useState(false);
+  const [isQuizOpen, setIsQuizOpen] = useState(false);
+
+  const openCheckinSuccessPopup = () => setIsCheckinSuccessOpen(true);
+  const closeCheckinSuccessPopup = () => setIsCheckinSuccessOpen(false);
+
+  const openQuizPopup = () => setIsQuizOpen(true);
+  const closeQuizPopup = () => setIsQuizOpen(false);
+
   return (
-    <div className={inter.className}>
+    <div className={`${inter.className} overflow-x-hidden`}>
+      <GuidePopup />
+      <CheckinSuccessPopup isOpen={isCheckinSuccessOpen} onClose={closeCheckinSuccessPopup} />
+      <QuizPopup isOpen={isQuizOpen} onClose={closeQuizPopup} />
       <Header />
-      <div className='w-screen h-45 z-40 bg-[#345EB0] relative p-6'>
+      <div className='h-45 z-40 bg-[#345EB0] relative p-6'>
         <div
           className='origin-center absolute inset-0 pointer-events-none opacity-15'
           style={{ backgroundImage: `url(${DecorImage7.src})`, backgroundSize: '100% auto' }}></div>
@@ -23,7 +43,7 @@ export default function Page() {
           className='absolute hidden md:block right-0 bottom-0 w-auto h-[110%]'
         />
         <div
-          className='h-10 w-screen absolute bottom-0 left-0 scale-y-[-1] bg-repeat'
+          className='h-10 absolute bottom-0 left-0 right-0 scale-y-[-1] bg-repeat'
           style={{ backgroundImage: `url(${Divider.src})`, backgroundSize: 'auto 100%' }}></div>
         <div className='relative'>
           <div className='w-25 h-25 rounded-full bg-[#FF9548]'></div>
@@ -34,7 +54,7 @@ export default function Page() {
           </div>
         </div>
       </div>
-      <div className='grid grid-cols-1 lg:grid-cols-[1fr_460px] gap-8 mt-4'>
+      <div className='grid grid-cols-1 lg:grid-cols-[1fr_460px] gap-8 mt-4 px-3'>
         <div className='space-y-2.5'>
           <div className='pb-2.5 px-3 flex flex-col gap-2.5 md:flex-row md:items-center md:justify-between border-b border-black/20'>
             <div className='flex items-center gap-4'>
@@ -69,8 +89,10 @@ export default function Page() {
                     <div className='text-[#D9D9DE] text-sm font-semibold'>07/12/2025 - 01/01/2026</div>
                   </div>
                 </div>
-                <button className='bg-[#F5BC41] rounded-sm h-10 w-full md:w-fit px-3.5 grid place-items-center font-grenze text-xl font-semibold cursor-pointer'>
-                  CTA
+                <button 
+                  onClick={openCheckinSuccessPopup}
+                  className='bg-[#F5BC41] rounded-sm h-10 w-full md:w-fit px-3.5 grid place-items-center font-grenze text-xl font-semibold cursor-pointer'>
+                  Check-in
                 </button>
               </div>
               <div className='rounded-sm p-4 md:h-23.5 flex flex-col md:flex-row md:justify-between md:items-center bg-[#D73930] gap-4'>
@@ -80,12 +102,14 @@ export default function Page() {
                     <div className='font-semibold text-sm'>Points</div>
                   </div>
                   <div className='space-y-1'>
-                    <div className='font-grenze font-bold text-white'>Daily Check-in</div>
+                    <div className='font-grenze font-bold text-white'>Đố vui mỗi ngày</div>
                     <div className='text-[#D9D9DE] text-sm font-semibold'>07/12/2025 - 01/01/2026</div>
                   </div>
                 </div>
-                <button className='bg-[#F5BC41] rounded-sm h-10 w-full md:w-fit px-3.5 grid place-items-center font-grenze text-xl font-semibold cursor-pointer'>
-                  CTA
+                <button 
+                  onClick={openQuizPopup}
+                  className='bg-[#F5BC41] rounded-sm h-10 w-full md:w-fit px-3.5 grid place-items-center font-grenze text-xl font-semibold cursor-pointer'>
+                  Giải đố
                 </button>
               </div>
             </div>
@@ -102,11 +126,15 @@ export default function Page() {
               </div>
             </div>
           </div>
+          <div className='pt-4 space-y-4 px-3'>
+            <div className='font-grenze font-bold text-[32px]'>Rankings</div>
+            <Chart />
+          </div>
+          <div className='pt-4 space-y-4 px-3'>
+            <RewardRedemption />
+          </div>
         </div>
-      </div>
-      <div className='pt-4 space-y-4 px-3'>
-        <div className='font-grenze font-bold text-[32px]'>Rankings</div>
-        <Chart />
+        <CommunityPrize />
       </div>
     </div>
   )
