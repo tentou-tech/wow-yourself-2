@@ -17,7 +17,7 @@ import Advisor5Mascot from '@/assets/advisors/advisor_5_mascot.png'
 import Advisor6Mascot from '@/assets/advisors/advisor_6_mascot.png'
 import Advisor7Mascot from '@/assets/advisors/advisor_7_mascot.png'
 import Advisor8Mascot from '@/assets/advisors/advisor_8_mascot.png'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 const advisors = [
   {
@@ -86,7 +86,7 @@ const renderWordsWithAnimation = (text: string, delay: number, animationKey: str
   return words.map((word, idx) => (
     <span
       key={`${animationKey}-${idx}`}
-      className='inline-block slide-up opacity-0'
+      className='inline-block slide-up'
       style={{
         animationDelay: `${delay + idx * 0.05}s`,
         marginRight: '0.25em',
@@ -98,6 +98,12 @@ const renderWordsWithAnimation = (text: string, delay: number, animationKey: str
 
 export default function Section4() {
   const [index, setIndex] = useState(0)
+  const [shuffledAdvisors, setShuffledAdvisors] = useState(advisors)
+
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setShuffledAdvisors([...advisors].sort(() => 0.5 - Math.random()))
+  }, [])
 
   const handleIndexChange = (newIndex: number) => {
     setIndex(newIndex)
@@ -121,31 +127,35 @@ export default function Section4() {
           <div className='w-auto h-[50vh] max-h-105 max-w-105 aspect-square relative'>
             <div className='w-full h-full absolute top-0 left-0 rotate-45 origin-center bg-[#A6231C]'></div>
             <div className='rounded-sm border-4 border-black relative h-full w-full'>
-              <Image src={advisors[index].image} alt={advisors[index].name} className='w-full h-full object-cover' />
+              <Image
+                src={shuffledAdvisors[index].image}
+                alt={shuffledAdvisors[index].name}
+                className='w-full h-full object-cover'
+              />
             </div>
             <Image
               key={`mascot-${index}`}
-              src={advisors[index].mascot}
-              alt={`${advisors[index].name} Mascot`}
+              src={shuffledAdvisors[index].mascot}
+              alt={`${shuffledAdvisors[index].name} Mascot`}
               className='absolute bottom-0 right-0 translate-x-1/6 translate-y-1/4 w-full h-auto slide-from-right'
             />
           </div>
           <div className='flex flex-col justify-between relative'>
             <div key={`text-${index}`} className='pt-6'>
               <div className='font-grenze font-extrabold text-[42px] text-[#FFFF7C]'>
-                {renderWordsWithAnimation(advisors[index].name, 0, `name-${index}`)}
+                {renderWordsWithAnimation(shuffledAdvisors[index].name, 0, `name-${index}`)}
               </div>
-              {advisors[index].subName && (
+              {shuffledAdvisors[index].subName && (
                 <div className='font-medium text-white'>
-                  {renderWordsWithAnimation(advisors[index].subName, 0.3, `subname-${index}`)}
+                  {renderWordsWithAnimation(shuffledAdvisors[index].subName, 0.3, `subname-${index}`)}
                 </div>
               )}
               <p className='mt-4 font-semibold text-lg text-white'>
-                {renderWordsWithAnimation(advisors[index].description, 0.6, `desc-${index}`)}
+                {renderWordsWithAnimation(shuffledAdvisors[index].description, 0.6, `desc-${index}`)}
               </p>
             </div>
             <div className='grid grid-cols-8 gap-2.5'>
-              {advisors.map((advisor, idx) => (
+              {shuffledAdvisors.map((advisor, idx) => (
                 <div
                   key={idx}
                   className={`rounded-sm border-[3px] w-full aspect-square cursor-pointer ${
