@@ -47,11 +47,11 @@ export default function Page() {
           style={{ backgroundImage: `url(${Divider.src})`, backgroundSize: 'auto 100%' }}></div>
         <div className='relative'>
           <div className='w-25 h-25 rounded-full bg-[#FF9548]'></div>
-          <div className='font-extrabold absolute top-0 left-7 font-grenze text-[50px] leading-none text-white'>
+          <h1 className='font-extrabold absolute top-0 left-7 font-grenze text-[50px] leading-none text-white'>
             Tiên tri
             <br />
             Tài ba
-          </div>
+          </h1>
         </div>
       </div>
       <div className='grid grid-cols-1 lg:grid-cols-[1fr_460px] gap-8 mt-4 px-3'>
@@ -89,7 +89,7 @@ export default function Page() {
                     <div className='text-[#D9D9DE] text-sm font-semibold'>07/12/2025 - 01/01/2026</div>
                   </div>
                 </div>
-                <button 
+                <button
                   onClick={openCheckinSuccessPopup}
                   className='bg-[#F5BC41] rounded-sm h-10 w-full md:w-fit px-3.5 grid place-items-center font-grenze text-xl font-semibold cursor-pointer'>
                   Check-in
@@ -106,7 +106,7 @@ export default function Page() {
                     <div className='text-[#D9D9DE] text-sm font-semibold'>07/12/2025 - 01/01/2026</div>
                   </div>
                 </div>
-                <button 
+                <button
                   onClick={openQuizPopup}
                   className='bg-[#F5BC41] rounded-sm h-10 w-full md:w-fit px-3.5 grid place-items-center font-grenze text-xl font-semibold cursor-pointer'>
                   Giải đố
@@ -127,7 +127,7 @@ export default function Page() {
             </div>
           </div>
           <div className='pt-4 space-y-4 px-3'>
-            <div className='font-grenze font-bold text-[32px]'>Rankings</div>
+            <h2 className='font-grenze font-bold text-[32px]'>Rankings</h2>
             <Chart />
           </div>
           <div className='pt-4 space-y-4 px-3'>

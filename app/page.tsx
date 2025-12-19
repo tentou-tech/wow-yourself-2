@@ -9,7 +9,11 @@ import DecorImage5 from '@/assets/decor_image_5.png'
 import DecorImage6 from '@/assets/decor_image_6.png'
 import DecorImage7 from '@/assets/decor_image_7.png'
 import DecorImage8 from '@/assets/decor_image_8.png'
-import DecorImage9 from '@/assets/decor_image_9.png'
+import DecorImage21 from '@/assets/decor_image_21.png'
+import DecorImage30 from '@/assets/decor_image_30.png'
+import DecorImage27 from '@/assets/decor_image_27.png'
+import DecorImage28 from '@/assets/decor_image_28.png'
+import DecorImage26 from '@/assets/decor_image_26.png'
 import Letter from '@/assets/letter.png'
 import LiveNow from '@/assets/live-now.png'
 import WoodTable1 from '@/assets/wood_table_1.png'
@@ -21,7 +25,85 @@ import Link from 'next/link'
 import Header from './components/header'
 import SectionSwiper from './components/section-swiper'
 import Sponsors from '@/assets/sponsors.png'
+import Divider from '@/assets/Divider.png'
+import Advisor1 from '@/assets/advisors/advisor_1.png'
+import Advisor2 from '@/assets/advisors/advisor_2.jpg'
+import Advisor3 from '@/assets/advisors/advisor_3.jpg'
+import Advisor4 from '@/assets/advisors/advisor_4.png'
+import Advisor5 from '@/assets/advisors/advisor_5.jpg'
+import Advisor6 from '@/assets/advisors/advisor_6.jpg'
+import Advisor7 from '@/assets/advisors/advisor_7.jpg'
+import Advisor8 from '@/assets/advisors/advisor_8.jpg'
+import Advisor1Mascot from '@/assets/advisors/advisor_1_mascot.png'
+import Advisor2Mascot from '@/assets/advisors/advisor_2_mascot.png'
+import Advisor3Mascot from '@/assets/advisors/advisor_3_mascot.png'
+import Advisor4Mascot from '@/assets/advisors/advisor_4_mascot.png'
+import Advisor5Mascot from '@/assets/advisors/advisor_5_mascot.png'
+import Advisor6Mascot from '@/assets/advisors/advisor_6_mascot.png'
+import Advisor7Mascot from '@/assets/advisors/advisor_7_mascot.png'
+import Advisor8Mascot from '@/assets/advisors/advisor_8_mascot.png'
 
+const advisors = [
+  {
+    name: 'Dương Minh Ngọc',
+    description:
+      'Cố vấn Dương Minh Ngọc là một họa sĩ có khả năng tạo ra những nội dung cực kỳ viral, thú vị nhưng cũng vô cùng duyên dáng.',
+    image: Advisor1,
+    mascot: Advisor1Mascot,
+  },
+  {
+    name: 'Nguyễn Quốc Trung',
+    description:
+      'Cố vấn Nguyễn Quốc Trung là một họa sĩ với kỹ năng vẽ nổi bật và là một trong những trụ cột chính tại Rover Studio.',
+    image: Advisor2,
+    mascot: Advisor2Mascot,
+  },
+  {
+    name: 'Linh Rab Nguyen',
+    description:
+      'Cố vấn Linh Rab Nguyen là một họa sĩ có nhiều trải nghiệm và được coi là một trong những người kể chuyện xuất sắc nhất trong thế hệ của mình.',
+    image: Advisor3,
+    mascot: Advisor3Mascot,
+  },
+  {
+    name: 'Mai Phương Quỳnh',
+    subName: 'Phyllocactus',
+    description:
+      'Cố vấn Mai Phương Quỳnh chính là cố vấn có thí sinh dành chiến thắng tại mùa 1, lần này Mai Phương Quỳnh tiếp tục quay trở lại với bộ kỹ năng kể chuyện bằng hình ảnh cực kỳ vượt trội.',
+    image: Advisor4,
+    mascot: Advisor4Mascot,
+  },
+  {
+    name: 'Lục Hải Minh',
+    subName: 'Blue Quilin',
+    description:
+      'Cố vấn Lục Hải Minh là một trong những thí sinh từng tham gia nhiều cuộc thi của PunkgaMe và dành được nhiều giải thưởng cá nhân xuất sắc. Một họa sĩ trẻ với bộ kỹ năng cực kỳ toàn diện từ vẽ cho đến kể chuyện.',
+    image: Advisor5,
+    mascot: Advisor5Mascot,
+  },
+  {
+    name: 'Nam Thanh',
+    description:
+      'Cố vấn Nam Thanh là người sở hữu nền tảng kiến thức vững chắc và đam mê mạnh mẽ với thể loại khoa học - viễn tưởng, có khả năng giúp bạn xây dung thế giới quan sống động và đầy chiều sâu.',
+    image: Advisor6,
+    mascot: Advisor6Mascot,
+  },
+  {
+    name: 'Vũ Hồng Hải',
+    subName: 'Hariv',
+    description:
+      'Cố vấn Vũ Hồng Hải là một trong những họa sĩ trẻ tài năng với khả năng vẽ không chỉ nằm ở tốc độ mà còn nằm ở mức độ hoàn thiện rất tốt. Hồng Hải rất có duyên với các nội dung liên quan đến chủ đề học đường.',
+    image: Advisor7,
+    mascot: Advisor7Mascot,
+  },
+  {
+    name: 'XiXu',
+    description:
+      'Cố vấn XiXu là một ẩn số trong cuộc thi lần này, XiXu là một họa sĩ vô cùng tài năng và được nhiều người biết đến. Nếu bạn có tư duy của một con bạc thì đây sẽ là cố vấn phù hợp nhất dành cho hành trình của bạn.',
+    image: Advisor8,
+    mascot: Advisor8Mascot,
+  },
+]
 export default function Home() {
   return (
     <>
@@ -66,11 +148,13 @@ export default function Home() {
             />
             <Image src={DecorImage11} alt='Decor Image 11' className='absolute top-0 left-0 w-screen' />
             <Image src={DecorImage4} alt='Decor Image 4' className='absolute top-0 inset-x-0 blur-[2.5px]' />
-            <Button className='absolute! left-1/2 -translate-x-1/2 bottom-1/6'>Tìm hiểu</Button>
+            <Link href='#loi-ngo'>
+              <Button className='absolute! left-1/2 -translate-x-1/2 bottom-1/6'>Tìm hiểu</Button>
+            </Link>
           </div>
           <div id='loi-ngo' className='p-3 relative pb-48'>
             <div className='rounded-xs border-4 border-black bg-[linear-gradient(207deg,#FFF5D3_33.1%,#DEBF97_97.67%)] py-8 px-4 space-y-4'>
-              <h2 className='text-center text-2xl font-extrabold w-full font-grenze'>Lời Ngỏ Đến Hành Trình mới</h2>
+              <h1 className='text-center text-2xl font-extrabold w-full font-grenze'>Lời Ngỏ Đến Hành Trình mới</h1>
               <p className='font-medium'>
                 <span className='font-semibold'>Thân gửi: </span>
                 Các Họa sĩ, Tác giả và Cộng đồng Yêu mến Truyện tranh Việt Nam,
@@ -102,6 +186,11 @@ export default function Home() {
               className='absolute top-0 -translate-y-[60%] opacity-90 right-0 w-48'
             />
           </div>
+          <Image
+            src={DecorImage30}
+            alt='Decor Image 30'
+            className='absolute bottom-0 translate-y-1/2 right-0 w-[80vw] h-auto'
+          />
         </section>
         <section id='giai-thuong' className='px-3 pt-48 relative pb-40'>
           <div
@@ -116,9 +205,9 @@ export default function Home() {
           <div className='relative z-10'>
             <div className='space-y-7'>
               <div>
-                <h2 className='text-3xl font-extrabold font-grenze leading-none'>
+                <h1 className='text-3xl font-extrabold font-grenze leading-none'>
                   WoW Yourself 2<br /> Tồng Giải Thưởng Đến
-                </h2>
+                </h1>
                 <div className='text-[#345EB1] text-[50px] font-grenze font-extrabold leading-10.5'>80.000.000 vnđ</div>
               </div>
               <p className='font-semibold text-sm'>
@@ -143,7 +232,7 @@ export default function Home() {
               </div>
             </div>
             <div className='space-y-6 flex flex-col items-end'>
-              <Image src={DecorImage9} alt='Decor Image 9' className='w-full h-auto max-w-sm' />
+              <Image src={DecorImage21} alt='Decor Image 21' className='w-full h-auto max-w-sm' />
               <div className='space-y-9 pb-20'>
                 <h3 className='text-3xl font-extrabold font-grenze'>
                   Cơ hội
@@ -168,30 +257,61 @@ export default function Home() {
               backgroundSize: 'auto 100%',
             }}></div>
         </section>
-        <section id='ban-co-van' className='bg-[#D73930] py-16 space-y-8 px-3'>
-          <h2 className='text-center w-full text-[#FFFF7C] font-extrabold text-[50px] font-grenze'>Ban Cố Vấn</h2>
-          <div className='grid gap-x-3 gap-y-8 grid-cols-2'>
-            <div className='flex flex-col gap-3 items-center'>
-              <div className='w-full aspect-square border-4 border-black rounded-sm bg-gray-200'></div>
-              <div className='text-[#FFFF7C] font-extrabold font-grenze text-2xl'>Dương Minh Ngọc</div>
-            </div>
-            <div className='flex flex-col gap-3 items-center'>
-              <div className='w-full aspect-square border-4 border-black rounded-sm bg-gray-200'></div>
-              <div className='text-[#FFFF7C] font-extrabold font-grenze text-2xl'>Dương Minh Ngọc</div>
-              <div className='tex-sm font-medium text-white'>BLUE QUILIN</div>
-            </div>
-            <div className='flex flex-col gap-3 items-center'>
-              <div className='w-full aspect-square border-4 border-black rounded-sm bg-gray-200'></div>
-              <div className='text-[#FFFF7C] font-extrabold font-grenze text-2xl'>Dương Minh Ngọc</div>
-            </div>
-            <div className='flex flex-col gap-3 items-center'>
-              <div className='w-full aspect-square border-4 border-black rounded-sm bg-gray-200'></div>
-              <div className='text-[#FFFF7C] font-extrabold font-grenze text-2xl'>Dương Minh Ngọc</div>
-              <div className='tex-sm font-medium text-white'>BLUE QUILIN</div>
+        <section className='relative '>
+          <div
+            className='absolute inset-0 pointer-events-none'
+            style={{
+              backgroundImage: `url(${DecorImage26.src})`,
+              backgroundSize: '100% 100%',
+              backgroundRepeat: 'no-repeat',
+            }}></div>
+          <Image
+            src={Divider}
+            alt='Divider'
+            className='absolute bottom-0 left-0 h-12.5 w-auto object-cover scale-[-1]'
+          />
+          <div className='relative flex flex-col justify-start pt-[5vh] pb-[10vh] items-center gap-15 h-full w-full'>
+            <h1 className='font-grenze font-extrabold text-[50px] text-[#D73930]'>Ban Giám Khảo</h1>
+            <div className='mx-auto px-3 w-screen max-w-300 grid grid-cols-1 gap-20'>
+              <div>
+                <Image src={DecorImage27} alt='' className='w-full h-auto max-w-sm mx-auto' />
+                <div className='font-grenze font-extrabold text-[32px] leading-15.5 text-[#4D3B2B] w-full text-center mt-10'>
+                  Lâm Hoàng Trúc
+                </div>
+                <div className='mt-4 font-semibold text-sm text-center max-w-125'>
+                  Tác giả của truyện tranh “Đường hoa” và “Mùa hè bất tận”. Họa sĩ Việt Nam đầu tiên xuất bản truyện
+                  tranh tại Ý
+                </div>
+              </div>
+              <div>
+                <Image src={DecorImage28} alt='' className='w-full h-auto max-w-sm mx-auto' />
+                <div className='font-grenze font-extrabold text-[32px] leading-15.5 text-[#4D3B2B] w-full text-center mt-10'>
+                  Nguyễn Thành Phong
+                </div>
+                <div className='mt-4 font-semibold text-sm text-center max-w-125'>
+                  Tác giả truyện “Long thần tướng”. Giải Bạc cuộc thi “INTERNAL MANGA AWARD” lần thứ 9
+                </div>
+              </div>
             </div>
           </div>
         </section>
+
+        <section id='ban-co-van' className='bg-[#D73930] py-16 space-y-8 px-3'>
+          <h2 className='text-center w-full text-[#FFFF7C] font-extrabold text-[50px] font-grenze'>Ban Cố Vấn</h2>
+          <div className='grid gap-x-3 gap-y-8 grid-cols-2'>
+            {advisors.map((advisor, idx) => (
+              <div key={idx} className='flex flex-col gap-3 items-center'>
+                <div className='w-full aspect-square border-4 border-black rounded-sm bg-gray-200'>
+                  <Image src={advisor.image} alt={advisor.name} className='w-full h-full object-cover aspect-square' />
+                </div>
+                <div className='text-[#FFFF7C] font-extrabold font-grenze text-2xl'>{advisor.name}</div>
+                {advisor.subName && <div className='tex-sm font-medium text-white'>{advisor.subName}</div>}
+              </div>
+            ))}
+          </div>
+        </section>
         <section id='doi-tac' className='bg-[#D73930] pt-40 pb-80 relative'>
+          <h2 className='sr-only'>Đối Tác</h2>
           <div className='w-screen overflow-hidden'>
             <div
               className='flex animate-scroll max-w-none w-max min-w-0'
@@ -218,16 +338,63 @@ export default function Home() {
           />
         </section>
         <section id='dang-dien-ra' className='py-40 px-3 space-y-24'>
+          <h2 className='sr-only'>Đang Diễn Ra</h2>
           <div>
             <div className='flex gap-4 border-b border-black pb-8'>
-              <div className='font-grenze font-extrabold text-[#D73930] text-[122px] leading-12'>01</div>
-              <div className='flex text-[#4D3B2B] font-grenze text-[50px] leading-8.25 font-extrabold'>
+              <div className='font-grenze font-extrabold text-[#B6A690] text-[122px] leading-12'>01</div>
+              <div className='flex text-[#917D6B] font-grenze text-[50px] leading-8.25 font-extrabold'>
                 <div className='w-14'>
                   <div>25</div>
                   <div>10</div>
                 </div>
                 <div className='w-14'>
                   <div>11</div>
+                  <div>12</div>
+                </div>
+              </div>
+              <div className='flex text-[#917D6B] font-grenze text-[50px] leading-8.25 font-extrabold'>
+                <div className='w-14'>
+                  <div>20</div>
+                  <div>25</div>
+                </div>
+              </div>
+            </div>
+            <div className='pt-8 space-y-7'>
+              <div className='flex gap-4'>
+                <div className='space-y-2 text-[#4D3B2B] font-extrabold font-grenze text-2xl leading-6'>
+                  <h3>Vòng 1</h3>
+                  <div>25/11/2025 - 10/12/2025</div>
+                </div>
+              </div>
+              <div className='text-[#4D3B2B] font-grenze text-4xl font-extrabold leading-7.5'>
+                Gửi tôi, họa sĩ truyện tranh tương lai
+              </div>
+              <div className='space-y-4'>
+                <p className='text-sm font-semibold'>
+                  Đề bài: Vẽ truyện ngắn từ 1-3 trang với chủ đề: “Gửi tôi, hoạ sĩ truyện tranh tương lai”. Hình thức
+                  thể hiện đa dạng, không giới hạn cách trình bày tuy nhiên khổ giấy thể hiện bắt buộc phải là kích
+                  thước A4.
+                </p>
+                <Link href={'#'} className='text-[#4D3B2B] font-semibold w-full block text-end text-sm underline'>
+                  Chi tiết
+                </Link>
+              </div>
+              <div className='flex flex-col w-full gap-3'>
+                <Button>Tác phẩm dự thi</Button>
+                <Button>Họa sĩ đoạt giải</Button>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div className='flex gap-4 border-b border-black pb-8'>
+              <div className='font-grenze font-extrabold text-[#D73930] text-[122px] leading-12'>02</div>
+              <div className='flex text-[#4D3B2B] font-grenze text-[50px] leading-8.25 font-extrabold'>
+                <div className='w-14'>
+                  <div>12</div>
+                  <div>22</div>
+                </div>
+                <div className='w-14'>
+                  <div>12</div>
                   <div>12</div>
                 </div>
               </div>
@@ -242,13 +409,11 @@ export default function Home() {
               <div className='flex gap-4'>
                 <Image src={LiveNow} alt='Live Now' className='h-14 w-auto' />
                 <div className='space-y-2 text-[#4D3B2B] font-extrabold font-grenze text-2xl leading-6'>
-                  <div>Vòng 1</div>
-                  <div>25/11/2025 - 10/12/2025</div>
+                  <h3>Vòng 2</h3>
+                  <div>12/12/2025 - 22/12/2025</div>
                 </div>
               </div>
-              <div className='text-[#D73930] font-grenze text-4xl font-extrabold leading-7.5'>
-                Gửi tôi, họa sĩ truyện tranh tương lai
-              </div>
+              <div className='text-[#D73930] font-grenze text-4xl font-extrabold leading-7.5'>Hải lưu khát vọng</div>
               <div className='space-y-4'>
                 <p className='text-sm font-semibold'>
                   Đề bài: Vẽ truyện ngắn từ 1-3 trang với chủ đề: “Gửi tôi, hoạ sĩ truyện tranh tương lai”. Hình thức
@@ -263,38 +428,86 @@ export default function Home() {
           </div>
           <div>
             <div className='flex gap-4 border-b border-black pb-8'>
-              <div className='font-grenze font-extrabold text-[#B6A690] text-[122px] leading-12'>02</div>
+              <div className='font-grenze font-extrabold text-[#B6A690] text-[122px] leading-12'>03</div>
               <div className='flex text-[#917D6B] font-grenze text-[50px] leading-8.25 font-extrabold'>
                 <div className='w-14'>
-                  <div>12</div>
-                  <div>22</div>
+                  <div>25</div>
+                  <div>08</div>
                 </div>
                 <div className='w-14'>
                   <div>12</div>
-                  <div>12</div>
+                  <div>02</div>
                 </div>
               </div>
               <div className='flex text-[#917D6B] font-grenze text-[50px] leading-8.25 font-extrabold'>
                 <div className='w-14'>
-                  <div>20</div>
                   <div>25</div>
+                  <div>26</div>
                 </div>
               </div>
             </div>
             <div className='pt-8 space-y-7'>
               <div className='flex gap-4'>
                 <div className='space-y-2 text-[#4D3B2B] font-extrabold font-grenze text-2xl leading-6'>
-                  <div>Vòng 2</div>
-                  <div>12/12/2025 - 22/12/2025</div>
+                  <h3>Vòng 3</h3>
+                  <div>25/12/2025 - 08/02/2026</div>
                 </div>
               </div>
-              <div className='text-[#4D3B2B] font-grenze text-4xl font-extrabold leading-7.5'>Hải lưu khát vọng</div>
+              <div className='text-[#4D3B2B] font-grenze text-4xl font-extrabold leading-7.5'>Tinh Hoa Vũ Môn</div>
               <div className='space-y-4'>
                 <p className='text-sm font-semibold'>
                   Đề bài: Vẽ truyện ngắn từ 1-3 trang với chủ đề: “Gửi tôi, hoạ sĩ truyện tranh tương lai”. Hình thức
                   thể hiện đa dạng, không giới hạn cách trình bày tuy nhiên khổ giấy thể hiện bắt buộc phải là kích
                   thước A4.
                 </p>
+                <Link href={'#'} className='text-[#4D3B2B] font-semibold w-full block text-end text-sm underline'>
+                  Chi tiết
+                </Link>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div className='flex gap-4 border-b border-black pb-8'>
+              <div className='font-grenze font-extrabold text-[#B6A690] text-[122px] leading-12'>Cđ</div>
+              <div className='flex text-[#917D6B] font-grenze text-[50px] leading-8.25 font-extrabold'>
+                <div className='w-14'>
+                  <div>25</div>
+                  <div>08</div>
+                </div>
+                <div className='w-14'>
+                  <div>12</div>
+                  <div>02</div>
+                </div>
+              </div>
+              <div className='flex text-[#917D6B] font-grenze text-[50px] leading-8.25 font-extrabold'>
+                <div className='w-14'>
+                  <div>25</div>
+                  <div>26</div>
+                </div>
+              </div>
+            </div>
+            <div className='pt-8 space-y-7'>
+              <div className='flex gap-4'>
+                <div className='space-y-2 text-[#4D3B2B] font-extrabold font-grenze text-2xl leading-6'>
+                  <h3>Sự kiện cộng đồng</h3>
+                  <div>25/12/2025 - 08/02/2026</div>
+                </div>
+              </div>
+              <div className='text-[#4D3B2B] font-grenze text-4xl font-extrabold leading-7.5'>
+                Tiên tri tài ba
+                <br /> & Giấc mơ trong tầm tay
+              </div>
+              <div className='space-y-4'>
+                <p className='text-sm font-semibold'>
+                  Khán giả có thể tiến hành tạo tài khoản và đăng nhập điểm danh mỗi ngày và trả lời câu hỏi từ ban tổ
+                  chức để nhận Star points. Khán giả sẽ nhận về những phần quà giá trị cho mình từ ban tổ chức. 
+                </p>
+                <Link href={'#'} className='text-[#4D3B2B] font-semibold w-full block text-end text-sm underline'>
+                  Chi tiết
+                </Link>
+              </div>
+              <div className='flex flex-col w-full gap-3'>
+                <Button>Tham gia ngay</Button>
               </div>
             </div>
           </div>

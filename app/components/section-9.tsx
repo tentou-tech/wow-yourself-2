@@ -40,11 +40,11 @@ export default function Section9() {
             </div>
             <div className='flex-1 mt-10 border-t border-[#242429] pt-6'>
               <div className='text-[#62513F] font-grenze font-extrabold'>
-                <div className='text-[44px] leading-9'>Sự kiện cộng đồng</div>
+                <h2 className='text-[44px] leading-9'>Sự kiện cộng đồng</h2>
                 <div className='text-2xl leading-5 mt-2'>21/12/2025 - 09/02/2026</div>
-                <div className='mt-6 text-[50px] leading-none'>
+                <h3 className='mt-6 text-[50px] leading-none'>
                   Tiên tri tài ba <br />& Giấc mơ trong tầm tay
-                </div>
+                </h3>
               </div>
               <div className='max-w-173 font-semibold text-lg mt-6'>
                 Khán giả có thể tiến hành tạo tài khoản và đăng nhập điểm danh mỗi ngày và trả lời câu hỏi từ ban tổ

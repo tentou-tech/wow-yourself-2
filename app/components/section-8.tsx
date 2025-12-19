@@ -36,7 +36,7 @@ export default function Section8() {
             </div>
             <div className='flex-1 mt-10 border-t border-[#242429] pt-6'>
               <div className='text-[#62513F] font-grenze font-extrabold'>
-                <div className='text-[44px] leading-9'>Vòng 3</div>
+                <h2 className='text-[44px] leading-9'>Vòng 3</h2>
                 <div className='text-2xl leading-5 mt-2'>25/12/2025 - 08/02/2026</div>
                 <div className='mt-6 text-[50px] leading-none'>Tinh Hoa Vũ Môn </div>
               </div>

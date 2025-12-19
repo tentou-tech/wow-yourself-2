@@ -45,11 +45,13 @@ export default function Section7() {
                   <Image src={LiveNow} alt='Live Now' className='h-full w-auto' />
 
                   <div>
-                    <div className='text-[44px] leading-9'>Vòng 2</div>
+                    <h2 className='text-[44px] leading-9'>Vòng 2</h2>
                     <div className='text-2xl leading-5 mt-2'>12/12/2025 - 22/12/2025</div>
                   </div>
                 </div>
-                <div className='mt-6 text-[50px] leading-none text-[#D73930]'>Hải lưu khát vọng </div>
+                <div className='mt-6 text-[50px] leading-none text-[#D73930]'>
+                  <h3>Hải lưu khát vọng </h3>
+                </div>
               </div>
               <div className='max-w-173 font-semibold text-lg mt-6'>
                 Các thí sinh vượt qua vòng đầu tiên sẽ tiến hành chia đội theo nguyện vọng ưu tiên và mức độ phù hợp.

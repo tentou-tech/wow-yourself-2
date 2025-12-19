@@ -1,6 +1,7 @@
 import WoodTable2 from '@/assets/wood_table_2.png'
 import WoodTable3 from '@/assets/wood_table_3.png'
 import DecorImage15 from '@/assets/decor_image_15.png'
+import DecorImage29 from '@/assets/decor_image_29.png'
 import Image from 'next/image'
 export default function Section2() {
   return (
@@ -49,6 +50,7 @@ export default function Section2() {
           </p>
         </div>
       </div>
+      <Image src={DecorImage29} alt='' unoptimized className='absolute bottom-0 left-0 w-[40vw] h-auto' />
     </section>
   )
 }
