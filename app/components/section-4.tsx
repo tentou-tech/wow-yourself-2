@@ -2,26 +2,82 @@ import Divider from '@/assets/Divider.png'
 import DecorImage17 from '@/assets/decor_image_17.png'
 import Image from 'next/image'
 import Advisor1 from '@/assets/advisors/advisor_1.png'
+import Advisor2 from '@/assets/advisors/advisor_2.jpg'
+import Advisor3 from '@/assets/advisors/advisor_3.jpg'
+import Advisor4 from '@/assets/advisors/advisor_4.png'
+import Advisor5 from '@/assets/advisors/advisor_5.jpg'
+import Advisor6 from '@/assets/advisors/advisor_6.jpg'
+import Advisor7 from '@/assets/advisors/advisor_7.jpg'
+import Advisor8 from '@/assets/advisors/advisor_8.jpg'
 import Advisor1Mascot from '@/assets/advisors/advisor_1_mascot.png'
 import Advisor2Mascot from '@/assets/advisors/advisor_2_mascot.png'
+import Advisor3Mascot from '@/assets/advisors/advisor_3_mascot.png'
+import Advisor4Mascot from '@/assets/advisors/advisor_4_mascot.png'
+import Advisor5Mascot from '@/assets/advisors/advisor_5_mascot.png'
+import Advisor6Mascot from '@/assets/advisors/advisor_6_mascot.png'
+import Advisor7Mascot from '@/assets/advisors/advisor_7_mascot.png'
+import Advisor8Mascot from '@/assets/advisors/advisor_8_mascot.png'
 import { useState } from 'react'
 
 const advisors = [
   {
     name: 'Dương Minh Ngọc',
-    subName: 'Sub name',
     description:
-      'Hệ thống giải thưởng "khủng" bao gồm tiền mặt và hiện vật giá trị, trải dài qua 3 vòng thi. Vinh danh xứng đáng cho các Cá nhân xuất sắc, Nhóm đoàn kết và cả Ban cố vấn tận tâm.',
+      'Cố vấn Dương Minh Ngọc là một họa sĩ có khả năng tạo ra những nội dung cực kỳ viral, thú vị nhưng cũng vô cùng duyên dáng.',
     image: Advisor1,
-    mascot: Advisor1Mascot
+    mascot: Advisor1Mascot,
   },
   {
-    name: 'Advisor 2',
-    subName: 'Sub name',
+    name: 'Nguyễn Quốc Trung',
     description:
-      'Description for Advisor 2 goes here. This advisor brings a wealth of experience and knowledge to the team.',
-    image: Advisor1,
-    mascot: Advisor2Mascot
+      'Cố vấn Nguyễn Quốc Trung là một họa sĩ với kỹ năng vẽ nổi bật và là một trong những trụ cột chính tại Rover Studio.',
+    image: Advisor2,
+    mascot: Advisor2Mascot,
+  },
+  {
+    name: 'Linh Rab Nguyen',
+    description:
+      'Cố vấn Linh Rab Nguyen là một họa sĩ có nhiều trải nghiệm và được coi là một trong những người kể chuyện xuất sắc nhất trong thế hệ của mình.',
+    image: Advisor3,
+    mascot: Advisor3Mascot,
+  },
+  {
+    name: 'Mai Phương Quỳnh',
+    subName: 'Phyllocactus',
+    description:
+      'Cố vấn Mai Phương Quỳnh chính là cố vấn có thí sinh dành chiến thắng tại mùa 1, lần này Mai Phương Quỳnh tiếp tục quay trở lại với bộ kỹ năng kể chuyện bằng hình ảnh cực kỳ vượt trội.',
+    image: Advisor4,
+    mascot: Advisor4Mascot,
+  },
+  {
+    name: 'Lục Hải Minh',
+    subName: 'Blue Quilin',
+    description:
+      'Cố vấn Lục Hải Minh là một trong những thí sinh từng tham gia nhiều cuộc thi của PunkgaMe và dành được nhiều giải thưởng cá nhân xuất sắc. Một họa sĩ trẻ với bộ kỹ năng cực kỳ toàn diện từ vẽ cho đến kể chuyện.',
+    image: Advisor5,
+    mascot: Advisor5Mascot,
+  },
+  {
+    name: 'Nam Thanh',
+    description:
+      'Cố vấn Nam Thanh là người sở hữu nền tảng kiến thức vững chắc và đam mê mạnh mẽ với thể loại khoa học - viễn tưởng, có khả năng giúp bạn xây dung thế giới quan sống động và đầy chiều sâu.',
+    image: Advisor6,
+    mascot: Advisor6Mascot,
+  },
+  {
+    name: 'Vũ Hồng Hải',
+    subName: 'Hariv',
+    description:
+      'Cố vấn Vũ Hồng Hải là một trong những họa sĩ trẻ tài năng với khả năng vẽ không chỉ nằm ở tốc độ mà còn nằm ở mức độ hoàn thiện rất tốt. Hồng Hải rất có duyên với các nội dung liên quan đến chủ đề học đường.',
+    image: Advisor7,
+    mascot: Advisor7Mascot,
+  },
+  {
+    name: 'XiXu',
+    description:
+      'Cố vấn XiXu là một ẩn số trong cuộc thi lần này, XiXu là một họa sĩ vô cùng tài năng và được nhiều người biết đến. Nếu bạn có tư duy của một con bạc thì đây sẽ là cố vấn phù hợp nhất dành cho hành trình của bạn.',
+    image: Advisor8,
+    mascot: Advisor8Mascot,
   },
 ]
 
@@ -67,16 +123,23 @@ export default function Section4() {
             <div className='rounded-sm border-4 border-black relative h-full w-full'>
               <Image src={advisors[index].image} alt={advisors[index].name} className='w-full h-full object-cover' />
             </div>
-            <Image key={`mascot-${index}`} src={advisors[index].mascot} alt={`${advisors[index].name} Mascot`} className='absolute bottom-0 right-0 translate-x-1/2 translate-y-1/4 w-3/5 h-auto slide-from-right' />
+            <Image
+              key={`mascot-${index}`}
+              src={advisors[index].mascot}
+              alt={`${advisors[index].name} Mascot`}
+              className='absolute bottom-0 right-0 translate-x-1/6 translate-y-1/4 w-full h-auto slide-from-right'
+            />
           </div>
           <div className='flex flex-col justify-between relative'>
             <div key={`text-${index}`} className='pt-6'>
               <div className='font-grenze font-extrabold text-[42px] text-[#FFFF7C]'>
                 {renderWordsWithAnimation(advisors[index].name, 0, `name-${index}`)}
               </div>
-              <div className='font-medium text-white'>
-                {renderWordsWithAnimation(advisors[index].subName, 0.3, `subname-${index}`)}
-              </div>
+              {advisors[index].subName && (
+                <div className='font-medium text-white'>
+                  {renderWordsWithAnimation(advisors[index].subName, 0.3, `subname-${index}`)}
+                </div>
+              )}
               <p className='mt-4 font-semibold text-lg text-white'>
                 {renderWordsWithAnimation(advisors[index].description, 0.6, `desc-${index}`)}
               </p>
