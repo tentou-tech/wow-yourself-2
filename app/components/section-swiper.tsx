@@ -10,6 +10,11 @@ import Section3 from './section-3'
 import Section4 from './section-4'
 import Section5 from './section-5'
 import Header from './header'
+import Section6 from './section-6'
+import Section7 from './section-7'
+import Section8 from './section-8'
+import Section9 from './section-9'
+import Section4_5 from './section-4.5'
 
 export default function SectionSwiper() {
   const swiperRef = useRef<SwiperClass>(null)
@@ -64,7 +69,22 @@ export default function SectionSwiper() {
           <Section4 />
         </SwiperSlide>
         <SwiperSlide>
+          <Section4_5 />
+        </SwiperSlide>
+        <SwiperSlide>
           <Section5 />
+        </SwiperSlide>
+        <SwiperSlide>
+          <Section6 />
+        </SwiperSlide>
+        <SwiperSlide>
+          <Section7 />
+        </SwiperSlide>
+        <SwiperSlide>
+          <Section8 />
+        </SwiperSlide>
+        <SwiperSlide>
+          <Section9 />
         </SwiperSlide>
       </Swiper>
     </>

@@ -68,7 +68,7 @@ export default function Home() {
             <Image src={DecorImage4} alt='Decor Image 4' className='absolute top-0 inset-x-0 blur-[2.5px]' />
             <Button className='absolute! left-1/2 -translate-x-1/2 bottom-1/6'>Tìm hiểu</Button>
           </div>
-          <div className='p-3 relative pb-48'>
+          <div id='loi-ngo' className='p-3 relative pb-48'>
             <div className='rounded-xs border-4 border-black bg-[linear-gradient(207deg,#FFF5D3_33.1%,#DEBF97_97.67%)] py-8 px-4 space-y-4'>
               <h2 className='text-center text-2xl font-extrabold w-full font-grenze'>Lời Ngỏ Đến Hành Trình mới</h2>
               <p className='font-medium'>
@@ -103,7 +103,7 @@ export default function Home() {
             />
           </div>
         </section>
-        <section className='px-3 pt-48 relative pb-40'>
+        <section id='giai-thuong' className='px-3 pt-48 relative pb-40'>
           <div
             className='absolute inset-0 pointer-events-none'
             style={{
@@ -168,7 +168,7 @@ export default function Home() {
               backgroundSize: 'auto 100%',
             }}></div>
         </section>
-        <section className='bg-[#D73930] py-16 space-y-8 px-3'>
+        <section id='ban-co-van' className='bg-[#D73930] py-16 space-y-8 px-3'>
           <h2 className='text-center w-full text-[#FFFF7C] font-extrabold text-[50px] font-grenze'>Ban Cố Vấn</h2>
           <div className='grid gap-x-3 gap-y-8 grid-cols-2'>
             <div className='flex flex-col gap-3 items-center'>
@@ -191,7 +191,7 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <section className='bg-[#D73930] pt-40 pb-80 relative'>
+        <section id='doi-tac' className='bg-[#D73930] pt-40 pb-80 relative'>
           <div className='w-screen overflow-hidden'>
             <div
               className='flex animate-scroll max-w-none w-max min-w-0'
@@ -217,7 +217,7 @@ export default function Home() {
             className='absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/3 w-screen max-w-md'
           />
         </section>
-        <section className='py-40 px-3 space-y-24'>
+        <section id='dang-dien-ra' className='py-40 px-3 space-y-24'>
           <div>
             <div className='flex gap-4 border-b border-black pb-8'>
               <div className='font-grenze font-extrabold text-[#D73930] text-[122px] leading-12'>01</div>

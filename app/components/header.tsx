@@ -9,12 +9,12 @@ import { SwiperClass } from 'swiper/react'
 const inter = Inter({ subsets: ['latin'] })
 
 const navItems = [
-  { label: 'Lời Ngỏ', href: '#', index: 1 },
-  { label: 'Giải Thưởng', href: '#', index: 2 },
-  { label: 'Ban Cố Vấn', href: '#', index: 3 },
-  { label: 'Đối Tác', href: '#', index: 4 },
-  { label: 'Đang Diễn Ra', href: '#', index: 5 },
-  { label: 'Team', href: '#' },
+  { label: 'Lời Ngỏ', href: '#loi-ngo', index: 1 },
+  { label: 'Giải Thưởng', href: '#giai-thuong', index: 2 },
+  { label: 'Ban Cố Vấn', href: '#ban-co-van', index: 3 },
+  { label: 'Đối Tác', href: '#doi-tac', index: 4 },
+  { label: 'Đang Diễn Ra', href: '#dang-dien-ra', index: 5 },
+  { label: 'Team', href: '#team' },
 ]
 
 export default function Header({ swiperRef }: { swiperRef?: React.RefObject<SwiperClass | null> }) {
