@@ -2,6 +2,7 @@ import Divider from '@/assets/Divider.png'
 import DecorImage16 from '@/assets/decor_image_16.png'
 import DecorImage7 from '@/assets/decor_image_7.png'
 import DecorImage8 from '@/assets/decor_image_8.png'
+import DecorImage21 from '@/assets/decor_image_21.png'
 import Button from '@/components/button'
 import Image from 'next/image'
 import { useRef, useState } from 'react'
@@ -68,6 +69,28 @@ export default function Section3() {
                       mô lớn thứ 2 của PunkgaMe, dự kiến tổ chức tại TP.Đà Nẵng.
                     </p>
                     <Button className='px-10!'>Thể lệ cuộc thi</Button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </SwiperSlide>
+          <SwiperSlide>
+            <div className='h-screen flex w-screen items-center justify-center'>
+              <div className='flex items-center gap-16 w-screen max-w-300 mx-auto'>
+                <Image src={DecorImage21} alt='Decor Image 21' className='w-full max-w-119' />
+                <div className='flex-1'>
+                  <div className='space-y-9'>
+                    <h3 className='text-[42px] font-extrabold font-grenze'>
+                      Cơ hội <span className='text-[#345EB1]'>Xuất Bản lần Đầu Tiên</span>
+                      <br />
+                      <span className='text-[#345EB1] text-[70px] leading-none'>Ngay Trong Tầm Tay</span>
+                    </h3>
+                    <p className='text-lg font-semibold max-w-2xl'>
+                      Tác phẩm của Top 10 chung cuộc (8 BGK chọn + 2 Khán giả bình chọn) sẽ được xuất bản trong Tuyển
+                      tập truyện tranh WoW Yourself Mùa 2 (Ấn phẩm vật lý) và cơ hội được Ren Animation Studio chuyển
+                      thể thành phim hoạt hình.
+                    </p>
+                    <Button className='px-10!'>Xem bài dự thi</Button>
                   </div>
                 </div>
               </div>
