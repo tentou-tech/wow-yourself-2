@@ -278,7 +278,7 @@ export default function Home() {
                 <div className='font-grenze font-extrabold text-[32px] leading-15.5 text-[#4D3B2B] w-full text-center mt-10'>
                   Lâm Hoàng Trúc
                 </div>
-                <div className='mt-4 font-semibold text-sm text-center max-w-125'>
+                <div className='mt-4 font-semibold text-sm text-center max-w-125 mx-auto'>
                   Tác giả của truyện tranh “Đường hoa” và “Mùa hè bất tận”. Họa sĩ Việt Nam đầu tiên xuất bản truyện
                   tranh tại Ý
                 </div>
@@ -288,7 +288,7 @@ export default function Home() {
                 <div className='font-grenze font-extrabold text-[32px] leading-15.5 text-[#4D3B2B] w-full text-center mt-10'>
                   Nguyễn Thành Phong
                 </div>
-                <div className='mt-4 font-semibold text-sm text-center max-w-125'>
+                <div className='mt-4 font-semibold text-sm text-center max-w-125 mx-auto'>
                   Tác giả truyện “Long thần tướng”. Giải Bạc cuộc thi “INTERNAL MANGA AWARD” lần thứ 9
                 </div>
               </div>
