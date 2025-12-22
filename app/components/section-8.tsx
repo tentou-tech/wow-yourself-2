@@ -1,9 +1,13 @@
+'use client'
 import DecorImage17 from '@/assets/decor_image_17.png'
 import DecorImage24 from '@/assets/decor_image_24.png'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useState } from 'react'
+import RoundDetailDialog from './round-detail-dialog'
 
 export default function Section8() {
+  const [isDialogOpen, setIsDialogOpen] = useState(false)
   return (
     <>
       <section className='relative h-screen w-screen '>
@@ -11,10 +15,10 @@ export default function Section8() {
           className='absolute inset-0 pointer-events-none'
           style={{
             backgroundImage: `url(${DecorImage17.src})`,
-            backgroundRepeat: 'no-repeat',
-            backgroundSize: 'cover',
+            backgroundRepeat: 'repeat',
+            backgroundSize: '60%',
             backgroundPosition: 'center center',
-            opacity: 0.03,
+            opacity: 0.05,
           }}></div>
         <div className='py-18 relative'>
           <div className='px-6 flex gap-18.5'>
@@ -46,13 +50,16 @@ export default function Section8() {
                 tận tình của các Cố Vấn. Trong đó 10 tác phẩm dự thi xuất sắc nhất sẽ được xuất hiện trong danh sách đề
                 cử các tác phẩm xuất bản trong tuyển tập truyện ngắn WoW Yourself.
               </div>
-              <Link href='#' className='mt-4 font-semibold text-lg underline text-[#4D3B2B] inline-block'>
+              <button
+                onClick={() => setIsDialogOpen(true)}
+                className='mt-4 font-semibold text-lg underline text-[#4D3B2B] inline-block hover:text-[#62513F] transition-colors cursor-pointer'>
                 Chi tiết
-              </Link>
+              </button>
             </div>
           </div>
         </div>
       </section>
+      <RoundDetailDialog roundNumber={3} isOpen={isDialogOpen} onClose={() => setIsDialogOpen(false)} />
     </>
   )
 }

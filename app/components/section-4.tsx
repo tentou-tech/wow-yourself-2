@@ -115,10 +115,10 @@ export default function Section4() {
         className='absolute inset-0 pointer-events-none'
         style={{
           backgroundImage: `url(${DecorImage17.src})`,
-          backgroundRepeat: 'no-repeat',
-          backgroundSize: 'cover',
+          backgroundRepeat: 'repeat',
+          backgroundSize: '60%',
           backgroundPosition: 'center center',
-          opacity: 0.03,
+          opacity: 0.05,
         }}></div>
       <Image src={Divider} alt='Divider' className='absolute bottom-0 left-0 w-screen scale-[-1]' />
       <div className='relative flex flex-col justify-start pt-[10vh] items-center gap-15.5 h-full w-full px-10'>

@@ -9,10 +9,10 @@ export default function Section5() {
         className='absolute inset-0 pointer-events-none'
         style={{
           backgroundImage: `url(${DecorImage18.src})`,
-          backgroundRepeat: 'no-repeat',
-          backgroundSize: 'cover',
+          backgroundRepeat: 'repeat',
+          backgroundSize: '60%',
           backgroundPosition: 'center center',
-          opacity: 0.03,
+          opacity: 0.05,
         }}></div>
       <div className='relative flex flex-col justify-start pt-[5vh] items-center gap-15 h-full w-full'>
         <h1 className='font-grenze font-extrabold text-[70px] text-white'>Đồng hành cùng Chúng tôi</h1>
@@ -37,7 +37,7 @@ export default function Section5() {
         <Image
           src={DecorImage12}
           alt='Decor Image 12'
-          className='max-w-180 absolute bottom-0 -translate-y-1/6 left-1/2 -translate-x-1/2 w-auto h-[50vh]'
+          className='absolute bottom-0 -translate-y-1/6 left-1/2 -translate-x-1/2 w-auto h-[50vh]'
         />
       </div>
     </section>

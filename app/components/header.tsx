@@ -12,8 +12,8 @@ const navItems = [
   { label: 'Lời Ngỏ', href: '#loi-ngo', index: 1 },
   { label: 'Giải Thưởng', href: '#giai-thuong', index: 2 },
   { label: 'Ban Cố Vấn', href: '#ban-co-van', index: 3 },
-  { label: 'Đối Tác', href: '#doi-tac', index: 4 },
-  { label: 'Đang Diễn Ra', href: '#dang-dien-ra', index: 5 },
+  { label: 'Đối Tác', href: '#doi-tac', index: 5 },
+  { label: 'Đang Diễn Ra', href: '#dang-dien-ra', index: 6 },
   { label: 'Team', href: '#team' },
 ]
 

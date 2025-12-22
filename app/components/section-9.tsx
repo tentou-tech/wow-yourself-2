@@ -1,11 +1,7 @@
 import DecorImage17 from '@/assets/decor_image_17.png'
-import DecorImage22 from '@/assets/decor_image_22.png'
-import DecorImage23 from '@/assets/decor_image_23.png'
-import DecorImage24 from '@/assets/decor_image_24.png'
 import DecorImage25 from '@/assets/decor_image_25.png'
 import Button from '@/components/button'
 import Image from 'next/image'
-import Link from 'next/link'
 
 export default function Section9() {
   return (
@@ -15,10 +11,10 @@ export default function Section9() {
           className='absolute inset-0 pointer-events-none'
           style={{
             backgroundImage: `url(${DecorImage17.src})`,
-            backgroundRepeat: 'no-repeat',
-            backgroundSize: 'cover',
+            backgroundRepeat: 'repeat',
+            backgroundSize: '60%',
             backgroundPosition: 'center center',
-            opacity: 0.03,
+            opacity: 0.05,
           }}></div>
         <div className='py-18 relative'>
           <div className='px-6 flex gap-18.5'>

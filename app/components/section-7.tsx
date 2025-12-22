@@ -1,14 +1,15 @@
+'use client'
 import DecorImage17 from '@/assets/decor_image_17.png'
-import DecorImage22 from '@/assets/decor_image_22.png'
 import DecorImage23 from '@/assets/decor_image_23.png'
-import DecorImage24 from '@/assets/decor_image_24.png'
-import DecorImage25 from '@/assets/decor_image_25.png'
 import LiveNow from '@/assets/live-now.png'
 import Button from '@/components/button'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useState } from 'react'
+import RoundDetailDialog from './round-detail-dialog'
 
 export default function Section7() {
+  const [isDialogOpen, setIsDialogOpen] = useState(false)
   return (
     <>
       <section className='relative h-screen w-screen '>
@@ -16,10 +17,10 @@ export default function Section7() {
           className='absolute inset-0 pointer-events-none'
           style={{
             backgroundImage: `url(${DecorImage17.src})`,
-            backgroundRepeat: 'no-repeat',
-            backgroundSize: 'cover',
+            backgroundRepeat: 'repeat',
+            backgroundSize: '60%',
             backgroundPosition: 'center center',
-            opacity: 0.03,
+            opacity: 0.05,
           }}></div>
         <div className='py-18 relative'>
           <div className='px-6 flex gap-18.5'>
@@ -58,16 +59,25 @@ export default function Section7() {
                 Mỗi đội sẽ có một Cố Vấn đồng hành cùng nhau phối hợp hoàn thiện thử thách đầu tiên và dành về lợi thế
                 cho nhóm mình. Một chiến lược tốt để chọn chủ đề phụ phù hợp là điều vô cùng quan trọng!
               </div>
-              <Link href='#' className='mt-4 font-semibold text-lg underline text-[#4D3B2B] inline-block'>
+              <button
+                onClick={() => setIsDialogOpen(true)}
+                className='mt-4 font-semibold text-lg underline text-[#4D3B2B] inline-block hover:text-[#62513F] transition-colors cursor-pointer'>
                 Chi tiết
-              </Link>
+              </button>
               <div className='mt-8 flex gap-4'>
-                <Button className='text-2xl! h-11! w-fit!'>Xem các đội thi</Button>
+                <Link
+                  target='_blank'
+                  href={
+                    'https://www.facebook.com/PunkgaMeManga/posts/pfbid0PnFn5x1168xWESb1TX4zP3dvYxyDddA1AJes4LtXDPsuzqg9s5e46hLqKcLwjro2l'
+                  }>
+                  <Button className='text-2xl! h-11! w-fit!'>Xem các đội thi</Button>
+                </Link>
               </div>
             </div>
           </div>
         </div>
       </section>
+      <RoundDetailDialog roundNumber={2} isOpen={isDialogOpen} onClose={() => setIsDialogOpen(false)} />
     </>
   )
 }

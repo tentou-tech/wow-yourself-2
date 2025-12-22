@@ -1,10 +1,13 @@
+'use client'
 import DecorImage17 from '@/assets/decor_image_17.png'
 import DecorImage22 from '@/assets/decor_image_22.png'
-import Button from '@/components/button'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useState } from 'react'
+import RoundDetailDialog from './round-detail-dialog'
 
 export default function Section6() {
+  const [isDialogOpen, setIsDialogOpen] = useState(false)
   return (
     <>
       <section className='relative h-screen w-screen '>
@@ -12,10 +15,10 @@ export default function Section6() {
           className='absolute inset-0 pointer-events-none'
           style={{
             backgroundImage: `url(${DecorImage17.src})`,
-            backgroundRepeat: 'no-repeat',
-            backgroundSize: 'cover',
+            backgroundRepeat: 'repeat',
+            backgroundSize: '60%',
             backgroundPosition: 'center center',
-            opacity: 0.03,
+            opacity: 0.05,
           }}></div>
         <div className='py-18 relative'>
           <div className='px-6 flex gap-18.5'>
@@ -45,17 +48,16 @@ export default function Section6() {
                 Đề bài: Vẽ truyện ngắn từ 1-3 trang với chủ đề: “Gửi tôi, hoạ sĩ truyện tranh tương lai”. Hình thức thể
                 hiện đa dạng, không giới hạn cách trình bày tuy nhiên khổ giấy thể hiện bắt buộc phải là kích thước A4.
               </div>
-              <Link href='#' className='mt-4 font-semibold text-lg underline text-[#4D3B2B] inline-block'>
+              <button
+                onClick={() => setIsDialogOpen(true)}
+                className='mt-4 font-semibold text-lg underline text-[#4D3B2B] inline-block hover:text-[#62513F] transition-colors cursor-pointer'>
                 Chi tiết
-              </Link>
-              <div className='mt-8 flex gap-4'>
-                <Button className='text-2xl! h-11! w-fit!'>Xem các tác phẩm dự thi</Button>
-                <Button className='text-2xl! h-11! w-fit!'>Họa sĩ đoạt giải</Button>
-              </div>
+              </button>
             </div>
           </div>
         </div>
       </section>
+      <RoundDetailDialog roundNumber={1} isOpen={isDialogOpen} onClose={() => setIsDialogOpen(false)} />
     </>
   )
 }
