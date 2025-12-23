@@ -81,21 +81,6 @@ const advisors = [
   },
 ]
 
-const renderWordsWithAnimation = (text: string, delay: number, animationKey: string) => {
-  const words = text.split(' ')
-  return words.map((word, idx) => (
-    <span
-      key={`${animationKey}-${idx}`}
-      className='inline-block slide-up'
-      style={{
-        animationDelay: `${delay + idx * 0.05}s`,
-        marginRight: '0.25em',
-      }}>
-      {word}
-    </span>
-  ))
-}
-
 export default function Section4() {
   const [index, setIndex] = useState(0)
   const [shuffledAdvisors, setShuffledAdvisors] = useState(advisors)
@@ -143,16 +128,12 @@ export default function Section4() {
           <div className='flex flex-col justify-between relative'>
             <div key={`text-${index}`} className='pt-6'>
               <div className='font-paytone-one font-extrabold text-[42px] text-[#FFFF7C]'>
-                {renderWordsWithAnimation(shuffledAdvisors[index].name, 0, `name-${index}`)}
+                {shuffledAdvisors[index].name}
               </div>
               {shuffledAdvisors[index].subName && (
-                <div className='font-medium text-white'>
-                  {renderWordsWithAnimation(shuffledAdvisors[index].subName, 0.3, `subname-${index}`)}
-                </div>
+                <div className='font-medium text-white'>{shuffledAdvisors[index].subName}</div>
               )}
-              <p className='mt-4 font-semibold text-lg text-white'>
-                {renderWordsWithAnimation(shuffledAdvisors[index].description, 0.6, `desc-${index}`)}
-              </p>
+              <p className='mt-4 font-semibold text-lg text-white'>{shuffledAdvisors[index].description}</p>
             </div>
             <div className='grid grid-cols-8 gap-2.5'>
               {shuffledAdvisors.map((advisor, idx) => (

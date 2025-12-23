@@ -2,7 +2,6 @@
 import DecorImage17 from '@/assets/decor_image_17.png'
 import DecorImage22 from '@/assets/decor_image_22.png'
 import Image from 'next/image'
-import Link from 'next/link'
 import { useState } from 'react'
 import RoundDetailDialog from './round-detail-dialog'
 

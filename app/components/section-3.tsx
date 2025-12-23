@@ -63,8 +63,8 @@ export default function Section3() {
                       <div className='text-[#D73930] text-6xl mt-2'>tại Đà Nẵng 2026</div>
                     </h3>
                     <p className='text-lg font-semibold max-w-2xl'>
-                      Top 40 thí sinh vượt qua Vòng 1 sẽ được vinh danh và trưng bày tác phẩm tại sự kiện nghệ thuật quy
-                      mô lớn thứ 2 của PunkgaMe, dự kiến tổ chức tại TP.Đà Nẵng.
+                      Top 40 thí sinh chính thức cùng 10 thí sinh tiềm năng vượt qua vòng 1 sẽ được vinh danh và trưng
+                      bày tác phẩm tại sự kiện nghệ thuật quy mô lớn thứ 2 của PunkgaMe, dự kiến tổ chức tại TP.Đà Nẵng.
                     </p>
                     <Button className='px-10!'>Thể lệ cuộc thi</Button>
                   </div>
