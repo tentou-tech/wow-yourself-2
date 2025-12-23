@@ -10,6 +10,7 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-playpen-sans);
   --font-grenze: var(--font-grenze);
+  --font-brigast: var(--font-brigast);
 }
 
 body {

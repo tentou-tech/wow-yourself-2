@@ -24,26 +24,28 @@ export default function Section2() {
           className='absolute top-0 left-0 w-[150%] max-w-none -translate-x-[12%] -translate-y-[8%]'
         />
         <div className='rounded-xs relative border-4 border-black max-w-3xl mx-auto bg-[linear-gradient(207deg,#FFF5D3_33.1%,#DEBF97_97.67%)] py-8 px-4 space-y-4'>
-          <h2 className='text-center text-2xl font-extrabold w-full font-grenze'>Lời Ngỏ Đến Hành Trình mới</h2>
+          <h2 className='text-center text-2xl font-extrabold w-full font-grenze'>Thư gửi Rô con</h2>
           <p className='font-medium'>
-            <span className='font-semibold'>Thân gửi: </span>
-            Các Họa sĩ, Tác giả và Cộng đồng Yêu mến Truyện tranh Việt Nam,
+            Gửi con, Rô!
             <br />
-            <br /> Bản hùng ca của niềm đam mê và khát vọng sáng tạo lại ngân vang. Nếu WoW Yourself mùa 1 là hình tượng
-            Cá Chép vượt Vũ Môn, là lời hiệu triệu &quot;Show Yourself - Know Yourself - Grow Yourself,&quot; thì nay,
-            chúng ta cùng nhau đứng trước ngưỡng cửa của một hải trình mới. <br />
-            <br /> <strong>WoW Yourself 2</strong> không chỉ là một cuộc thi—đó là lời hẹn ước cùng ánh trăng đại dương,
-            là hành trình &quot;Vươn mình ra biển lớn&quot;. Đây là nơi tài năng được gieo mầm (Sow Yourself), hòa mình
-            vào dòng chảy nghệ thuật (Flow Yourself), và cuối cùng, tỏa sáng rực rỡ bằng chính bản thể sáng tạo (Glow
-            Yourself). Chúng tôi đặt niềm tin vào từng nét vẽ, từng câu chuyện One-shot tối thiểu 15 trang, nơi tinh hoa
-            và chuyên môn được đề cao. Với sự dẫn dắt của Ban Cố Vấn, với{' '}
-            <strong>mục tiêu vươn tới Triển lãm Truyện tranh & Nghệ thuật 2026 tại Đà Nẵng,</strong> chúng tôi khao khát
-            khẳng định: <strong> Truyện tranh Việt là một vũ trụ nghệ thuật độc lập, giàu sức sống.</strong> <br />
+            <br /> Ta biết con đã lên đường lần nữa để tìm kiếm ngôi sao ước vọng, ta biết con sẽ đi đến cùng, con đã
+            nhìn thấy Vũ Môn một lần và nó đã gọi con. Chuyến hành trình lần này, con sẽ gặp gỡ thêm những người bạn
+            đáng quý…
             <br />
-            Cảm ơn vì đã cùng PunkgaMe kiến tạo nên những bước tiến lịch sử. Hãy can đảm cất cánh, vươn mình khỏi dòng
-            sông quen thuộc, để ngọn lửa sáng tạo của Việt Nam rực cháy trên bầu trời bao la.
+            <br /> Câu chuyện của <strong> WoW Yourself</strong> sẽ tiếp tục và bạn sẽ đồng hành cùng chú Cá Chép trong
+            hành trình Vũ Môn của mùa 2 với chủ đề <strong>“Sóng xô sống sao?”</strong>
             <br />
-            <br /> Trân trọng và Hẹn ngày Tỏa Sáng,
+            <br />
+            Bạn! Chính bạn, trên con đường vượt qua bản thân mình từng ngày, từng thông điệp bạn gửi gắm, từng nét vẽ tỉ
+            mẩn được hoà quyện để tạo nên câu chuyện của riêng bạn, bất chấp gian nan, chúng ta sẽ kể câu chuyện của
+            chính mình.
+            <br />
+            <br />
+            <strong>Rồi sẽ đến khoảnh khắc chú Cá Chép nhỏ bé vượt Vũ Môn hoá Rồng!</strong>
+            <br />
+            <br /> Chúng mình tổ chức mùa thi tâm huyết này thay lời cảm ơn dành cho mọi cố gắng không ngừng học hỏi của
+            các bạn, chúng mình vinh dự mời bạn cùng tham gia vào hành trình này, đồng hành với các Cố vấn và Nhà tài
+            trợ cùng nhau chung tay nuôi dưỡng <strong> Truyện Tranh Việt!</strong>
             <br />
             <br />
             <strong>PunkgaMe.</strong>
