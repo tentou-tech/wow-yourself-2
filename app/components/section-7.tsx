@@ -24,16 +24,16 @@ export default function Section7() {
           }}></div>
         <div className='py-18 relative'>
           <div className='px-6 flex gap-18.5'>
-            <div className='w-77 space-y-8 shrink-0'>
-              <div className='flex gap-7 font-grenze font-extrabold text-[#917D6B]'>
-                <div className='text-[122px] text-[#D73930] leading-14'>02</div>
-                <div className='grid grid-cols-2 gap-x-2 text-[50px] leading-9'>
+            <div className='w-fit space-y-8 shrink-0'>
+              <div className='flex gap-3 font-paytone-one font-extrabold text-[#917D6B]'>
+                <div className='text-[122px] text-[#D73930] leading-21'>02</div>
+                <div className='grid grid-cols-2 gap-x-2 text-5xl'>
                   <div>12</div>
                   <div>12</div>
                   <div>22</div>
                   <div>12</div>
                 </div>
-                <div className='grid grid-cols-1 text-[50px] leading-9'>
+                <div className='grid grid-cols-1 text-5xl'>
                   <div>20</div>
                   <div>25</div>
                 </div>
@@ -41,13 +41,13 @@ export default function Section7() {
               <Image src={DecorImage23} alt='Decor Image 23' className='w-full h-auto' />
             </div>
             <div className='flex-1 mt-10 border-t border-[#242429] pt-6'>
-              <div className='text-[#62513F] font-grenze font-extrabold'>
+              <div className='text-[#62513F] font-paytone-one font-extrabold'>
                 <div className='grid grid-cols-[auto_1fr] gap-4'>
                   <Image src={LiveNow} alt='Live Now' className='h-full w-auto' />
 
                   <div>
                     <h2 className='text-[44px] leading-9'>Vòng 2</h2>
-                    <div className='text-2xl leading-5 mt-2'>12/12/2025 - 22/12/2025</div>
+                    <div className='text-2xl leading-5 mt-4'>12/12/2025 - 22/12/2025</div>
                   </div>
                 </div>
                 <div className='mt-6 text-[50px] leading-none text-[#D73930]'>

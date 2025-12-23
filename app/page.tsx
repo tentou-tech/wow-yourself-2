@@ -154,27 +154,28 @@ export default function Home() {
           </div>
           <div id='loi-ngo' className='p-3 relative pb-48'>
             <div className='rounded-xs border-4 border-black bg-[linear-gradient(207deg,#FFF5D3_33.1%,#DEBF97_97.67%)] py-8 px-4 space-y-4'>
-              <h1 className='text-center text-2xl font-extrabold w-full font-grenze'>Lời Ngỏ Đến Hành Trình mới</h1>
+              <h1 className='text-center text-2xl font-extrabold w-full font-paytone-one'>Thư gửi Rô con</h1>
               <p className='font-medium'>
-                <span className='font-semibold'>Thân gửi: </span>
-                Các Họa sĩ, Tác giả và Cộng đồng Yêu mến Truyện tranh Việt Nam,
+                Gửi con, Rô!
                 <br />
-                <br /> Bản hùng ca của niềm đam mê và khát vọng sáng tạo lại ngân vang. Nếu WoW Yourself mùa 1 là hình
-                tượng Cá Chép vượt Vũ Môn, là lời hiệu triệu &quot;Show Yourself - Know Yourself - Grow Yourself,&quot;
-                thì nay, chúng ta cùng nhau đứng trước ngưỡng cửa của một hải trình mới. <br />
-                <br /> <strong>WoW Yourself 2</strong> không chỉ là một cuộc thi—đó là lời hẹn ước cùng ánh trăng đại
-                dương, là hành trình &quot;Vươn mình ra biển lớn&quot;. Đây là nơi tài năng được gieo mầm (Sow
-                Yourself), hòa mình vào dòng chảy nghệ thuật (Flow Yourself), và cuối cùng, tỏa sáng rực rỡ bằng chính
-                bản thể sáng tạo (Glow Yourself). Chúng tôi đặt niềm tin vào từng nét vẽ, từng câu chuyện One-shot tối
-                thiểu 15 trang, nơi tinh hoa và chuyên môn được đề cao. Với sự dẫn dắt của Ban Cố Vấn, với{' '}
-                <strong>mục tiêu vươn tới Triển lãm Truyện tranh & Nghệ thuật 2026 tại Đà Nẵng,</strong> chúng tôi khao
-                khát khẳng định: <strong> Truyện tranh Việt là một vũ trụ nghệ thuật độc lập, giàu sức sống.</strong>{' '}
+                <br /> Ta biết con đã lên đường lần nữa để tìm kiếm ngôi sao ước vọng, ta biết con sẽ đi đến cùng, con
+                đã nhìn thấy Vũ Môn một lần và nó đã gọi con. Chuyến hành trình lần này, con sẽ gặp gỡ thêm những người
+                bạn đáng quý…
+                <br />
+                <br /> Câu chuyện của <strong>WoW Yourself</strong> sẽ tiếp tục và bạn sẽ đồng hành cùng chú Cá Chép
+                trong hành trình Vũ Môn của mùa 2 với chủ đề <strong>&quot;Sóng xô sống sao?&quot;</strong>
                 <br />
                 <br />
-                Cảm ơn vì đã cùng PunkgaMe kiến tạo nên những bước tiến lịch sử. Hãy can đảm cất cánh, vươn mình khỏi
-                dòng sông quen thuộc, để ngọn lửa sáng tạo của Việt Nam rực cháy trên bầu trời bao la.
+                Bạn! Chính bạn, trên con đường vượt qua bản thân mình từng ngày, từng thông điệp bạn gửi gắm, từng nét
+                vẽ tỉ mẩn được hoà quyện để tạo nên câu chuyện của riêng bạn, bất chấp gian nan, chúng ta sẽ kể câu
+                chuyện của chính mình.
                 <br />
-                <br /> Trân trọng và Hẹn ngày Tỏa Sáng,
+                <br />
+                <strong>Rồi sẽ đến khoảnh khắc chú Cá Chép nhỏ bé vượt Vũ Môn hoá Rồng!</strong>
+                <br />
+                <br /> Chúng mình tổ chức mùa thi tâm huyết này thay lời cảm ơn dành cho mọi cố gắng không ngừng học hỏi
+                của các bạn, chúng mình vinh dự mời bạn cùng tham gia vào hành trình này, đồng hành với các Cố vấn và
+                Nhà tài trợ cùng nhau chung tay nuôi dưỡng <strong>Truyện Tranh Việt!</strong>
                 <br />
                 <br />
                 <strong>PunkgaMe.</strong>
@@ -205,10 +206,10 @@ export default function Home() {
           <div className='relative z-10'>
             <div className='space-y-7'>
               <div>
-                <h1 className='text-3xl font-extrabold font-grenze leading-none'>
+                <h1 className='text-2xl font-extrabold font-paytone-one'>
                   WoW Yourself 2<br /> Tồng Giải Thưởng Đến
                 </h1>
-                <div className='text-[#345EB1] text-[50px] font-grenze font-extrabold leading-10.5'>80.000.000 vnđ</div>
+                <div className='text-[#345EB1] text-5xl font-paytone-one font-extrabold mt-2'>80.000.000 vnđ</div>
               </div>
               <p className='font-semibold text-sm'>
                 Hệ thống giải thưởng &quot;khủng&quot; bao gồm tiền mặt và hiện vật giá trị, trải dài qua 3 vòng thi.
@@ -218,11 +219,11 @@ export default function Home() {
             <div className='space-y-6'>
               <Image src={DecorImage8} alt='Decor Image 8' className='w-full h-auto max-w-sm' />
               <div className='space-y-9 pb-20'>
-                <h3 className='text-3xl font-extrabold font-grenze'>
+                <h3 className='text-2xl font-extrabold font-paytone-one'>
                   Cơ hội tham gia
                   <br /> <span className='text-[#D73930]'>Triển Lãm Tranh</span>
                   <br />
-                  <span className='text-[#D73930] text-[50px] leading-none'>tại Đà Nẵng 2026</span>
+                  <div className='text-[#D73930] text-5xl mt-2'>tại Đà Nẵng 2026</div>
                 </h3>
                 <p className='text-sm font-semibold'>
                   Top 40 thí sinh vượt qua Vòng 1 sẽ được vinh danh và trưng bày tác phẩm tại sự kiện nghệ thuật quy mô
@@ -234,11 +235,11 @@ export default function Home() {
             <div className='space-y-6 flex flex-col items-end'>
               <Image src={DecorImage21} alt='Decor Image 21' className='w-full h-auto max-w-sm' />
               <div className='space-y-9 pb-20'>
-                <h3 className='text-3xl font-extrabold font-grenze'>
+                <h3 className='text-2xl font-extrabold font-paytone-one'>
                   Cơ hội
                   <br /> <span className='text-[#345EB1]'>Xuất Bản lần Đầu Tiên</span>
                   <br />
-                  <span className='text-[#345EB1] text-[50px] leading-none'>Ngay Trong Tầm Tay</span>
+                  <div className='text-[#345EB1] text-5xl mt-2'>Ngay Trong Tầm Tay</div>
                 </h3>
                 <p className='text-sm font-semibold'>
                   Tác phẩm của Top 10 chung cuộc (8 BGK chọn + 2 Khán giả bình chọn) sẽ được xuất bản trong Tuyển tập
@@ -271,11 +272,11 @@ export default function Home() {
             className='absolute bottom-0 left-0 h-12.5 w-auto object-cover scale-[-1]'
           />
           <div className='relative flex flex-col justify-start pt-[5vh] pb-[10vh] items-center gap-15 h-full w-full'>
-            <h1 className='font-grenze font-extrabold text-[50px] text-[#D73930]'>Ban Giám Khảo</h1>
+            <h1 className='font-paytone-one font-extrabold text-5xl text-[#D73930]'>Ban Giám Khảo</h1>
             <div className='mx-auto px-3 w-screen max-w-300 grid grid-cols-1 gap-20'>
               <div>
                 <Image src={DecorImage27} alt='' className='w-full h-auto max-w-sm mx-auto' />
-                <div className='font-grenze font-extrabold text-[32px] leading-15.5 text-[#4D3B2B] w-full text-center mt-10'>
+                <div className='font-paytone-one font-extrabold text-[32px] leading-15.5 text-[#4D3B2B] w-full text-center mt-10'>
                   Lâm Hoàng Trúc
                 </div>
                 <div className='mt-4 font-semibold text-sm text-center max-w-125 mx-auto'>
@@ -285,7 +286,7 @@ export default function Home() {
               </div>
               <div>
                 <Image src={DecorImage28} alt='' className='w-full h-auto max-w-sm mx-auto' />
-                <div className='font-grenze font-extrabold text-[32px] leading-15.5 text-[#4D3B2B] w-full text-center mt-10'>
+                <div className='font-paytone-one font-extrabold text-[32px] leading-15.5 text-[#4D3B2B] w-full text-center mt-10'>
                   Nguyễn Thành Phong
                 </div>
                 <div className='mt-4 font-semibold text-sm text-center max-w-125 mx-auto'>
@@ -297,15 +298,17 @@ export default function Home() {
         </section>
 
         <section id='ban-co-van' className='bg-[#D73930] py-16 space-y-8 px-3'>
-          <h2 className='text-center w-full text-[#FFFF7C] font-extrabold text-[50px] font-grenze'>Ban Cố Vấn</h2>
+          <h2 className='text-center w-full text-[#FFFF7C] font-extrabold text-5xl font-paytone-one'>Ban Cố Vấn</h2>
           <div className='grid gap-x-3 gap-y-8 grid-cols-2'>
             {advisors.map((advisor, idx) => (
               <div key={idx} className='flex flex-col gap-3 items-center'>
                 <div className='w-full aspect-square border-4 border-black rounded-sm bg-gray-200'>
                   <Image src={advisor.image} alt={advisor.name} className='w-full h-full object-cover aspect-square' />
                 </div>
-                <div className='text-[#FFFF7C] font-extrabold font-grenze text-2xl'>{advisor.name}</div>
-                {advisor.subName && <div className='tex-sm font-medium text-white'>{advisor.subName}</div>}
+                <div className='text-[#FFFF7C] font-extrabold font-paytone-one text-xl text-center'>{advisor.name}</div>
+                {advisor.subName && (
+                  <div className='text-sm font-medium text-white leading-none'>{advisor.subName}</div>
+                )}
               </div>
             ))}
           </div>
@@ -341,19 +344,19 @@ export default function Home() {
           <h2 className='sr-only'>Đang Diễn Ra</h2>
           <div>
             <div className='flex gap-4 border-b border-black pb-8'>
-              <div className='font-grenze font-extrabold text-[#B6A690] text-[122px] leading-12'>01</div>
-              <div className='flex text-[#917D6B] font-grenze text-[50px] leading-8.25 font-extrabold'>
-                <div className='w-14'>
+              <div className='font-paytone-one font-extrabold text-[#B6A690] text-[118px] mr-2 leading-21'>01</div>
+              <div className='flex text-[#917D6B] font-paytone-one text-5xl font-extrabold'>
+                <div className='mr-1'>
                   <div>25</div>
                   <div>10</div>
                 </div>
-                <div className='w-14'>
+                <div className=''>
                   <div>11</div>
                   <div>12</div>
                 </div>
               </div>
-              <div className='flex text-[#917D6B] font-grenze text-[50px] leading-8.25 font-extrabold'>
-                <div className='w-14'>
+              <div className='flex text-[#917D6B] font-paytone-one text-5xl font-extrabold'>
+                <div className=''>
                   <div>20</div>
                   <div>25</div>
                 </div>
@@ -361,12 +364,12 @@ export default function Home() {
             </div>
             <div className='pt-8 space-y-7'>
               <div className='flex gap-4'>
-                <div className='space-y-2 text-[#4D3B2B] font-extrabold font-grenze text-2xl leading-6'>
+                <div className='space-y-2 text-[#4D3B2B] font-extrabold font-paytone-one text-2xl leading-6'>
                   <h3>Vòng 1</h3>
                   <div>25/11/2025 - 10/12/2025</div>
                 </div>
               </div>
-              <div className='text-[#4D3B2B] font-grenze text-4xl font-extrabold leading-7.5'>
+              <div className='text-[#4D3B2B] font-paytone-one text-4xl font-extrabold leading-7.5'>
                 Gửi tôi, họa sĩ truyện tranh tương lai
               </div>
               <div className='space-y-4'>
@@ -387,19 +390,19 @@ export default function Home() {
           </div>
           <div>
             <div className='flex gap-4 border-b border-black pb-8'>
-              <div className='font-grenze font-extrabold text-[#D73930] text-[122px] leading-12'>02</div>
-              <div className='flex text-[#4D3B2B] font-grenze text-[50px] leading-8.25 font-extrabold'>
-                <div className='w-14'>
+              <div className='font-paytone-one font-extrabold text-[#D73930] text-[118px] leading-21'>02</div>
+              <div className='flex text-[#4D3B2B] font-paytone-one text-5xl font-extrabold'>
+                <div className='mr-1'>
                   <div>12</div>
                   <div>22</div>
                 </div>
-                <div className='w-14'>
+                <div className=''>
                   <div>12</div>
                   <div>12</div>
                 </div>
               </div>
-              <div className='flex text-[#4D3B2B] font-grenze text-[50px] leading-8.25 font-extrabold'>
-                <div className='w-14'>
+              <div className='flex text-[#4D3B2B] font-paytone-one text-5xl font-extrabold'>
+                <div className=''>
                   <div>20</div>
                   <div>25</div>
                 </div>
@@ -408,12 +411,14 @@ export default function Home() {
             <div className='pt-8 space-y-7'>
               <div className='flex gap-4'>
                 <Image src={LiveNow} alt='Live Now' className='h-14 w-auto' />
-                <div className='space-y-2 text-[#4D3B2B] font-extrabold font-grenze text-2xl leading-6'>
+                <div className='space-y-2 text-[#4D3B2B] font-extrabold font-paytone-one text-2xl leading-6'>
                   <h3>Vòng 2</h3>
                   <div>12/12/2025 - 22/12/2025</div>
                 </div>
               </div>
-              <div className='text-[#D73930] font-grenze text-4xl font-extrabold leading-7.5'>Hải lưu khát vọng</div>
+              <div className='text-[#D73930] font-paytone-one text-4xl font-extrabold leading-7.5'>
+                Hải lưu khát vọng
+              </div>
               <div className='space-y-4'>
                 <p className='text-sm font-semibold'>
                   Đề bài: Vẽ truyện ngắn từ 1-3 trang với chủ đề: “Gửi tôi, hoạ sĩ truyện tranh tương lai”. Hình thức
@@ -428,19 +433,19 @@ export default function Home() {
           </div>
           <div>
             <div className='flex gap-4 border-b border-black pb-8'>
-              <div className='font-grenze font-extrabold text-[#B6A690] text-[122px] leading-12'>03</div>
-              <div className='flex text-[#917D6B] font-grenze text-[50px] leading-8.25 font-extrabold'>
-                <div className='w-14'>
+              <div className='font-paytone-one font-extrabold text-[#B6A690] text-[118px] leading-21'>03</div>
+              <div className='flex text-[#917D6B] font-paytone-one text-5xl font-extrabold'>
+                <div className='mr-1'>
                   <div>25</div>
                   <div>08</div>
                 </div>
-                <div className='w-14'>
+                <div className=''>
                   <div>12</div>
                   <div>02</div>
                 </div>
               </div>
-              <div className='flex text-[#917D6B] font-grenze text-[50px] leading-8.25 font-extrabold'>
-                <div className='w-14'>
+              <div className='flex text-[#917D6B] font-paytone-one text-5xl font-extrabold'>
+                <div className=''>
                   <div>25</div>
                   <div>26</div>
                 </div>
@@ -448,12 +453,12 @@ export default function Home() {
             </div>
             <div className='pt-8 space-y-7'>
               <div className='flex gap-4'>
-                <div className='space-y-2 text-[#4D3B2B] font-extrabold font-grenze text-2xl leading-6'>
+                <div className='space-y-2 text-[#4D3B2B] font-extrabold font-paytone-one text-2xl leading-6'>
                   <h3>Vòng 3</h3>
                   <div>25/12/2025 - 08/02/2026</div>
                 </div>
               </div>
-              <div className='text-[#4D3B2B] font-grenze text-4xl font-extrabold leading-7.5'>Tinh Hoa Vũ Môn</div>
+              <div className='text-[#4D3B2B] font-paytone-one text-4xl font-extrabold leading-7.5'>Tinh Hoa Vũ Môn</div>
               <div className='space-y-4'>
                 <p className='text-sm font-semibold'>
                   Đề bài: Vẽ truyện ngắn từ 1-3 trang với chủ đề: “Gửi tôi, hoạ sĩ truyện tranh tương lai”. Hình thức
@@ -468,19 +473,19 @@ export default function Home() {
           </div>
           <div>
             <div className='flex gap-4 border-b border-black pb-8'>
-              <div className='font-grenze font-extrabold text-[#B6A690] text-[122px] leading-12'>Cđ</div>
-              <div className='flex text-[#917D6B] font-grenze text-[50px] leading-8.25 font-extrabold'>
-                <div className='w-14'>
+              <div className='font-paytone-one font-extrabold text-[#B6A690] text-[118px] leading-21'>Cđ</div>
+              <div className='flex text-[#917D6B] font-paytone-one text-5xl font-extrabold'>
+                <div className='mr-1'>
                   <div>25</div>
                   <div>08</div>
                 </div>
-                <div className='w-14'>
+                <div className=''>
                   <div>12</div>
                   <div>02</div>
                 </div>
               </div>
-              <div className='flex text-[#917D6B] font-grenze text-[50px] leading-8.25 font-extrabold'>
-                <div className='w-14'>
+              <div className='flex text-[#917D6B] font-paytone-one text-5xl font-extrabold'>
+                <div className='mr-1'>
                   <div>25</div>
                   <div>26</div>
                 </div>
@@ -488,12 +493,12 @@ export default function Home() {
             </div>
             <div className='pt-8 space-y-7'>
               <div className='flex gap-4'>
-                <div className='space-y-2 text-[#4D3B2B] font-extrabold font-grenze text-2xl leading-6'>
+                <div className='space-y-2 text-[#4D3B2B] font-extrabold font-paytone-one text-2xl leading-6'>
                   <h3>Sự kiện cộng đồng</h3>
                   <div>25/12/2025 - 08/02/2026</div>
                 </div>
               </div>
-              <div className='text-[#4D3B2B] font-grenze text-4xl font-extrabold leading-7.5'>
+              <div className='text-[#4D3B2B] font-paytone-one text-4xl font-extrabold leading-7.5'>
                 Tiên tri tài ba
                 <br /> & Giấc mơ trong tầm tay
               </div>

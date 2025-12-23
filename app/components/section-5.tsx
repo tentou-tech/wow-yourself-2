@@ -15,7 +15,7 @@ export default function Section5() {
           opacity: 0.05,
         }}></div>
       <div className='relative flex flex-col justify-start pt-[5vh] items-center gap-15 h-full w-full'>
-        <h1 className='font-grenze font-extrabold text-[70px] text-white'>Đồng hành cùng Chúng tôi</h1>
+        <h1 className='font-paytone-one font-extrabold text-[70px] text-white'>Đồng hành cùng Chúng tôi</h1>
         <div className='w-screen overflow-hidden relative z-10 shrink-0'>
           <div
             className='flex animate-scroll max-w-none w-max min-w-0'

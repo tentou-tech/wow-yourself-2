@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Grenze_Gotisch, Playpen_Sans } from 'next/font/google'
+import { Grenze_Gotisch, Paytone_One, Playpen_Sans } from 'next/font/google'
 import './globals.css'
 import localFont from 'next/font/local'
 
@@ -14,9 +14,10 @@ const grenze = Grenze_Gotisch({
   variable: '--font-grenze',
 })
 
-const brigast = localFont({
-  src: '../public/assets/fonts/1FTV-VIP-Brigast.ttf',
-  variable: '--font-brigast',
+const paytone = Paytone_One({
+  variable: '--font-paytone-one',
+  subsets: ['latin'],
+  weight: '400',
 })
 export const metadata: Metadata = {
   title: '[ WOW YOURSELF MÙA 2 | Huyền Thoại Vũ Môn ]',
@@ -34,7 +35,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
-      <body className={`${playpenSans.className} ${grenze.variable} ${brigast.variable} antialiased`}>{children}</body>
+      <body className={`${playpenSans.className} ${grenze.variable} ${paytone.variable} antialiased`}>{children}</body>
     </html>
   )
 }

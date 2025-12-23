@@ -37,12 +37,10 @@ export default function Section3() {
                 <div className='flex-1'>
                   <div className='space-y-7'>
                     <div>
-                      <h2 className='text-[42px] font-extrabold font-grenze leading-none'>
-                        WoW Yourself 2<br /> Tồng Giải Thưởng Đến
+                      <h2 className='text-4xl font-extrabold font-paytone-one'>
+                        WoW Yourself 2<br /> Tổng Giải Thưởng Đến
                       </h2>
-                      <div className='text-[#345EB1] text-[70px] font-grenze font-extrabold leading-10.5'>
-                        80.000.000 vnđ
-                      </div>
+                      <div className='text-[#345EB1] text-6xl font-paytone-one font-extrabold mt-2'>80.000.000 vnđ</div>
                     </div>
                     <p className='font-semibold text-lg max-w-2xl'>
                       Hệ thống giải thưởng &quot;khủng&quot; bao gồm tiền mặt và hiện vật giá trị, trải dài qua 3 vòng
@@ -59,10 +57,10 @@ export default function Section3() {
                 <Image src={DecorImage8} alt='Decor Image 16' className='w-full max-w-119' />
                 <div className='flex-1'>
                   <div className='space-y-9'>
-                    <h3 className='text-[42px] font-extrabold font-grenze'>
+                    <h3 className='text-4xl font-extrabold font-paytone-one'>
                       Cơ hội tham gia <span className='text-[#D73930]'>Triển Lãm Tranh</span>
                       <br />
-                      <span className='text-[#D73930] text-[70px] leading-none'>tại Đà Nẵng 2026</span>
+                      <div className='text-[#D73930] text-6xl mt-2'>tại Đà Nẵng 2026</div>
                     </h3>
                     <p className='text-lg font-semibold max-w-2xl'>
                       Top 40 thí sinh vượt qua Vòng 1 sẽ được vinh danh và trưng bày tác phẩm tại sự kiện nghệ thuật quy
@@ -80,10 +78,10 @@ export default function Section3() {
                 <Image src={DecorImage21} alt='Decor Image 21' className='w-full max-w-119' />
                 <div className='flex-1'>
                   <div className='space-y-9'>
-                    <h3 className='text-[42px] font-extrabold font-grenze'>
+                    <h3 className='text-4xl font-extrabold font-paytone-one'>
                       Cơ hội <span className='text-[#345EB1]'>Xuất Bản lần Đầu Tiên</span>
                       <br />
-                      <span className='text-[#345EB1] text-[70px] leading-none'>Ngay Trong Tầm Tay</span>
+                      <div className='text-[#345EB1] text-6xl mt-2'>Ngay Trong Tầm Tay</div>
                     </h3>
                     <p className='text-lg font-semibold max-w-2xl'>
                       Tác phẩm của Top 10 chung cuộc (8 BGK chọn + 2 Khán giả bình chọn) sẽ được xuất bản trong Tuyển

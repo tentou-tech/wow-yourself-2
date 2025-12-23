@@ -7,7 +7,7 @@ export default function Button(props: React.ButtonHTMLAttributes<HTMLButtonEleme
   return (
     <button
       className={cn(
-        `font-grenze text-2xl lg:text-3xl cursor-pointer relative rounded-full overflow-hidden border-[3px] pb-1 h-11 lg:h-14 px-16 border-[#3D0400] font-extrabold text-[#3D0400] drop-shadow-[0_4px_4px_rgba(0,0,0,0.25)]`,
+        `font-paytone-one text-xl lg:text-2xl cursor-pointer relative rounded-full overflow-hidden border-[3px] pb-1 h-11 lg:h-14 px-16 border-[#3D0400] font-extrabold text-[#3D0400] drop-shadow-[0_4px_4px_rgba(0,0,0,0.25)]`,
         className
       )}
       style={{

@@ -24,7 +24,7 @@ export default function Section2() {
           className='absolute top-0 left-0 w-[150%] max-w-none -translate-x-[12%] -translate-y-[8%]'
         />
         <div className='rounded-xs relative border-4 border-black max-w-3xl mx-auto bg-[linear-gradient(207deg,#FFF5D3_33.1%,#DEBF97_97.67%)] py-8 px-4 space-y-4'>
-          <h2 className='text-center text-2xl font-extrabold w-full font-grenze'>Thư gửi Rô con</h2>
+          <h2 className='text-center text-2xl font-extrabold w-full font-paytone-one'>Thư gửi Rô con</h2>
           <p className='font-medium'>
             Gửi con, Rô!
             <br />

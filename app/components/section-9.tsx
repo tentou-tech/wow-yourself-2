@@ -18,16 +18,16 @@ export default function Section9() {
           }}></div>
         <div className='py-18 relative'>
           <div className='px-6 flex gap-18.5'>
-            <div className='w-77 space-y-8 shrink-0'>
-              <div className='flex gap-7 font-grenze font-extrabold text-[#917D6B]'>
-                <div className='text-[122px] text-[#B6A690] leading-14'>Cđ</div>
-                <div className='grid grid-cols-2 gap-x-2 text-[50px] leading-9'>
+            <div className='w-fit space-y-8 shrink-0'>
+              <div className='flex gap-3 font-paytone-one font-extrabold text-[#917D6B]'>
+                <div className='text-[122px] text-[#B6A690] leading-21'>Cđ</div>
+                <div className='grid grid-cols-2 gap-x-2 text-5xl'>
                   <div>21</div>
                   <div>12</div>
                   <div>09</div>
                   <div>02</div>
                 </div>
-                <div className='grid grid-cols-1 text-[50px] leading-9'>
+                <div className='grid grid-cols-1 text-5xl'>
                   <div>25</div>
                   <div>26</div>
                 </div>
@@ -35,9 +35,9 @@ export default function Section9() {
               <Image src={DecorImage25} alt='Decor Image 25' className='w-full h-auto' />
             </div>
             <div className='flex-1 mt-10 border-t border-[#242429] pt-6'>
-              <div className='text-[#62513F] font-grenze font-extrabold'>
+              <div className='text-[#62513F] font-paytone-one font-extrabold'>
                 <h2 className='text-[44px] leading-9'>Sự kiện cộng đồng</h2>
-                <div className='text-2xl leading-5 mt-2'>21/12/2025 - 09/02/2026</div>
+                <div className='text-2xl leading-5 mt-4'>21/12/2025 - 09/02/2026</div>
                 <h3 className='mt-6 text-[50px] leading-none'>
                   Tiên tri tài ba <br />& Giấc mơ trong tầm tay
                 </h3>

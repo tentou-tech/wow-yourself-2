@@ -47,7 +47,7 @@ export default function Page() {
           style={{ backgroundImage: `url(${Divider.src})`, backgroundSize: 'auto 100%' }}></div>
         <div className='relative'>
           <div className='w-25 h-25 rounded-full bg-[#FF9548]'></div>
-          <h1 className='font-extrabold absolute top-0 left-7 font-grenze text-[50px] leading-none text-white'>
+          <h1 className='font-extrabold absolute top-0 left-7 font-paytone-one text-[50px] leading-none text-white'>
             Tiên tri
             <br />
             Tài ba
@@ -63,15 +63,15 @@ export default function Page() {
                 alt='Avatar'
                 className='w-14 h-14 rounded-full overflow-hidden border border-[#D73930]'
               />
-              <div className='font-grenze font-bold text-2xl'>Username</div>
+              <div className='font-paytone-one font-bold text-2xl'>Username</div>
             </div>
             <div className='flex shrink-0'>
               <div className='py-3 px-6 flex flex-col items-center gap-1 border-r border-black/20 flex-1 text-center shrink-0'>
-                <div className='font-grenze text-[#D73930] font-bold text-4xl  whitespace-nowrap'>00</div>
+                <div className='font-paytone-one text-[#D73930] font-bold text-4xl  whitespace-nowrap'>00</div>
                 <div className='text-[#323239] font-semibold text-sm  whitespace-nowrap'>TOTAL POINT</div>
               </div>
               <div className='py-3 px-6 flex flex-col items-center gap-1 flex-1 shrink-0'>
-                <div className='font-grenze text-[#D73930] font-bold text-4xl  whitespace-nowrap'>Top 100</div>
+                <div className='font-paytone-one text-[#D73930] font-bold text-4xl  whitespace-nowrap'>Top 100</div>
                 <div className='text-[#323239] font-semibold text-sm  whitespace-nowrap'>EVENT RANK</div>
               </div>
             </div>
@@ -85,13 +85,13 @@ export default function Page() {
                     <div className='font-semibold text-sm'>Points</div>
                   </div>
                   <div className='space-y-1'>
-                    <div className='font-grenze font-bold text-white'>Daily Check-in</div>
+                    <div className='font-paytone-one font-bold text-white'>Daily Check-in</div>
                     <div className='text-[#D9D9DE] text-sm font-semibold'>07/12/2025 - 01/01/2026</div>
                   </div>
                 </div>
                 <button
                   onClick={openCheckinSuccessPopup}
-                  className='bg-[#F5BC41] rounded-sm h-10 w-full md:w-fit px-3.5 grid place-items-center font-grenze text-xl font-semibold cursor-pointer'>
+                  className='bg-[#F5BC41] rounded-sm h-10 w-full md:w-fit px-3.5 grid place-items-center font-paytone-one text-xl font-semibold cursor-pointer'>
                   Check-in
                 </button>
               </div>
@@ -102,13 +102,13 @@ export default function Page() {
                     <div className='font-semibold text-sm'>Points</div>
                   </div>
                   <div className='space-y-1'>
-                    <div className='font-grenze font-bold text-white'>Đố vui mỗi ngày</div>
+                    <div className='font-paytone-one font-bold text-white'>Đố vui mỗi ngày</div>
                     <div className='text-[#D9D9DE] text-sm font-semibold'>07/12/2025 - 01/01/2026</div>
                   </div>
                 </div>
                 <button
                   onClick={openQuizPopup}
-                  className='bg-[#F5BC41] rounded-sm h-10 w-full md:w-fit px-3.5 grid place-items-center font-grenze text-xl font-semibold cursor-pointer'>
+                  className='bg-[#F5BC41] rounded-sm h-10 w-full md:w-fit px-3.5 grid place-items-center font-paytone-one text-xl font-semibold cursor-pointer'>
                   Giải đố
                 </button>
               </div>
@@ -117,17 +117,17 @@ export default function Page() {
               <Image src={DecorImage20} alt='Decor Image 20' fill />
               <div className='bg-linear-to-b from-transparent to-black absolute inset-0 p-6 flex flex-col justify-end items-center gap-4'>
                 <div className='space-y-1.5 text-center w-full text-white'>
-                  <div className='w-full font-grenze text-[28px] font-semibold'>Dự đoán Team Đoạt giải</div>
+                  <div className='w-full font-paytone-one text-[28px] font-semibold'>Dự đoán Team Đoạt giải</div>
                   <div className='font-semibold text-sm'>07/12/2025 - 01/01/2026</div>
                 </div>
-                <button className='bg-[#BCBCBC] text-[#0A0A0B] rounded-sm h-11 px-3.5 grid place-items-center w-fit font-grenze text-xl font-semibold cursor-pointer'>
+                <button className='bg-[#BCBCBC] text-[#0A0A0B] rounded-sm h-11 px-3.5 grid place-items-center w-fit font-paytone-one text-xl font-semibold cursor-pointer'>
                   CTA
                 </button>
               </div>
             </div>
           </div>
           <div className='pt-4 space-y-4 px-3'>
-            <h2 className='font-grenze font-bold text-[32px]'>Rankings</h2>
+            <h2 className='font-paytone-one font-bold text-[32px]'>Rankings</h2>
             <Chart />
           </div>
           <div className='pt-4 space-y-4 px-3'>

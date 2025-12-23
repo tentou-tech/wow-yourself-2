@@ -60,25 +60,24 @@ const GuidePopup = () => {
   const currentStep = steps[step];
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center z-50 px-4 bg-black/50">
-      <ModalBorder className="max-w-md w-full">
-        <div className="text-center">
-            <h2 className="text-2xl font-grenze font-bold mb-4 text-[#A52A2A]">Hướng dẫn cộng đồng</h2>
-            <div className="w-32 h-32 relative mx-auto mb-4">
-                <Image src={currentStep.image} alt={currentStep.title} layout="fill" objectFit="contain" />
-            </div>
-            <h3 className="text-xl font-grenze font-bold mb-2">{currentStep.title}</h3>
-            <p className="mb-6 text-gray-700">{currentStep.description}</p>
-            <button
-              onClick={handleNextStep}
-              className="bg-[#D73930] text-white px-8 py-3 rounded-md font-grenze text-lg w-full"
-            >
-              {currentStep.buttonText}
-            </button>
+    <div className='fixed inset-0 flex items-center justify-center z-50 px-4 bg-black/50'>
+      <ModalBorder className='max-w-md w-full'>
+        <div className='text-center'>
+          <h2 className='text-2xl font-paytone-one font-bold mb-4 text-[#A52A2A]'>Hướng dẫn cộng đồng</h2>
+          <div className='w-32 h-32 relative mx-auto mb-4'>
+            <Image src={currentStep.image} alt={currentStep.title} layout='fill' objectFit='contain' />
+          </div>
+          <h3 className='text-xl font-paytone-one font-bold mb-2'>{currentStep.title}</h3>
+          <p className='mb-6 text-gray-700'>{currentStep.description}</p>
+          <button
+            onClick={handleNextStep}
+            className='bg-[#D73930] text-white px-8 py-3 rounded-md font-paytone-one text-lg w-full'>
+            {currentStep.buttonText}
+          </button>
         </div>
       </ModalBorder>
     </div>
-  );
+  )
 };
 
 export default GuidePopup;

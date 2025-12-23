@@ -122,7 +122,7 @@ export default function Section4() {
         }}></div>
       <Image src={Divider} alt='Divider' className='absolute bottom-0 left-0 w-screen scale-[-1]' />
       <div className='relative flex flex-col justify-start pt-[10vh] items-center gap-15.5 h-full w-full px-10'>
-        <h1 className='font-grenze font-extrabold text-[70px] text-[#FFFF7C]'>Ban Cố Vấn</h1>
+        <h1 className='font-paytone-one font-extrabold text-[70px] text-[#FFFF7C]'>Ban Cố Vấn</h1>
         <div className='w-full max-w-300 mx-auto flex gap-24'>
           <div className='w-auto h-[50vh] max-h-105 max-w-105 aspect-square relative'>
             <div className='w-full h-full absolute top-0 left-0 rotate-45 origin-center bg-[#A6231C]'></div>
@@ -142,7 +142,7 @@ export default function Section4() {
           </div>
           <div className='flex flex-col justify-between relative'>
             <div key={`text-${index}`} className='pt-6'>
-              <div className='font-grenze font-extrabold text-[42px] text-[#FFFF7C]'>
+              <div className='font-paytone-one font-extrabold text-[42px] text-[#FFFF7C]'>
                 {renderWordsWithAnimation(shuffledAdvisors[index].name, 0, `name-${index}`)}
               </div>
               {shuffledAdvisors[index].subName && (
