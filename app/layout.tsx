@@ -1,7 +1,11 @@
 import type { Metadata } from 'next'
 import { Grenze_Gotisch, Paytone_One, Playpen_Sans } from 'next/font/google'
 import './globals.css'
-import localFont from 'next/font/local'
+import { Suspense } from 'react'
+import { Toaster } from '@/components/ui/sonner'
+import LoginCallback from '@/components/login-callback'
+import SignInDialog from '@/components/signin-dialog'
+import { Web3Providers } from '@/components/web3-providers'
 
 const playpenSans = Playpen_Sans({
   variable: '--font-playpen-sans',
@@ -35,7 +39,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
-      <body className={`${playpenSans.className} ${grenze.variable} ${paytone.variable} antialiased`}>{children}</body>
+      <body className={`${playpenSans.className} ${grenze.variable} ${paytone.variable} antialiased`}>
+        <Suspense>
+          <Web3Providers>
+            <SignInDialog />
+          </Web3Providers>
+          <div>{children}</div>
+          <Toaster expand />
+          <LoginCallback />
+        </Suspense>
+      </body>
     </html>
   )
 }

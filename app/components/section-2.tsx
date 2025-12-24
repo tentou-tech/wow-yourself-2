@@ -24,28 +24,33 @@ export default function Section2() {
           className='absolute top-0 left-0 w-[150%] max-w-none -translate-x-[12%] -translate-y-[8%]'
         />
         <div className='rounded-xs relative border-4 border-black max-w-3xl mx-auto bg-[linear-gradient(207deg,#FFF5D3_33.1%,#DEBF97_97.67%)] py-8 px-4 space-y-4'>
-          <h2 className='text-center text-2xl font-extrabold w-full font-paytone-one'>Thư gửi Rô con</h2>
+          {/* <h2 className='text-center text-2xl font-extrabold w-full font-paytone-one'>Thư gửi Rô con</h2> */}
           <p className='font-medium'>
-            Gửi con, Rô!
+            <i>Thư gửi Rô con, từ Đấng Sáng tạo.</i>
+            <br />
+            <br />
+            &quot;Gửi con, Rô!
             <br />
             <br /> Ta biết con đã lên đường lần nữa để tìm kiếm ngôi sao ước vọng, ta biết con sẽ đi đến cùng, con đã
             nhìn thấy Vũ Môn một lần và nó đã gọi con. Chuyến hành trình lần này, con sẽ gặp gỡ thêm những người bạn
-            đáng quý…
+            đáng quý, đừng bỏ cuộc con nhé, rồi sẽ đến khoảnh khắc chú Cá Chép nhỏ bé ngày nào của ta hóa Rồng!&quot;
             <br />
-            <br /> Câu chuyện của <strong> WoW Yourself</strong> sẽ tiếp tục và bạn sẽ đồng hành cùng chú Cá Chép trong
-            hành trình Vũ Môn của mùa 2 với chủ đề <strong>“Sóng xô sống sao?”</strong>
+            <br />
+            <i>Thư gửi các bạn thí sinh từ Ban tổ chức PunkgaMe.</i>
+            <br />
+            <br />
+            &quot;Câu chuyện của <strong> WoW Yourself</strong> sẽ tiếp tục và bạn sẽ đồng hành cùng chú Cá Chép trong
+            hành trình Vũ Môn của mùa 2 với chủ đề <strong>&quot;Sóng xô sống sao?&quot;</strong>
             <br />
             <br />
             Bạn! Chính bạn, trên con đường vượt qua bản thân mình từng ngày, từng thông điệp bạn gửi gắm, từng nét vẽ tỉ
             mẩn được hoà quyện để tạo nên câu chuyện của riêng bạn, bất chấp gian nan, chúng ta sẽ kể câu chuyện của
             chính mình.
             <br />
-            <br />
-            <strong>Rồi sẽ đến khoảnh khắc chú Cá Chép nhỏ bé vượt Vũ Môn hoá Rồng!</strong>
-            <br />
             <br /> Chúng mình tổ chức mùa thi tâm huyết này thay lời cảm ơn dành cho mọi cố gắng không ngừng học hỏi của
-            các bạn, chúng mình vinh dự mời bạn cùng tham gia vào hành trình này, đồng hành với các Cố vấn và Nhà tài
-            trợ cùng nhau chung tay nuôi dưỡng <strong> Truyện Tranh Việt!</strong>
+            các bạn, chúng mình vinh dự mời bạn cùng tham gia vào hành trình này, đồng hành với các{' '}
+            <strong>Cố vấn</strong> và <strong>Nhà tài trợ</strong> cùng nhau chung tay nuôi dưỡng{' '}
+            <strong> Truyện Tranh Việt!&quot;</strong>
             <br />
             <br />
             <strong>PunkgaMe.</strong>

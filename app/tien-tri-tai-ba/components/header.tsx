@@ -1,10 +1,19 @@
 'use client'
-import Avatar from '@/assets/Avatar.svg'
 import Logo from '@/assets/Logo.svg'
+import { useSignInDialog } from '@/components/signin-dialog'
+import { useUserStore } from '@/stores/user-store'
 import { Inter } from 'next/font/google'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useState } from 'react'
+import { useAccount, useBalance, useDisconnect } from 'wagmi'
+import { useIsClient, useWindowSize } from 'usehooks-ts'
+import { useLoggedIn } from '@/hooks/useLoggedIn'
+import { DropdownMenu, DropdownMenuContent, DropdownMenuTrigger } from '@/components/ui/dropdown-menu'
+import { cn, formatBalance } from '@/lib/utils'
+import { ArrowUpRight, LogOut, PlusIcon, SquareUser, Star } from 'lucide-react'
+import { Button } from '@/components/ui/button'
+import { Avatar } from '@/components/ui/avatar'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -19,7 +28,20 @@ const navItems = [
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false)
-
+  const { setOpenSignInDialog } = useSignInDialog()
+  const { user, removeUser } = useUserStore()
+  const { disconnect } = useDisconnect()
+  const { data } = useBalance({ address: user?.active_wallet_address as `0x${string}` })
+  const { isConnected, chain } = useAccount()
+  const { width } = useWindowSize()
+  const isClient = useIsClient()
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const { isLoggedIn } = useLoggedIn()
+  const logoutHandler = () => {
+    removeUser()
+    if (isConnected) disconnect()
+  }
+  if (!isClient) return null
   return (
     <>
       <header
@@ -46,9 +68,61 @@ export default function Header() {
             ))}
           </nav>
         </div>
-        <div className='flex items-center gap-6'>
-          <Image src={Avatar} alt='Avatar' className='h-10' />
-        </div>
+        {isLoggedIn ? (
+          user && (
+            <div className='flex gap-3'>
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <div className='w-8 h-8 rounded-full overflow-hidden cursor-pointer border-2 border-Border-border-secondary'>
+                    <Avatar src={user.picture} className='w-full h-full object-cover' />
+                  </div>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align='end'>
+                  <div className='divide-y divide-Border-border-secondary w-xs'>
+                    <div className='p-4 space-y-2'>
+                      <div className='text-Text-Brand-text-brand-primary font-bold text-sm'>{user.nickname}</div>
+                      <div className='flex w-full justify-between items-center text-sm font-medium'>
+                        <div className=''>
+                          {formatBalance(data?.value || 0, data?.decimals)} {data?.symbol}
+                        </div>
+                        <div className='text-Text-Link-text-link-primary flex items-center gap-0.5 cursor-pointer'>
+                          Activity <ArrowUpRight className='w-4 h-4' />
+                        </div>
+                      </div>
+                      {isConnected && (
+                        <div className='text-xs text-Text-Default-text-secondary'>
+                          Connected chain: <strong className='text-Text-Default-text-primary'>{chain?.name}</strong>
+                        </div>
+                      )}
+                    </div>
+                    <div className='text-sm font-medium'>
+                      <Link href='https://punkga.me/subscribed-manga' className='p-4 flex items-center gap-3.5'>
+                        <Star className='size-4' fill='currentColor' />
+                        Subscribed Manga
+                      </Link>
+                      <Link href='https://punkga.me/my-profile' className='p-4 flex items-center gap-3.5'>
+                        <SquareUser className='size-4' />
+                        My Profile
+                      </Link>
+                    </div>
+                    <div className='text-sm font-medium'>
+                      <div className='p-4 flex items-center gap-3.5 cursor-pointer' onClick={logoutHandler}>
+                        <LogOut className='size-4' />
+                        Logout
+                      </div>
+                    </div>
+                  </div>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            </div>
+          )
+        ) : (
+          <Button
+            onClick={() => setOpenSignInDialog(true)}
+            className='bg-Surface-Background-bg-brand-primary text-Text-Default-On-white-text-primary'>
+            Sign In
+          </Button>
+        )}
       </header>
 
       {/* Mobile Menu */}
