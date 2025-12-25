@@ -1,63 +1,65 @@
+/* eslint-disable react-hooks/set-state-in-effect */
 
-"use client";
+'use client'
 
-import { useState, useEffect } from 'react';
-import Image from 'next/image';
+import { useState, useEffect } from 'react'
+import Image from 'next/image'
 import Advisor10Mascot from '@/assets/advisors/advisor_10_mascot.png'
 import Advisor11Mascot from '@/assets/advisors/advisor_11_mascot.png'
 import Advisor12Mascot from '@/assets/advisors/advisor_12_mascot.png'
-import ModalBorder from './modal-border';
+import ModalBorder from './modal-border'
 
 const GuidePopup = () => {
-  const [step, setStep] = useState(0);
-  const [isOpen, setIsOpen] = useState(false);
+  const [step, setStep] = useState(0)
+  const [isOpen, setIsOpen] = useState(false)
 
   const steps = [
     {
       title: 'Đăng nhập và điểm danh hằng ngày',
-      description: 'Từ 21/12/2025 mọi người dùng đăng ký tài khoản trên pvn.ga.me đều có thể truy cập trang sự kiện này để điểm danh hằng ngày và nhận về Star point',
+      description:
+        'Từ 21/12/2025 mọi người dùng đăng ký tài khoản trên pvn.ga.me đều có thể truy cập trang sự kiện này để điểm danh hằng ngày và nhận về Star point',
       buttonText: 'Đã hiểu',
-      image: Advisor10Mascot
+      image: Advisor10Mascot,
     },
     {
       title: 'Trả lời đố vui',
       description: 'Ngoài ra mỗi ngày đều sẽ có các câu đố vui. Tham gia để kiếm thêm Star Point nhé',
       buttonText: 'Đã hiểu',
-      image: Advisor11Mascot
+      image: Advisor11Mascot,
     },
     {
       title: 'Star đổi quà',
       description: 'Star point có thể quy đổi ra các phần quà của ban tổ chức thông qua trang sự kiện này',
       buttonText: 'Tham gia',
-      image: Advisor12Mascot
-    }
-  ];
+      image: Advisor12Mascot,
+    },
+  ]
 
   useEffect(() => {
-    const hasSeenPopup = localStorage.getItem('hasSeenGuidePopup');
+    const hasSeenPopup = localStorage.getItem('hasSeenGuidePopup')
     if (!hasSeenPopup) {
-      setIsOpen(true);
+      setIsOpen(true)
     }
-  }, []);
+  }, [])
 
   const handleNextStep = () => {
     if (step < steps.length - 1) {
-      setStep(step + 1);
+      setStep(step + 1)
     } else {
-      handleClose();
+      handleClose()
     }
-  };
-
-  const handleClose = () => {
-    // localStorage.setItem('hasSeenGuidePopup', 'true');
-    setIsOpen(false);
-  };
-
-  if (!isOpen) {
-    return null;
   }
 
-  const currentStep = steps[step];
+  const handleClose = () => {
+    localStorage.setItem('hasSeenGuidePopup', 'true')
+    setIsOpen(false)
+  }
+
+  if (!isOpen) {
+    return null
+  }
+
+  const currentStep = steps[step]
 
   return (
     <div className='fixed inset-0 flex items-center justify-center z-50 px-4 bg-black/50'>
@@ -78,6 +80,6 @@ const GuidePopup = () => {
       </ModalBorder>
     </div>
   )
-};
+}
 
-export default GuidePopup;
+export default GuidePopup

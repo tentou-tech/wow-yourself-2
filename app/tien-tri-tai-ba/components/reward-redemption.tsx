@@ -1,44 +1,47 @@
-
-import Image from "next/image";
-
+import Image from 'next/image'
+import RewardImage1 from '@/assets/rewards/r1.png'
+import RewardImage2 from '@/assets/rewards/r2.png'
+import RewardImage3 from '@/assets/rewards/r3.png'
+import RewardImage4 from '@/assets/rewards/r4.png'
+import RewardImage5 from '@/assets/rewards/r5.png'
 const RewardRedemption = () => {
   const rewards = [
     {
-      name: "Polo thể thao nam Promax Sideflow",
-      points: 250,
-      image: "/placeholder.png", // Replace with actual image path
-      preOrder: true,
-      redeemable: true,
-    },
-    {
-      name: "Polo thể thao nam Promax Sideflow",
-      points: 250,
-      image: "/placeholder.png", // Replace with actual image path
+      name: 'Áo thun Punkgame',
+      points: '???',
+      image: RewardImage1,
       preOrder: true,
       redeemable: false,
     },
     {
-      name: "Polo thể thao nam Promax Sideflow",
-      points: 250,
-      image: "/placeholder.png", // Replace with actual image path
+      name: 'Merch nhỏ',
+      points: '???',
+      image: RewardImage2,
       preOrder: true,
       redeemable: false,
     },
     {
-      name: "Polo thể thao nam Promax Sideflow",
-      points: 250,
-      image: "/placeholder.png", // Replace with actual image path
+      name: 'Merch to',
+      points: '???',
+      image: RewardImage3,
       preOrder: true,
       redeemable: false,
     },
     {
-      name: "Polo thể thao nam Promax Sideflow",
-      points: 250,
-      image: "/placeholder.png", // Replace with actual image path
+      name: 'Mô hình',
+      points: '???',
+      image: RewardImage4,
       preOrder: true,
       redeemable: false,
     },
-  ];
+    {
+      name: 'Truyện',
+      points: '???',
+      image: RewardImage5,
+      preOrder: true,
+      redeemable: false,
+    },
+  ]
 
   return (
     <div className='bg-[#D73930] text-white p-4 rounded-sm'>
@@ -58,7 +61,7 @@ const RewardRedemption = () => {
               )}
               <div className='relative w-full' style={{ paddingTop: '100%' }}>
                 <div className='absolute inset-0 flex items-center justify-center bg-gray-300'>
-                  <span className='text-gray-500 text-4xl'>1:1</span>
+                  <Image src={reward.image} alt={reward.name} className='w-full h-full object-cover' />
                 </div>
               </div>
             </div>
@@ -77,6 +80,6 @@ const RewardRedemption = () => {
       </div>
     </div>
   )
-};
+}
 
-export default RewardRedemption;
+export default RewardRedemption

@@ -1,32 +1,71 @@
+/* eslint-disable react-hooks/set-state-in-effect */
 'use client'
 
-import { useState } from 'react'
-import Header from './components/header'
-import DecorImage7 from '@/assets/decor_image_7.png'
-import Divider from '@/assets/Divider.png'
-import Image from 'next/image'
+import Avatar from '@/assets/Avatar.svg'
 import DecorImage19 from '@/assets/decor_image_19.png'
 import DecorImage20 from '@/assets/decor_image_20.jpg'
-import Avatar from '@/assets/Avatar.svg'
+import DecorImage7 from '@/assets/decor_image_7.png'
+import Divider from '@/assets/Divider.png'
+import { Web3Providers } from '@/components/web3-providers'
+import { getCurrentRank, getQuests, Quest } from '@/services/tttb'
+import { useUserStore } from '@/stores/user-store'
 import { Inter } from 'next/font/google'
+import Image from 'next/image'
+import { useEffect, useState } from 'react'
 import Chart from './components/chart'
+import CheckinSuccessPopup from './components/checkin-success-popup'
 import CommunityPrize from './components/community-prize'
 import GuidePopup from './components/guide-popup'
-import RewardRedemption from './components/reward-redemption'
-import CheckinSuccessPopup from './components/checkin-success-popup'
+import Header from './components/header'
 import QuizPopup from './components/quiz-popup'
-import { Web3Providers } from '@/components/web3-providers'
+import RewardRedemption from './components/reward-redemption'
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Page() {
   const [isCheckinSuccessOpen, setIsCheckinSuccessOpen] = useState(false)
   const [isQuizOpen, setIsQuizOpen] = useState(false)
+  const [userRank, setUserRank] = useState<{ dream: number; rank: number; percentage: number } | null>(null)
+  const [quests, setQuests] = useState<Quest[]>([])
+
+  const { user } = useUserStore()
 
   const openCheckinSuccessPopup = () => setIsCheckinSuccessOpen(true)
   const closeCheckinSuccessPopup = () => setIsCheckinSuccessOpen(false)
 
   const openQuizPopup = () => setIsQuizOpen(true)
   const closeQuizPopup = () => setIsQuizOpen(false)
+
+  const getRank = async () => {
+    try {
+      const rank = await getCurrentRank()
+      setUserRank(rank)
+    } catch (error) {
+      console.error('Error fetching rank:', error)
+    }
+  }
+
+  const getRankTier = (rank: number | undefined): string => {
+    if (!rank) return 'Top 100'
+    if (rank <= 3) return 'Top 3'
+    if (rank <= 5) return 'Top 5'
+    if (rank <= 10) return 'Top 10'
+    if (rank <= 20) return 'Top 20'
+    if (rank <= 50) return 'Top 50'
+    return 'Top 100'
+  }
+
+  useEffect(() => {
+    const fetchQuests = async () => {
+      try {
+        const quests = await getQuests()
+        setQuests(quests)
+      } catch (error) {
+        console.error('Error fetching quests:', error)
+      }
+    }
+    fetchQuests()
+    getRank()
+  }, [])
 
   return (
     <Web3Providers>
@@ -58,26 +97,34 @@ export default function Page() {
         </div>
         <div className='grid grid-cols-1 lg:grid-cols-[1fr_460px] gap-8 mt-4 px-3'>
           <div className='space-y-2.5'>
-            <div className='pb-2.5 px-3 flex flex-col gap-2.5 md:flex-row md:items-center md:justify-between border-b border-black/20'>
-              <div className='flex items-center gap-4'>
-                <Image
-                  src={Avatar}
-                  alt='Avatar'
-                  className='w-14 h-14 rounded-full overflow-hidden border border-[#D73930]'
-                />
-                <div className='font-paytone-one font-bold text-2xl'>Username</div>
-              </div>
-              <div className='flex shrink-0'>
-                <div className='py-3 px-6 flex flex-col items-center gap-1 border-r border-black/20 flex-1 text-center shrink-0'>
-                  <div className='font-paytone-one text-[#D73930] font-bold text-4xl  whitespace-nowrap'>00</div>
-                  <div className='text-[#323239] font-semibold text-sm  whitespace-nowrap'>TOTAL POINT</div>
+            {user && (
+              <div className='pb-2.5 px-3 flex flex-col gap-2.5 md:flex-row md:items-center md:justify-between border-b border-black/20'>
+                <div className='flex items-center gap-4'>
+                  <Image
+                    src={user.picture || Avatar}
+                    alt='Avatar'
+                    width={56}
+                    height={56}
+                    className='w-14 h-14 rounded-full overflow-hidden border border-[#D73930]'
+                  />
+                  <div className='font-paytone-one font-bold text-2xl'>{user.nickname}</div>
                 </div>
-                <div className='py-3 px-6 flex flex-col items-center gap-1 flex-1 shrink-0'>
-                  <div className='font-paytone-one text-[#D73930] font-bold text-4xl  whitespace-nowrap'>Top 100</div>
-                  <div className='text-[#323239] font-semibold text-sm  whitespace-nowrap'>EVENT RANK</div>
+                <div className='flex shrink-0'>
+                  <div className='py-3 px-6 flex flex-col items-center gap-1 border-r border-black/20 flex-1 text-center shrink-0'>
+                    <div className='font-paytone-one text-[#D73930] font-bold text-4xl  whitespace-nowrap'>
+                      {userRank?.dream}
+                    </div>
+                    <div className='text-[#323239] font-semibold text-sm  whitespace-nowrap'>TOTAL POINT</div>
+                  </div>
+                  <div className='py-3 px-6 flex flex-col items-center gap-1 flex-1 shrink-0'>
+                    <div className='font-paytone-one text-[#D73930] font-bold text-4xl  whitespace-nowrap'>
+                      {getRankTier(userRank?.rank)}
+                    </div>
+                    <div className='text-[#323239] font-semibold text-sm  whitespace-nowrap'>EVENT RANK</div>
+                  </div>
                 </div>
               </div>
-            </div>
+            )}
             <div className='grid grid-cols-1 md:grid-cols-[492px_1fr] lg:grid-cols-1 xl:grid-cols-[492px_1fr] px-3 gap-4'>
               <div className='space-y-2'>
                 <div className='rounded-sm p-4 md:h-23.5 flex flex-col md:flex-row md:justify-between md:items-center bg-[#D73930] gap-4'>
