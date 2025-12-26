@@ -39,7 +39,13 @@ export default function Header({ swiperRef }: { swiperRef?: React.RefObject<Swip
             {navItems.map((item) => (
               <div
                 key={item.label}
-                onClick={() => (item.index !== undefined ? swiperRef?.current?.slideTo(item.index) : undefined)}
+                onClick={() =>
+                  item.index !== undefined
+                    ? swiperRef?.current?.slideTo(item.index)
+                    : item.href
+                    ? (window.location.href = item.href)
+                    : undefined
+                }
                 className={`text-white uppercase cursor-pointer font-semibold ${inter.className}`}>
                 {item.label}
               </div>
