@@ -14,6 +14,7 @@ const navItems = [
   { label: 'Ban Cố Vấn', href: '#ban-co-van', index: 3 },
   { label: 'Đối Tác', href: '#doi-tac', index: 5 },
   { label: 'Đang Diễn Ra', href: '#dang-dien-ra', index: 6 },
+  { label: 'Đọc truyện', href: 'https://punkga.me' },
 ]
 
 export default function Header({ swiperRef }: { swiperRef?: React.RefObject<SwiperClass | null> }) {
@@ -47,8 +48,8 @@ export default function Header({ swiperRef }: { swiperRef?: React.RefObject<Swip
         </div>
         <div className='flex items-center gap-6'>
           <Link
-            href='https://punkga.me'
-            className={`flex items-center gap-1 bg-[#F5BC41] text-[#0A0A0B] rounded-xs lg:rounded-sm h-9 lg:h-10 px-2.5 lg:px-4 text-sm font-semibold ${inter.className}`}>
+            href='#'
+            className={`flex items-center gap-1 bg-[#929190] text-[#0A0A0B] rounded-xs lg:rounded-sm h-9 lg:h-10 px-2.5 lg:px-4 text-sm font-semibold ${inter.className}`}>
             <svg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'>
               <path
                 fillRule='evenodd'
@@ -57,8 +58,8 @@ export default function Header({ swiperRef }: { swiperRef?: React.RefObject<Swip
                 fill='currentColor'
               />
             </svg>
-            <span className='lg:hidden'>PUNKGA.ME</span>
-            <span className='hidden lg:inline'>ĐỌC TRUYỆN TRÊN PUNKGA.ME</span>
+            <span className='lg:hidden'>TIÊN TRI</span>
+            <span className='hidden lg:inline'>TIÊN TRI TÀI BA</span>
           </Link>
         </div>
       </header>
