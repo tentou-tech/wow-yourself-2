@@ -7,11 +7,13 @@ import DecorImage20 from '@/assets/decor_image_20.jpg'
 import DecorImage7 from '@/assets/decor_image_7.png'
 import Divider from '@/assets/Divider.png'
 import { Web3Providers } from '@/components/web3-providers'
-import { getCurrentRank, getQuests, Quest } from '@/services/tttb'
+import { cn } from '@/lib/utils'
+import { checkQuestStatus, claimQuest, getCurrentRank, getQuests, getRequestLog, Quest } from '@/services/tttb'
 import { useUserStore } from '@/stores/user-store'
 import { Inter } from 'next/font/google'
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
+import { toast } from 'sonner'
 import Chart from './components/chart'
 import CheckinSuccessPopup from './components/checkin-success-popup'
 import CommunityPrize from './components/community-prize'
@@ -29,7 +31,6 @@ export default function Page() {
 
   const { user } = useUserStore()
 
-  const openCheckinSuccessPopup = () => setIsCheckinSuccessOpen(true)
   const closeCheckinSuccessPopup = () => setIsCheckinSuccessOpen(false)
 
   const openQuizPopup = () => setIsQuizOpen(true)
@@ -54,25 +55,58 @@ export default function Page() {
     return 'Top 100'
   }
 
-  useEffect(() => {
-    const fetchQuests = async () => {
-      try {
-        const quests = await getQuests()
-        setQuests(quests)
-      } catch (error) {
-        console.error('Error fetching quests:', error)
-      }
+  const fetchQuests = async () => {
+    try {
+      const quests = await getQuests()
+      setQuests(quests)
+    } catch (error) {
+      console.error('Error fetching quests:', error)
     }
+  }
+  useEffect(() => {
     fetchQuests()
     getRank()
   }, [])
+
+  const checkinQuest = quests.find((quest) => quest.quests_i18n.some((i18n) => i18n.data.name === 'Điểm danh'))
+  const quizQuest = quests.find((quest) => quest.type == 'Quiz')
+  const revealResult = async (id: number, onReveal?: () => void) => {
+    try {
+      fetchQuests()
+      getRank()
+      const data = await getRequestLog(id)
+      if (data?.status == 'SUCCEEDED') {
+        onReveal?.()
+        return
+      }
+      if (data?.status == 'FAILED') {
+        toast.error('Có lỗi xảy ra khi điểm danh. Vui lòng thử lại sau.')
+        return
+      }
+      setTimeout(() => revealResult(id), 4000)
+    } catch (error) {
+      toast.error('Có lỗi xảy ra khi điểm danh. Vui lòng thử lại sau.')
+    }
+  }
+
+  const checkInHandler = async () => {
+    try {
+      if (checkinQuest) {
+        await checkQuestStatus(checkinQuest?.id)
+        const res = await claimQuest(checkinQuest.id)
+        revealResult(res.requestId, () => setIsCheckinSuccessOpen(true))
+      }
+    } catch (error) {
+      toast.error('Có lỗi xảy ra khi điểm danh. Vui lòng thử lại sau.')
+    }
+  }
 
   return (
     <Web3Providers>
       <div className={`${inter.className} overflow-x-hidden`}>
         <GuidePopup />
         <CheckinSuccessPopup isOpen={isCheckinSuccessOpen} onClose={closeCheckinSuccessPopup} />
-        <QuizPopup isOpen={isQuizOpen} onClose={closeQuizPopup} />
+        <QuizPopup isOpen={isQuizOpen} onClose={closeQuizPopup} quizQuest={quizQuest} callback={revealResult} />
         <Header />
         <div className='h-45 z-40 bg-[#345EB0] relative p-6'>
           <div
@@ -139,9 +173,12 @@ export default function Page() {
                     </div>
                   </div>
                   <button
-                    onClick={openCheckinSuccessPopup}
-                    className='bg-[#F5BC41] rounded-sm h-10 w-full md:w-fit px-3.5 grid place-items-center font-paytone-one text-lg font-semibold cursor-pointer'>
-                    Check-in
+                    onClick={checkInHandler}
+                    className={cn(
+                      ' rounded-sm h-10 w-full md:w-fit px-3.5 grid place-items-center font-paytone-one text-lg font-semibold cursor-pointer',
+                      checkinQuest?.reward_status == 'CLAIMED' ? 'bg-[#F5BC41]/50 pointer-events-none' : 'bg-[#F5BC41]'
+                    )}>
+                    {checkinQuest?.reward_status == 'CLAIMED' ? 'Đã điểm danh' : 'Điểm danh'}
                   </button>
                 </div>
                 <div className='rounded-sm p-4 md:h-23.5 flex flex-col md:flex-row md:justify-between md:items-center bg-[#D73930] gap-4'>
@@ -157,7 +194,10 @@ export default function Page() {
                   </div>
                   <button
                     onClick={openQuizPopup}
-                    className='bg-[#F5BC41] rounded-sm h-10 w-full md:w-fit px-3.5 grid place-items-center font-paytone-one text-lg font-semibold cursor-pointer'>
+                    className={cn(
+                      ' rounded-sm h-10 w-full md:w-fit px-3.5 grid place-items-center font-paytone-one text-lg font-semibold cursor-pointer',
+                      quizQuest?.reward_status == 'CLAIMED' ? 'bg-[#F5BC41]/50 pointer-events-none' : 'bg-[#F5BC41]'
+                    )}>
                     Giải đố
                   </button>
                 </div>
