@@ -4,7 +4,7 @@
 
 import { getDistributionRankings } from '@/services/tttb'
 import { useEffect, useState } from 'react'
-import { CartesianGrid, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts'
+import { CartesianGrid, Label, Legend, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts'
 
 export default function Chart() {
   const [chartData, setChartData] = useState<any[]>([])
@@ -99,6 +99,7 @@ export default function Chart() {
             type='number'
             domain={xAxisDomain}
             ticks={xAxisTicks}
+            label={{ value: 'XP', position: 'insideBottomRight', offset: -5 }}
           />
           <YAxis
             stroke='#323239'
@@ -106,6 +107,7 @@ export default function Chart() {
             domain={yAxisDomain}
             ticks={yAxisTicks}
             width={50}
+            label={{ value: 'User', angle: -90, position: 'insideLeft' }}
           />
           <Tooltip
             contentStyle={{

@@ -24,13 +24,13 @@ import GuidePopup from './components/guide-popup'
 import Header from './components/header'
 import QuizPopup from './components/quiz-popup'
 import RewardRedemption from './components/reward-redemption'
+import useSWR from 'swr'
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Page() {
   const [isCheckinSuccessOpen, setIsCheckinSuccessOpen] = useState(false)
   const [isQuizOpen, setIsQuizOpen] = useState(false)
   const [isCheckinLoading, setIsCheckinLoading] = useState(false)
-  const [userRank, setUserRank] = useState<{ dream: number; rank: number; percentage: number } | null>(null)
   const [quests, setQuests] = useState<Quest[]>([])
   const { isLoggedIn } = useLoggedIn()
   const { setOpenSignInDialog } = useSignInDialog()
@@ -42,14 +42,13 @@ export default function Page() {
   const openQuizPopup = () => setIsQuizOpen(true)
   const closeQuizPopup = () => setIsQuizOpen(false)
 
-  const getRank = async () => {
-    try {
+  const { data: userRank, mutate } = useSWR({ key: 'getRank', isLoggedIn }, async ({ isLoggedIn }) => {
+    if (isLoggedIn) {
       const rank = await getCurrentRank()
-      setUserRank(rank)
-    } catch (error) {
-      console.error('Error fetching rank:', error)
+      return rank
     }
-  }
+    return null
+  })
 
   const getRankTier = (rank: number | undefined): string => {
     if (!rank) return 'Top 100'
@@ -71,7 +70,7 @@ export default function Page() {
   }
   useEffect(() => {
     fetchQuests()
-    if (isLoggedIn) getRank()
+    if (isLoggedIn) mutate()
   }, [isLoggedIn])
 
   const checkinQuest = quests.find((quest) => quest.quests_i18n.some((i18n) => i18n.data.name === 'Điểm danh'))
@@ -81,7 +80,7 @@ export default function Page() {
       const data = await getRequestLog(id)
       if (data?.status == 'SUCCEEDED') {
         fetchQuests()
-        getRank()
+        mutate()
         setIsCheckinLoading(false)
         setIsCheckinSuccessOpen(true)
         return
@@ -127,7 +126,7 @@ export default function Page() {
           quizQuest={quizQuest}
           callback={() => {
             fetchQuests()
-            getRank()
+            mutate()
           }}
         />
         <Header />
@@ -255,7 +254,7 @@ export default function Page() {
               <RewardRedemption />
             </div>
           </div>
-          <CommunityPrize />
+          <CommunityPrize refreshUserRankData={mutate} />
         </div>
       </div>
     </Web3Providers>

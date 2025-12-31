@@ -103,7 +103,7 @@ const teams = [
     avatar: Todoiloinguocdong,
   },
 ]
-const CommunityPrize = () => {
+const CommunityPrize = ({ refreshUserRankData }: { refreshUserRankData: () => void }) => {
   const [displayTeams, setDisplayTeams] = useState(teams)
 
   const fetchTeamsPoints = async () => {
@@ -154,14 +154,22 @@ const CommunityPrize = () => {
       </div>
       <div className='space-y-4'>
         {displayTeams.map((team, index) => (
-          <Group key={index} {...team} index={index + 1} fetchTeamsPoints={fetchTeamsPoints} />
+          <Group
+            key={index}
+            {...team}
+            index={index + 1}
+            fetchTeamsPoints={fetchTeamsPoints}
+            refreshUserRankData={refreshUserRankData}
+          />
         ))}
       </div>
     </div>
   )
 }
 
-const Group = (props: (typeof teams)[0] & { index: number; fetchTeamsPoints: () => Promise<void> }) => {
+const Group = (
+  props: (typeof teams)[0] & { index: number; fetchTeamsPoints: () => Promise<void>; refreshUserRankData: () => void }
+) => {
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [isGiveDialogOpen, setIsGiveDialogOpen] = useState(false)
   const [isConfirmDialogOpen, setIsConfirmDialogOpen] = useState(false)
@@ -194,6 +202,7 @@ const Group = (props: (typeof teams)[0] & { index: number; fetchTeamsPoints: () 
       setIsConfirmDialogOpen(false)
       setPointsAmount('')
       await props.fetchTeamsPoints()
+      props.refreshUserRankData()
       toast.success('Tặng điểm thành công!')
       // Optionally refresh team points here
     } catch (error) {
@@ -226,8 +235,8 @@ const Group = (props: (typeof teams)[0] & { index: number; fetchTeamsPoints: () 
         </div>
         <div className='w-full md:w-auto pt-4 md:pt-0'>
           <button
-            onClick={handleGiveClick}
-            className='bg-[#345EB0] text-white px-4 py-2 rounded-md font-semibold cursor-pointer w-full md:w-auto hover:bg-[#2847a3] transition'>
+            disabled
+            className='bg-gray-400 text-white px-4 py-2 rounded-md font-semibold cursor-not-allowed w-full md:w-auto opacity-50'>
             Tặng
           </button>
         </div>
