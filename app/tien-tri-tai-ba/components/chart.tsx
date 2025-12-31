@@ -17,11 +17,13 @@ export default function Chart() {
     try {
       const res = await getDistributionRankings()
       // Convert ranking data to chart format (x: xp level, y: number of users)
-      const convertedData = res.map((item: { users: number; xp: number }) => ({
-        x: item.xp,
-        y: item.users,
-        name: 'user',
-      }))
+      const convertedData = res
+        .map((item: { users: number; xp: number }) => ({
+          x: item.xp,
+          y: item.users,
+          name: 'user',
+        }))
+        .sort((a: any, b: any) => a.x - b.x)
       setChartData(convertedData)
 
       // Calculate dynamic domain and ticks based on data
@@ -76,8 +78,8 @@ export default function Chart() {
     const id = setInterval(() => {
       getRanking()
     }, 30 * 1000) // Update every 30 seconds
-    return () => clearInterval(id)
     getRanking()
+    return () => clearInterval(id)
   }, [])
 
   return (
