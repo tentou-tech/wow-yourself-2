@@ -78,10 +78,10 @@ export default function Page() {
   const quizQuest = quests.find((quest) => quest.type == 'Quiz')
   const revealResult = async (id: number) => {
     try {
-      fetchQuests()
-      getRank()
       const data = await getRequestLog(id)
       if (data?.status == 'SUCCEEDED') {
+        fetchQuests()
+        getRank()
         setIsCheckinLoading(false)
         setIsCheckinSuccessOpen(true)
         return
