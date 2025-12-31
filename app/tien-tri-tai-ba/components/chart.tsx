@@ -20,6 +20,7 @@ export default function Chart() {
       const convertedData = res.map((item: { users: number; xp: number }) => ({
         x: item.xp,
         y: item.users,
+        name: 'user',
       }))
       setChartData(convertedData)
 
@@ -111,6 +112,7 @@ export default function Chart() {
           <Line
             type='monotone'
             dataKey='y'
+            name='User'
             stroke='#D73930'
             strokeWidth={3}
             dot={({ cx, cy, payload }: any) => {
