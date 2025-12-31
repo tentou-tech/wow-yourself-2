@@ -1,24 +1,48 @@
 /* eslint-disable react-hooks/purity */
 'use client'
 
-import { useMemo, useState } from 'react'
+import { useMemo, useState, useRef } from 'react'
 import Image from 'next/image'
 import ModalBorder from './modal-border'
+import { Spinner } from '@/components/ui/spinner'
 import a13 from '@/assets/advisors/Advisor_13_Mascot.png'
-import { answerQuiz, claimQuest, Quest } from '@/services/tttb'
+import { answerQuiz, claimQuest, getRequestLog, Quest } from '@/services/tttb'
 import { toast } from 'sonner'
 
 interface QuizPopupProps {
   isOpen: boolean
   onClose: () => void
   quizQuest?: Quest
-  callback: (id: number, onReveal?: () => void) => void
+  callback: () => void
 }
 
 const QuizPopup = ({ isOpen, onClose, quizQuest, callback }: QuizPopupProps) => {
   const [step, setStep] = useState(1)
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null)
-
+  const [isLoading, setIsLoading] = useState(false)
+  const shuffledAnswersRef = useRef<string[]>([])
+  const lastQuizIdRef = useRef<number | null>(null)
+  const revealResult = async (id: number) => {
+    try {
+      callback()
+      setIsLoading(true)
+      const data = await getRequestLog(id)
+      if (data?.status == 'SUCCEEDED') {
+        setIsLoading(false)
+        setStep(2)
+        return
+      }
+      if (data?.status == 'FAILED') {
+        setIsLoading(false)
+        toast.error('Có lỗi xảy ra khi điểm danh. Vui lòng thử lại sau.')
+        return
+      }
+      setTimeout(() => revealResult(id), 4000)
+    } catch (error) {
+      setIsLoading(false)
+      toast.error('Có lỗi xảy ra khi điểm danh. Vui lòng thử lại sau.')
+    }
+  }
   const handleConfirm = async () => {
     if (!selectedAnswer) {
       return
@@ -29,11 +53,10 @@ const QuizPopup = ({ isOpen, onClose, quizQuest, callback }: QuizPopupProps) => 
       setSelectedAnswer(null)
       return
     } else {
+      setIsLoading(true)
       await answerQuiz(quizQuest.id, selectedAnswer)
       const res = await claimQuest(quizQuest.id)
-      callback(res.requestId, () => {
-        setStep(2)
-      })
+      revealResult(res.requestId)
     }
   }
 
@@ -46,10 +69,15 @@ const QuizPopup = ({ isOpen, onClose, quizQuest, callback }: QuizPopupProps) => 
     if (!quizQuest) {
       return []
     }
-    return [
-      ...quizQuest.requirement.quiz.multiple_choice[0].wrong_answer,
-      quizQuest.requirement.quiz.multiple_choice[0].correct_answer,
-    ].sort(() => 0.5 - Math.random())
+    // Only shuffle once per quiz question
+    if (lastQuizIdRef.current !== quizQuest.id) {
+      lastQuizIdRef.current = quizQuest.id
+      shuffledAnswersRef.current = [
+        ...quizQuest.requirement.quiz.multiple_choice[0].wrong_answer,
+        quizQuest.requirement.quiz.multiple_choice[0].correct_answer,
+      ].sort(() => 0.5 - Math.random())
+    }
+    return shuffledAnswersRef.current
   }, [quizQuest])
 
   if (!isOpen || !quizQuest) {
@@ -80,7 +108,9 @@ const QuizPopup = ({ isOpen, onClose, quizQuest, callback }: QuizPopupProps) => 
           </div>
           <button
             onClick={handleConfirm}
-            className='bg-[#D73930] text-white px-8 py-3 rounded-md font-paytone-one text-lg w-full'>
+            disabled={isLoading}
+            className='bg-[#D73930] text-white px-8 py-3 rounded-md font-paytone-one text-lg w-full disabled:opacity-50 flex items-center justify-center gap-2'>
+            {isLoading && <Spinner className='w-4 h-4' />}
             Xác Nhận
           </button>
         </ModalBorder>

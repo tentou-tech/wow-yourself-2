@@ -109,13 +109,15 @@ const CommunityPrize = () => {
     const fetchTeamsPoints = async () => {
       try {
         const pointsData = await getTeamPoints()
-        const updatedTeams = teams.map((team) => {
-          const teamPoints = pointsData.find((p) => p.id === team.id)
-          return {
-            ...team,
-            points: teamPoints?.points ?? 0,
-          }
-        })
+        const updatedTeams = teams
+          .map((team) => {
+            const teamPoints = pointsData.find((p) => p.id === team.id)
+            return {
+              ...team,
+              points: teamPoints?.points ?? 0,
+            }
+          })
+          .sort((a, b) => b.points - a.points)
         setDisplayTeams(updatedTeams)
       } catch (error) {
         console.error('Error fetching teams points:', error)

@@ -8,6 +8,7 @@ import DecorImage7 from '@/assets/decor_image_7.png'
 import Divider from '@/assets/Divider.png'
 import { useSignInDialog } from '@/components/signin-dialog'
 import { Web3Providers } from '@/components/web3-providers'
+import { Spinner } from '@/components/ui/spinner'
 import { useLoggedIn } from '@/hooks/useLoggedIn'
 import { cn } from '@/lib/utils'
 import { checkQuestStatus, claimQuest, getCurrentRank, getQuests, getRequestLog, Quest } from '@/services/tttb'
@@ -28,6 +29,7 @@ const inter = Inter({ subsets: ['latin'] })
 export default function Page() {
   const [isCheckinSuccessOpen, setIsCheckinSuccessOpen] = useState(false)
   const [isQuizOpen, setIsQuizOpen] = useState(false)
+  const [isCheckinLoading, setIsCheckinLoading] = useState(false)
   const [userRank, setUserRank] = useState<{ dream: number; rank: number; percentage: number } | null>(null)
   const [quests, setQuests] = useState<Quest[]>([])
   const { isLoggedIn } = useLoggedIn()
@@ -74,21 +76,24 @@ export default function Page() {
 
   const checkinQuest = quests.find((quest) => quest.quests_i18n.some((i18n) => i18n.data.name === 'Điểm danh'))
   const quizQuest = quests.find((quest) => quest.type == 'Quiz')
-  const revealResult = async (id: number, onReveal?: () => void) => {
+  const revealResult = async (id: number) => {
     try {
       fetchQuests()
       getRank()
       const data = await getRequestLog(id)
       if (data?.status == 'SUCCEEDED') {
-        onReveal?.()
+        setIsCheckinLoading(false)
+        setIsCheckinSuccessOpen(true)
         return
       }
       if (data?.status == 'FAILED') {
+        setIsCheckinLoading(false)
         toast.error('Có lỗi xảy ra khi điểm danh. Vui lòng thử lại sau.')
         return
       }
       setTimeout(() => revealResult(id), 4000)
     } catch (error) {
+      setIsCheckinLoading(false)
       toast.error('Có lỗi xảy ra khi điểm danh. Vui lòng thử lại sau.')
     }
   }
@@ -100,11 +105,13 @@ export default function Page() {
         return
       }
       if (checkinQuest) {
+        setIsCheckinLoading(true)
         await checkQuestStatus(checkinQuest?.id)
         const res = await claimQuest(checkinQuest.id)
-        revealResult(res.requestId, () => setIsCheckinSuccessOpen(true))
+        revealResult(res.requestId)
       }
     } catch (error) {
+      setIsCheckinLoading(false)
       toast.error('Có lỗi xảy ra khi điểm danh. Vui lòng thử lại sau.')
     }
   }
@@ -114,7 +121,15 @@ export default function Page() {
       <div className={`${inter.className} overflow-x-hidden`}>
         <GuidePopup />
         <CheckinSuccessPopup isOpen={isCheckinSuccessOpen} onClose={closeCheckinSuccessPopup} />
-        <QuizPopup isOpen={isQuizOpen} onClose={closeQuizPopup} quizQuest={quizQuest} callback={revealResult} />
+        <QuizPopup
+          isOpen={isQuizOpen}
+          onClose={closeQuizPopup}
+          quizQuest={quizQuest}
+          callback={() => {
+            fetchQuests()
+            getRank()
+          }}
+        />
         <Header />
         <div className='h-45 z-40 bg-[#345EB0] relative p-6'>
           <div
@@ -156,7 +171,7 @@ export default function Page() {
                     <div className='font-paytone-one text-[#D73930] font-bold text-4xl  whitespace-nowrap'>
                       {userRank?.dream}
                     </div>
-                    <div className='text-[#323239] font-semibold text-sm  whitespace-nowrap'>TOTAL POINT</div>
+                    <div className='text-[#323239] font-semibold text-sm  whitespace-nowrap'>STAR</div>
                   </div>
                   <div className='py-3 px-6 flex flex-col items-center gap-1 flex-1 shrink-0'>
                     <div className='font-paytone-one text-[#D73930] font-bold text-4xl  whitespace-nowrap'>
@@ -182,10 +197,13 @@ export default function Page() {
                   </div>
                   <button
                     onClick={checkInHandler}
+                    disabled={isCheckinLoading || checkinQuest?.reward_status == 'CLAIMED'}
                     className={cn(
-                      ' rounded-sm h-10 w-full md:w-fit px-3.5 grid place-items-center font-paytone-one text-lg font-semibold cursor-pointer',
-                      checkinQuest?.reward_status == 'CLAIMED' ? 'bg-[#F5BC41]/50 pointer-events-none' : 'bg-[#F5BC41]'
+                      ' rounded-sm h-10 w-full md:w-fit px-3.5 grid place-items-center font-paytone-one text-lg font-semibold cursor-pointer flex items-center justify-center gap-2',
+                      checkinQuest?.reward_status == 'CLAIMED' ? 'bg-[#F5BC41]/50 pointer-events-none' : 'bg-[#F5BC41]',
+                      isCheckinLoading && 'opacity-50'
                     )}>
+                    {isCheckinLoading && <Spinner className='w-4 h-4' />}
                     {checkinQuest?.reward_status == 'CLAIMED' ? 'Đã điểm danh' : 'Điểm danh'}
                   </button>
                 </div>
