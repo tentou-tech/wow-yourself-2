@@ -25,6 +25,7 @@ import Header from './components/header'
 import QuizPopup from './components/quiz-popup'
 import RewardRedemption from './components/reward-redemption'
 import useSWR from 'swr'
+import { AlertCircle } from 'lucide-react'
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Page() {
@@ -34,7 +35,7 @@ export default function Page() {
   const [quests, setQuests] = useState<Quest[]>([])
   const { isLoggedIn } = useLoggedIn()
   const { setOpenSignInDialog } = useSignInDialog()
-
+  const [isGuideOpen, setIsGuideOpen] = useState(false)
   const { user } = useUserStore()
 
   const closeCheckinSuccessPopup = () => setIsCheckinSuccessOpen(false)
@@ -118,7 +119,7 @@ export default function Page() {
   return (
     <Web3Providers>
       <div className={`${inter.className} overflow-x-hidden`}>
-        <GuidePopup />
+        <GuidePopup isOpen={isGuideOpen} setIsOpen={setIsGuideOpen} />
         <CheckinSuccessPopup isOpen={isCheckinSuccessOpen} onClose={closeCheckinSuccessPopup} />
         <QuizPopup
           isOpen={isQuizOpen}
@@ -181,6 +182,12 @@ export default function Page() {
                 </div>
               </div>
             )}
+            <div
+              onClick={() => setIsGuideOpen(true)}
+              className='flex justify-end text-sm text-Text-Default-text-quaternary cursor-pointer underline px-3 gap-1 items-center'>
+              <AlertCircle className='size-4' />
+              <span>Thể lệ chương trình</span>
+            </div>
             <div className='grid grid-cols-1 md:grid-cols-[492px_1fr] lg:grid-cols-1 xl:grid-cols-[492px_1fr] px-3 gap-4'>
               <div className='space-y-2'>
                 <div className='rounded-sm p-4 md:h-23.5 flex flex-col md:flex-row md:justify-between md:items-center bg-[#D73930] gap-4'>

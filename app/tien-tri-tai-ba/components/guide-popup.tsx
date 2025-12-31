@@ -9,9 +9,14 @@ import Advisor11Mascot from '@/assets/advisors/advisor_11_mascot.png'
 import Advisor12Mascot from '@/assets/advisors/advisor_12_mascot.png'
 import ModalBorder from './modal-border'
 
-const GuidePopup = () => {
+const GuidePopup = ({
+  isOpen,
+  setIsOpen,
+}: {
+  isOpen: boolean
+  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>
+}) => {
   const [step, setStep] = useState(0)
-  const [isOpen, setIsOpen] = useState(false)
 
   const steps = [
     {
@@ -41,6 +46,12 @@ const GuidePopup = () => {
       setIsOpen(true)
     }
   }, [])
+
+  useEffect(() => {
+    if (isOpen) {
+      setStep(0)
+    }
+  }, [isOpen])
 
   const handleNextStep = () => {
     if (step < steps.length - 1) {
