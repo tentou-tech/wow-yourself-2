@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/set-state-in-effect */
 import Advisor1Mascot from '@/assets/advisors/advisor_9_mascot.png'
 import DecorImage18 from '@/assets/decor_image_18.png'
 import Aids from '@/assets/teams/aids.png'
@@ -105,25 +106,24 @@ const teams = [
 const CommunityPrize = () => {
   const [displayTeams, setDisplayTeams] = useState(teams)
 
-  useEffect(() => {
-    const fetchTeamsPoints = async () => {
-      try {
-        const pointsData = await getTeamPoints()
-        const updatedTeams = teams
-          .map((team) => {
-            const teamPoints = pointsData.find((p) => p.id === team.id)
-            return {
-              ...team,
-              points: teamPoints?.points ?? 0,
-            }
-          })
-          .sort((a, b) => b.points - a.points)
-        setDisplayTeams(updatedTeams)
-      } catch (error) {
-        console.error('Error fetching teams points:', error)
-      }
+  const fetchTeamsPoints = async () => {
+    try {
+      const pointsData = await getTeamPoints()
+      const updatedTeams = teams
+        .map((team) => {
+          const teamPoints = pointsData.find((p) => p.id === team.id)
+          return {
+            ...team,
+            points: teamPoints?.points ?? 0,
+          }
+        })
+        .sort((a, b) => b.points - a.points)
+      setDisplayTeams(updatedTeams)
+    } catch (error) {
+      console.error('Error fetching teams points:', error)
     }
-
+  }
+  useEffect(() => {
     fetchTeamsPoints()
   }, [])
   return (
@@ -154,14 +154,14 @@ const CommunityPrize = () => {
       </div>
       <div className='space-y-4'>
         {displayTeams.map((team, index) => (
-          <Group key={index} {...team} index={index + 1} />
+          <Group key={index} {...team} index={index + 1} fetchTeamsPoints={fetchTeamsPoints} />
         ))}
       </div>
     </div>
   )
 }
 
-const Group = (props: (typeof teams)[0] & { index: number }) => {
+const Group = (props: (typeof teams)[0] & { index: number; fetchTeamsPoints: () => Promise<void> }) => {
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [isGiveDialogOpen, setIsGiveDialogOpen] = useState(false)
   const [isConfirmDialogOpen, setIsConfirmDialogOpen] = useState(false)
@@ -193,6 +193,7 @@ const Group = (props: (typeof teams)[0] & { index: number }) => {
       await giveTeamPoints(Number(pointsAmount), props.id)
       setIsConfirmDialogOpen(false)
       setPointsAmount('')
+      await props.fetchTeamsPoints()
       toast.success('Tặng điểm thành công!')
       // Optionally refresh team points here
     } catch (error) {
