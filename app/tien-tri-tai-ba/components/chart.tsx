@@ -107,7 +107,7 @@ export default function Chart() {
             domain={yAxisDomain}
             ticks={yAxisTicks}
             width={50}
-            label={{ value: 'User', angle: -90, position: 'insideLeft' }}
+            label={{ value: 'Người tham gia', angle: -90, position: 'insideLeft' }}
           />
           <Tooltip
             contentStyle={{
@@ -117,6 +117,18 @@ export default function Chart() {
               boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
             }}
             cursor={false}
+            content={({ active, payload }: any) => {
+              if (active && payload && payload.length) {
+                const data = payload[0].payload
+                return (
+                  <div className='bg-white p-3 rounded-lg shadow-md'>
+                    <p className='font-bold text-lg'>{data.x} XP</p>
+                    <p className='text-red-600 font-semibold'>Người tham gia : {data.y}</p>
+                  </div>
+                )
+              }
+              return null
+            }}
           />
           <Line
             type='monotone'
