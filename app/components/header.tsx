@@ -54,8 +54,8 @@ export default function Header({ swiperRef }: { swiperRef?: React.RefObject<Swip
         </div>
         <div className='flex items-center gap-6'>
           <Link
-            href='#'
-            className={`flex items-center gap-1 bg-[#929190] text-[#0A0A0B] rounded-xs lg:rounded-sm h-9 lg:h-10 px-2.5 lg:px-4 text-sm font-semibold ${inter.className}`}>
+            href='/tien-tri-tai-ba'
+            className={`flex items-center gap-1 bg-[#F5BC41] text-[#0A0A0B] rounded-xs lg:rounded-sm h-9 lg:h-10 px-2.5 lg:px-4 text-sm font-semibold ${inter.className}`}>
             <svg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'>
               <path
                 fillRule='evenodd'

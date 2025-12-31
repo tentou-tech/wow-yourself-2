@@ -6,7 +6,9 @@ import DecorImage19 from '@/assets/decor_image_19.png'
 import DecorImage20 from '@/assets/decor_image_20.jpg'
 import DecorImage7 from '@/assets/decor_image_7.png'
 import Divider from '@/assets/Divider.png'
+import { useSignInDialog } from '@/components/signin-dialog'
 import { Web3Providers } from '@/components/web3-providers'
+import { useLoggedIn } from '@/hooks/useLoggedIn'
 import { cn } from '@/lib/utils'
 import { checkQuestStatus, claimQuest, getCurrentRank, getQuests, getRequestLog, Quest } from '@/services/tttb'
 import { useUserStore } from '@/stores/user-store'
@@ -28,6 +30,8 @@ export default function Page() {
   const [isQuizOpen, setIsQuizOpen] = useState(false)
   const [userRank, setUserRank] = useState<{ dream: number; rank: number; percentage: number } | null>(null)
   const [quests, setQuests] = useState<Quest[]>([])
+  const { isLoggedIn } = useLoggedIn()
+  const { setOpenSignInDialog } = useSignInDialog()
 
   const { user } = useUserStore()
 
@@ -65,8 +69,8 @@ export default function Page() {
   }
   useEffect(() => {
     fetchQuests()
-    getRank()
-  }, [])
+    if (isLoggedIn) getRank()
+  }, [isLoggedIn])
 
   const checkinQuest = quests.find((quest) => quest.quests_i18n.some((i18n) => i18n.data.name === 'Điểm danh'))
   const quizQuest = quests.find((quest) => quest.type == 'Quiz')
@@ -91,6 +95,10 @@ export default function Page() {
 
   const checkInHandler = async () => {
     try {
+      if (!isLoggedIn) {
+        setOpenSignInDialog(true)
+        return
+      }
       if (checkinQuest) {
         await checkQuestStatus(checkinQuest?.id)
         const res = await claimQuest(checkinQuest.id)
@@ -193,7 +201,13 @@ export default function Page() {
                     </div>
                   </div>
                   <button
-                    onClick={openQuizPopup}
+                    onClick={() => {
+                      if (isLoggedIn) {
+                        openQuizPopup()
+                      } else {
+                        setOpenSignInDialog(true)
+                      }
+                    }}
                     className={cn(
                       ' rounded-sm h-10 w-full md:w-fit px-3.5 grid place-items-center font-paytone-one text-lg font-semibold cursor-pointer',
                       quizQuest?.reward_status == 'CLAIMED' ? 'bg-[#F5BC41]/50 pointer-events-none' : 'bg-[#F5BC41]'

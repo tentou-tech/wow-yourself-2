@@ -90,3 +90,12 @@ export const answerQuiz = async (questId: number, answer: string) => {
   })
   return res.data
 }
+export const getDistributionRankings = async (): Promise<
+  {
+    users: number
+    xp: number
+  }[]
+> => {
+  const res = await axiosInstance.get('/tttb/distribution-ranking')
+  return res.data
+}

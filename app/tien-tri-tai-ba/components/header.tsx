@@ -17,14 +17,7 @@ import { Avatar } from '@/components/ui/avatar'
 
 const inter = Inter({ subsets: ['latin'] })
 
-const navItems = [
-  { label: 'Lời Ngỏ', href: '#' },
-  { label: 'Giải Thưởng', href: '#' },
-  { label: 'Ban Cố Vấn', href: '#' },
-  { label: 'Đối Tác', href: '#' },
-  { label: 'Đang Diễn Ra', href: '#' },
-  { label: 'Team', href: '#' },
-]
+const navItems = [{ label: 'Đọc truyện', href: 'https://punkga.me' }]
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false)
