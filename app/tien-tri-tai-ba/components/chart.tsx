@@ -73,8 +73,13 @@ export default function Chart() {
   }
 
   useEffect(() => {
+    const id = setInterval(() => {
+      getRanking()
+    }, 30 * 1000) // Update every 30 seconds
+    return () => clearInterval(id)
     getRanking()
   }, [])
+
   return (
     <div className='w-full'>
       <ResponsiveContainer width='100%' height={350} className={'bg-[#E9D5B9] rounded-sm'}>
