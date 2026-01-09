@@ -18,6 +18,7 @@ import Advisor6Mascot from '@/assets/advisors/advisor_6_mascot.png'
 import Advisor7Mascot from '@/assets/advisors/advisor_7_mascot.png'
 import Advisor8Mascot from '@/assets/advisors/advisor_8_mascot.png'
 import { useState, useEffect } from 'react'
+import { cn } from '@/lib/utils'
 
 const advisors = [
   {
@@ -122,7 +123,11 @@ export default function Section4() {
               key={`mascot-${index}`}
               src={shuffledAdvisors[index].mascot}
               alt={`${shuffledAdvisors[index].name} Mascot`}
-              className='absolute bottom-0 right-0 translate-x-1/6 translate-y-1/4 w-full h-auto slide-from-right'
+              quality={100}
+              className={cn(
+                'absolute bottom-0 right-0 translate-x-1/6 translate-y-1/4 h-auto slide-from-right',
+                shuffledAdvisors[index].name == 'XiXu' ? 'w-auto max-w-none h-[80%]' : 'w-full'
+              )}
             />
           </div>
           <div className='flex flex-col justify-between relative'>

@@ -138,13 +138,12 @@ export default function Page() {
           <Image
             src={DecorImage19}
             alt='Decor Image 19'
-            className='absolute hidden md:block right-0 bottom-0 w-auto h-[110%]'
+            className='absolute hidden pointer-events-none md:block right-0 bottom-0 w-auto h-[130%]'
           />
           <div
             className='h-10 absolute bottom-0 left-0 right-0 scale-y-[-1] bg-repeat'
             style={{ backgroundImage: `url(${Divider.src})`, backgroundSize: 'auto 100%' }}></div>
           <div className='relative'>
-            <div className='w-25 h-25 rounded-full bg-[#FF9548]'></div>
             <h1 className='font-extrabold absolute top-0 left-7 font-paytone-one text-[50px] leading-none text-white'>
               Tiên tri
               <br />

@@ -9,16 +9,15 @@ import Kado from '@/assets/teams/kado.png'
 import Milyhaisan from '@/assets/teams/milyhaisan.png'
 import Sixpieces from '@/assets/teams/sixpieces.png'
 import Taomong from '@/assets/teams/taomong.png'
-import Todoiloinguocdong from '@/assets/teams/todoiloinguocdong.png'
+import { useSignInDialog } from '@/components/signin-dialog'
 import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle } from '@/components/ui/dialog'
 import { Input } from '@/components/ui/input'
+import { useLoggedIn } from '@/hooks/useLoggedIn'
 import { getTeamPoints, giveTeamPoints } from '@/services/tttb'
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
 import { toast } from 'sonner'
 import ModalBorder from './modal-border'
-import { useLoggedIn } from '@/hooks/useLoggedIn'
-import { useSignInDialog } from '@/components/signin-dialog'
 const teams = [
   {
     id: 'milyhaisan',
@@ -92,16 +91,16 @@ const teams = [
     points: 0,
     avatar: Aids,
   },
-  {
-    id: 'todoiloinguocdong',
-    name: 'Tổ đội lội ngược dòng',
-    members:
-      'Duy torao, Emilynne, Lucifer Bù Nhìn, Hoàng Ngọc Lii, Nguyễn Hữu Thịnh, Nguyễn Mido, Rượu siêu yếu, Xuan Thuy, TRB art',
-    advisor: 'PunkgaMe x Du Bút',
-    topic: 'Để Nó Trôi Đi',
-    points: 0,
-    avatar: Todoiloinguocdong,
-  },
+  // {
+  //   id: 'todoiloinguocdong',
+  //   name: 'Tổ đội lội ngược dòng',
+  //   members:
+  //     'Duy torao, Emilynne, Lucifer Bù Nhìn, Hoàng Ngọc Lii, Nguyễn Hữu Thịnh, Nguyễn Mido, Rượu siêu yếu, Xuan Thuy, TRB art',
+  //   advisor: 'PunkgaMe x Du Bút',
+  //   topic: 'Để Nó Trôi Đi',
+  //   points: 0,
+  //   avatar: Todoiloinguocdong,
+  // },
 ]
 const CommunityPrize = ({ refreshUserRankData }: { refreshUserRankData: () => void }) => {
   const [displayTeams, setDisplayTeams] = useState(teams)
@@ -129,7 +128,7 @@ const CommunityPrize = ({ refreshUserRankData }: { refreshUserRankData: () => vo
   return (
     <div className='p-4 rounded-sm'>
       <div className='relative'>
-        <h2 className='text-[32px] font-paytone-one font-bold mb-4'>Giải Cộng đồng</h2>
+        <h2 className='text-[32px] font-paytone-one font-bold mb-4'>Cổ vũ nhóm bạn yêu thích</h2>
         <div className='relative bg-[#345EB0] rounded-md'>
           <div
             className='rounded-lg mb-4 absolute  w-full h-full'
@@ -141,14 +140,14 @@ const CommunityPrize = ({ refreshUserRankData }: { refreshUserRankData: () => vo
               opacity: 0.1,
             }}></div>
           <div className='p-4'>
-            <div className='text-sm font-semibold text-[#D9D9DE]'>07/12/2025 - 01/01/2026</div>
+            <div className='text-sm font-semibold text-[#D9D9DE]'>11/01/2026 - 15/03/2026</div>
             <div className='text-2xl font-bold text-[#F5BC41] font-paytone-one pt-1'>
               Team Top 01 <span className='text-[#D9D9DE]'>nhận</span>
             </div>
-            <div className='text-[42px] font-bold text-[#F5BC41] font-paytone-one'>1.000.000vnd</div>
+            <div className='text-[42px] font-bold text-[#F5BC41] font-paytone-one'>5.000.000vnđ</div>
           </div>
         </div>
-        <div className='w-30.5 h-32 md:w-44.25 md:h-47 absolute right-0 bottom-0 md:top-0'>
+        <div className='w-30.5 h-32 md:w-30 md:h-auto absolute right-0 bottom-0 md:-top-5 md:-right-5'>
           <Image src={Advisor1Mascot} alt='Prize illustration' layout='fill' objectFit='contain' />
         </div>
       </div>
@@ -231,7 +230,7 @@ const Group = (
           </div>
         </div>
         <div className='flex items-center'>
-          <p className='mr-4 font-bold'>{props.points} P</p>
+          <p className='mr-4 font-bold'>{props.points} Star</p>
         </div>
         <div className='w-full md:w-auto pt-4 md:pt-0'>
           <button
@@ -272,7 +271,7 @@ const Group = (
 
                 <div>
                   <h4 className='font-bold text-lg mb-2'>Điểm</h4>
-                  <p className='text-xl font-bold text-[#345EB0]'>{props.points} P</p>
+                  <p className='text-xl font-bold text-[#345EB0]'>{props.points} Star</p>
                 </div>
               </div>
 
@@ -290,17 +289,17 @@ const Group = (
       <Dialog open={isGiveDialogOpen} onOpenChange={setIsGiveDialogOpen}>
         <DialogContent>
           <DialogHeader>
-            <DialogTitle>Tặng điểm cho {props.name}</DialogTitle>
+            <DialogTitle>Tặng Star cho {props.name}</DialogTitle>
           </DialogHeader>
           <div className='space-y-4 py-4'>
             <div>
-              <label className='block text-sm font-medium mb-2'>Số điểm muốn tặng</label>
+              <label className='block text-sm font-medium mb-2'>Số Star muốn tặng</label>
               <Input
                 type='number'
                 min='1'
                 value={pointsAmount}
                 onChange={(e) => setPointsAmount(e.target.value)}
-                placeholder='Nhập số điểm'
+                placeholder='Nhập số Star'
                 className='w-full'
               />
             </div>
@@ -324,11 +323,11 @@ const Group = (
       <Dialog open={isConfirmDialogOpen} onOpenChange={setIsConfirmDialogOpen}>
         <DialogContent>
           <DialogHeader>
-            <DialogTitle>Xác nhận tặng điểm</DialogTitle>
+            <DialogTitle>Xác nhận tặng Star</DialogTitle>
           </DialogHeader>
           <div className='space-y-4 py-4'>
             <p>
-              Bạn sắp tặng <span className='font-bold text-[#345EB0]'>{pointsAmount} điểm</span> cho nhóm{' '}
+              Bạn sắp tặng <span className='font-bold text-[#345EB0]'>{pointsAmount} Star</span> cho nhóm{' '}
               <span className='font-bold'>{props.name}</span>
             </p>
             <p className='text-sm text-gray-600'>Vui lòng xác nhận hành động này.</p>

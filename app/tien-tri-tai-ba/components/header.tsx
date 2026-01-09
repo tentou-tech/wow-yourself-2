@@ -1,19 +1,18 @@
 'use client'
 import Logo from '@/assets/Logo.svg'
 import { useSignInDialog } from '@/components/signin-dialog'
+import { Avatar } from '@/components/ui/avatar'
+import { Button } from '@/components/ui/button'
+import { DropdownMenu, DropdownMenuContent, DropdownMenuTrigger } from '@/components/ui/dropdown-menu'
+import { useLoggedIn } from '@/hooks/useLoggedIn'
 import { useUserStore } from '@/stores/user-store'
+import { LogOut } from 'lucide-react'
 import { Inter } from 'next/font/google'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useState } from 'react'
-import { useAccount, useBalance, useDisconnect } from 'wagmi'
 import { useIsClient, useWindowSize } from 'usehooks-ts'
-import { useLoggedIn } from '@/hooks/useLoggedIn'
-import { DropdownMenu, DropdownMenuContent, DropdownMenuTrigger } from '@/components/ui/dropdown-menu'
-import { cn, formatBalance } from '@/lib/utils'
-import { ArrowUpRight, LogOut, PlusIcon, SquareUser, Star } from 'lucide-react'
-import { Button } from '@/components/ui/button'
-import { Avatar } from '@/components/ui/avatar'
+import { useAccount, useBalance, useDisconnect } from 'wagmi'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -74,30 +73,8 @@ export default function Header() {
                   <div className='divide-y divide-Border-border-secondary w-xs'>
                     <div className='p-4 space-y-2'>
                       <div className='text-Text-Brand-text-brand-primary font-bold text-sm'>{user.nickname}</div>
-                      <div className='flex w-full justify-between items-center text-sm font-medium'>
-                        <div className=''>
-                          {formatBalance(data?.value || 0, data?.decimals)} {data?.symbol}
-                        </div>
-                        <div className='text-Text-Link-text-link-primary flex items-center gap-0.5 cursor-pointer'>
-                          Activity <ArrowUpRight className='w-4 h-4' />
-                        </div>
-                      </div>
-                      {isConnected && (
-                        <div className='text-xs text-Text-Default-text-secondary'>
-                          Connected chain: <strong className='text-Text-Default-text-primary'>{chain?.name}</strong>
-                        </div>
-                      )}
                     </div>
-                    <div className='text-sm font-medium'>
-                      <Link href='https://punkga.me/subscribed-manga' className='p-4 flex items-center gap-3.5'>
-                        <Star className='size-4' fill='currentColor' />
-                        Subscribed Manga
-                      </Link>
-                      <Link href='https://punkga.me/my-profile' className='p-4 flex items-center gap-3.5'>
-                        <SquareUser className='size-4' />
-                        My Profile
-                      </Link>
-                    </div>
+
                     <div className='text-sm font-medium'>
                       <div className='p-4 flex items-center gap-3.5 cursor-pointer' onClick={logoutHandler}>
                         <LogOut className='size-4' />

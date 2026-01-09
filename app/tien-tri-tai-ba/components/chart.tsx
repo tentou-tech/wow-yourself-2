@@ -99,7 +99,7 @@ export default function Chart() {
             type='number'
             domain={xAxisDomain}
             ticks={xAxisTicks}
-            label={{ value: 'XP', position: 'insideBottomRight', offset: -5 }}
+            label={{ value: 'Star', position: 'insideBottomRight', offset: -5 }}
           />
           <YAxis
             stroke='#323239'
@@ -122,7 +122,7 @@ export default function Chart() {
                 const data = payload[0].payload
                 return (
                   <div className='bg-white p-3 rounded-lg shadow-md'>
-                    <p className='font-bold text-lg'>{data.x} XP</p>
+                    <p className='font-bold text-lg'>{data.x} Star</p>
                     <p className='text-red-600 font-semibold'>Người tham gia : {data.y}</p>
                   </div>
                 )
