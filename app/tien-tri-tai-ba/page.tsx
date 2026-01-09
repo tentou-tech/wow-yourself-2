@@ -197,14 +197,14 @@ export default function Page() {
                     </div>
                     <div className='space-y-1'>
                       <div className='font-paytone-one font-bold text-white'>Daily Check-in</div>
-                      <div className='text-[#D9D9DE] text-sm font-semibold'>07/12/2025 - 01/01/2026</div>
+                      <div className='text-[#D9D9DE] text-sm font-semibold'>11/01/2026 - 15/03/2026</div>
                     </div>
                   </div>
                   <button
                     onClick={checkInHandler}
                     disabled={isCheckinLoading || checkinQuest?.reward_status == 'CLAIMED'}
                     className={cn(
-                      ' rounded-sm h-10 w-full md:w-fit px-3.5 grid place-items-center font-paytone-one text-lg font-semibold cursor-pointer flex items-center justify-center gap-2',
+                      ' rounded-sm h-10 w-full md:w-fit px-3.5 font-paytone-one text-lg font-semibold cursor-pointer flex items-center justify-center gap-2',
                       checkinQuest?.reward_status == 'CLAIMED' ? 'bg-[#F5BC41]/50 pointer-events-none' : 'bg-[#F5BC41]',
                       isCheckinLoading && 'opacity-50'
                     )}>
@@ -220,7 +220,7 @@ export default function Page() {
                     </div>
                     <div className='space-y-1'>
                       <div className='font-paytone-one font-bold text-white'>Đố vui mỗi ngày</div>
-                      <div className='text-[#D9D9DE] text-sm font-semibold'>07/12/2025 - 01/01/2026</div>
+                      <div className='text-[#D9D9DE] text-sm font-semibold'>11/01/2026 - 15/03/2026</div>
                     </div>
                   </div>
                   <button
@@ -235,7 +235,7 @@ export default function Page() {
                       ' rounded-sm h-10 w-full md:w-fit px-3.5 grid place-items-center font-paytone-one text-lg font-semibold cursor-pointer',
                       quizQuest?.reward_status == 'CLAIMED' ? 'bg-[#F5BC41]/50 pointer-events-none' : 'bg-[#F5BC41]'
                     )}>
-                    Giải đố
+                    {quizQuest?.reward_status == 'CLAIMED' ? 'Xong' : 'Giải đố'}
                   </button>
                 </div>
               </div>
