@@ -72,7 +72,7 @@ const RewardRedemption = () => {
                   reward.redeemable ? 'bg-[#F5BC41] text-black' : 'bg-[#BCBCBC] text-[#0A0A0B] cursor-not-allowed'
                 }`}
                 disabled={!reward.redeemable}>
-                {reward.points} Point
+                {reward.points} Star
               </button>
             </div>
           </div>

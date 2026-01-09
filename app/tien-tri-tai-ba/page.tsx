@@ -193,7 +193,7 @@ export default function Page() {
                   <div className='flex items-center gap-4'>
                     <div className='w-16 h-16 flex flex-col items-center justify-center text-[#FFFF7C]'>
                       <div className='font-bold text-3xl'>10</div>
-                      <div className='font-semibold text-sm'>Points</div>
+                      <div className='font-semibold text-sm'>Star</div>
                     </div>
                     <div className='space-y-1'>
                       <div className='font-paytone-one font-bold text-white'>Daily Check-in</div>
@@ -216,7 +216,7 @@ export default function Page() {
                   <div className='flex items-center gap-4'>
                     <div className='w-16 h-16 flex flex-col items-center justify-center text-[#FFFF7C]'>
                       <div className='font-bold text-3xl'>10</div>
-                      <div className='font-semibold text-sm'>Points</div>
+                      <div className='font-semibold text-sm'>Star</div>
                     </div>
                     <div className='space-y-1'>
                       <div className='font-paytone-one font-bold text-white'>Đố vui mỗi ngày</div>
