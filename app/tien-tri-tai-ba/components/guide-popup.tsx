@@ -9,15 +9,20 @@ import Advisor11Mascot from '@/assets/advisors/advisor_11_mascot.png'
 import Advisor12Mascot from '@/assets/advisors/advisor_12_mascot.png'
 import ModalBorder from './modal-border'
 
-const GuidePopup = () => {
+const GuidePopup = ({
+  isOpen,
+  setIsOpen,
+}: {
+  isOpen: boolean
+  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>
+}) => {
   const [step, setStep] = useState(0)
-  const [isOpen, setIsOpen] = useState(false)
 
   const steps = [
     {
       title: 'Đăng nhập và điểm danh hằng ngày',
       description:
-        'Từ 21/12/2025 mọi người dùng đăng ký tài khoản trên pvn.ga.me đều có thể truy cập trang sự kiện này để điểm danh hằng ngày và nhận về Star point',
+        'Từ 11/01/2026 mọi người đăng ký tài khoản trên punkga.me đều có thể truy cập trang sự kiện này để điểm danh hằng ngày và nhận về Star point',
       buttonText: 'Đã hiểu',
       image: Advisor10Mascot,
     },
@@ -41,6 +46,12 @@ const GuidePopup = () => {
       setIsOpen(true)
     }
   }, [])
+
+  useEffect(() => {
+    if (isOpen) {
+      setStep(0)
+    }
+  }, [isOpen])
 
   const handleNextStep = () => {
     if (step < steps.length - 1) {

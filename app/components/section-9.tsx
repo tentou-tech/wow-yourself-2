@@ -2,6 +2,7 @@ import DecorImage17 from '@/assets/decor_image_17.png'
 import DecorImage25 from '@/assets/decor_image_25.png'
 import Button from '@/components/button'
 import Image from 'next/image'
+import Link from 'next/link'
 
 export default function Section9() {
   return (
@@ -37,7 +38,7 @@ export default function Section9() {
             <div className='flex-1 mt-10 border-t border-[#242429] pt-6'>
               <div className='text-[#62513F] font-paytone-one font-extrabold'>
                 <h2 className='text-[44px] leading-9'>Sự kiện cộng đồng</h2>
-                <div className='text-2xl leading-5 mt-4'>21/12/2025 - 09/02/2026</div>
+                <div className='text-2xl leading-5 mt-4'>11/01/2026 - 31/03/2026</div>
                 <h3 className='mt-6 text-[50px] leading-none'>
                   Tiên tri tài ba <br />& Giấc mơ trong tầm tay
                 </h3>
@@ -47,7 +48,9 @@ export default function Section9() {
                 chức để nhận Star points. Khán giả sẽ nhận về những phần quà giá trị cho mình từ ban tổ chức. 
               </div>
               <div className='mt-8 flex gap-4'>
-                <Button className='text-2xl! h-11! w-fit!'>Tham gia ngay</Button>
+                <Link href={'/tien-tri-tai-ba'}>
+                  <Button className='text-2xl! h-11! w-fit!'>Tham gia ngay</Button>
+                </Link>
               </div>
             </div>
           </div>

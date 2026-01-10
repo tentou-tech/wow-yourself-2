@@ -500,7 +500,7 @@ export default function Home() {
               <div className='flex gap-4'>
                 <div className='space-y-2 text-[#4D3B2B] font-extrabold font-paytone-one text-2xl leading-6'>
                   <h3>Sự kiện cộng đồng</h3>
-                  <div>25/12/2025 - 08/02/2026</div>
+                  <div>11/01/2026 - 31/03/2026</div>
                 </div>
               </div>
               <div className='text-[#4D3B2B] font-paytone-one text-4xl font-extrabold leading-7.5'>
@@ -517,7 +517,9 @@ export default function Home() {
                 </Link>
               </div>
               <div className='flex flex-col w-full gap-3'>
-                <Button>Tham gia ngay</Button>
+                <Link href={'/tien-tri-tai-ba'}>
+                  <Button>Tham gia ngay</Button>
+                </Link>
               </div>
             </div>
           </div>
