@@ -12,12 +12,22 @@ import Taomong from '@/assets/teams/taomong.png'
 import { useSignInDialog } from '@/components/signin-dialog'
 import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle } from '@/components/ui/dialog'
 import { Input } from '@/components/ui/input'
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip'
 import { useLoggedIn } from '@/hooks/useLoggedIn'
 import { getTeamPoints, giveTeamPoints } from '@/services/tttb'
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
 import { toast } from 'sonner'
 import ModalBorder from './modal-border'
+import Team1Banner from '@/assets/teams/banner/team-1.png'
+import Team2Banner from '@/assets/teams/banner/team-2.jpg'
+import Team3Banner from '@/assets/teams/banner/team-3.jpg'
+import Team4Banner from '@/assets/teams/banner/team-4.jpg'
+import Team5Banner from '@/assets/teams/banner/team-5.png'
+import Team6Banner from '@/assets/teams/banner/team-6.png'
+import Team7Banner from '@/assets/teams/banner/team-7.jpg'
+import Team8Banner from '@/assets/teams/banner/team-8.png'
+import { X } from 'lucide-react'
 const teams = [
   {
     id: 'milyhaisan',
@@ -27,6 +37,7 @@ const teams = [
     topic: 'Lựa Chọn Tốt Nhất',
     points: 0,
     avatar: Milyhaisan,
+    banner: Team1Banner,
   },
   {
     id: 'dasacda',
@@ -36,6 +47,7 @@ const teams = [
     topic: 'Tình Yêu Ở Kia',
     points: 0,
     avatar: Dasacda,
+    banner: Team2Banner,
   },
   {
     id: 'demongang',
@@ -45,6 +57,7 @@ const teams = [
     topic: 'Hi Sinh Thầm Lặng',
     points: 0,
     avatar: Demongang,
+    banner: Team3Banner,
   },
   {
     id: 'f1long',
@@ -54,6 +67,7 @@ const teams = [
     topic: 'Khoành Khắc Vàng',
     points: 0,
     avatar: F1long,
+    banner: Team4Banner,
   },
   {
     id: 'sixpieces',
@@ -63,6 +77,7 @@ const teams = [
     topic: 'Những Thứ Ở Lại',
     points: 0,
     avatar: Sixpieces,
+    banner: Team5Banner,
   },
   {
     id: 'kado',
@@ -72,6 +87,7 @@ const teams = [
     topic: 'Sự Chuộc Tội',
     points: 0,
     avatar: Kado,
+    banner: Team6Banner,
   },
   {
     id: 'taomong',
@@ -81,6 +97,7 @@ const teams = [
     topic: 'Kết Nối Vô Hình',
     points: 0,
     avatar: Taomong,
+    banner: Team7Banner,
   },
   {
     id: 'aids',
@@ -90,17 +107,8 @@ const teams = [
     topic: 'Ký Ức Trân Quý',
     points: 0,
     avatar: Aids,
+    banner: Team8Banner,
   },
-  // {
-  //   id: 'todoiloinguocdong',
-  //   name: 'Tổ đội lội ngược dòng',
-  //   members:
-  //     'Duy torao, Emilynne, Lucifer Bù Nhìn, Hoàng Ngọc Lii, Nguyễn Hữu Thịnh, Nguyễn Mido, Rượu siêu yếu, Xuan Thuy, TRB art',
-  //   advisor: 'PunkgaMe x Du Bút',
-  //   topic: 'Để Nó Trôi Đi',
-  //   points: 0,
-  //   avatar: Todoiloinguocdong,
-  // },
 ]
 const CommunityPrize = ({ refreshUserRankData }: { refreshUserRankData: () => void }) => {
   const [displayTeams, setDisplayTeams] = useState(teams)
@@ -153,7 +161,7 @@ const CommunityPrize = ({ refreshUserRankData }: { refreshUserRankData: () => vo
       </div>
       <div className='space-y-4'>
         {displayTeams.map((team, index) => (
-          <Group
+          <Team
             key={index}
             {...team}
             index={index + 1}
@@ -166,7 +174,7 @@ const CommunityPrize = ({ refreshUserRankData }: { refreshUserRankData: () => vo
   )
 }
 
-const Group = (
+const Team = (
   props: (typeof teams)[0] & { index: number; fetchTeamsPoints: () => Promise<void>; refreshUserRankData: () => void }
 ) => {
   const [isModalOpen, setIsModalOpen] = useState(false)
@@ -221,7 +229,22 @@ const Group = (
             <Image src={props.avatar} alt={props.name} layout='fill' objectFit='cover' />
           </div>
           <div>
-            <p className='font-bold font-paytone-one'>{props.name}</p>
+            <TooltipProvider>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <p className='font-bold font-paytone-one cursor-pointer'>{props.name}</p>
+                </TooltipTrigger>
+                <TooltipContent className='w-xl'>
+                  <Image
+                    src={props.banner}
+                    alt={`${props.name} banner`}
+                    width={400}
+                    height={200}
+                    className='rounded-md w-full'
+                  />
+                </TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
             <button
               onClick={() => setIsModalOpen(true)}
               className='text-xs underline cursor-pointer hover:text-blue-500'>
@@ -246,6 +269,9 @@ const Group = (
         <div className='fixed inset-0 flex items-center justify-center z-50 bg-black/50'>
           <ModalBorder>
             <div className='bg-white rounded-lg p-6 max-w-2xl w-full max-h-[80vh] overflow-y-auto'>
+              <div className='absolute top-4 right-4 z-10 cursor-pointer' onClick={() => setIsModalOpen(false)}>
+                <X />
+              </div>
               <div className='flex items-center gap-4 mb-6'>
                 <div className='w-20 h-20 bg-gray-300 rounded-full border-2 border-[#D3A667] relative overflow-hidden shrink-0'>
                   <Image src={props.avatar} alt={props.name} layout='fill' objectFit='cover' />
@@ -254,6 +280,10 @@ const Group = (
                   <h3 className='text-2xl font-bold font-paytone-one'>{props.name}</h3>
                   <p className='text-gray-600'>Cố vấn: {props.advisor}</p>
                 </div>
+              </div>
+
+              <div className='mb-4'>
+                <Image src={props.banner} alt={`${props.name} banner`} className='rounded-md w-full h-auto' />
               </div>
 
               <div className='space-y-4'>
@@ -274,12 +304,6 @@ const Group = (
                   <p className='text-xl font-bold text-[#345EB0]'>{props.points} Star</p>
                 </div>
               </div>
-
-              <button
-                onClick={() => setIsModalOpen(false)}
-                className='mt-6 w-full bg-gray-300 hover:bg-gray-400 text-black font-semibold py-2 rounded-md transition'>
-                Đóng
-              </button>
             </div>
           </ModalBorder>
         </div>

@@ -244,10 +244,10 @@ export default function Page() {
                 <div className='bg-linear-to-b from-transparent to-black absolute inset-0 p-6 flex flex-col justify-end items-center gap-4'>
                   <div className='space-y-1.5 text-center w-full text-white'>
                     <div className='w-full font-paytone-one text-[28px] font-semibold'>Dự đoán Team Đoạt giải</div>
-                    <div className='font-semibold text-sm'>07/12/2025 - 01/01/2026</div>
+                    <div className='font-semibold text-sm'>16/03/2026 - 20/03/2026</div>
                   </div>
                   <button className='bg-[#BCBCBC] text-[#0A0A0B] rounded-sm h-11 px-3.5 grid place-items-center w-fit font-paytone-one text-xl font-semibold cursor-pointer'>
-                    CTA
+                    Coming soon
                   </button>
                 </div>
               </div>

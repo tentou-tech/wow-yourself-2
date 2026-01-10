@@ -46,7 +46,7 @@ const RewardRedemption = () => {
   return (
     <div className='bg-[#D73930] text-white p-4 rounded-sm'>
       <h2 className='text-3xl font-paytone-one font-bold mb-2 text-[#F5BC41]'>Đổi Star</h2>
-      <p className='text-sm mb-4 text-[#D9D9DE] font-semibold'>11/01/2026 - 15/03/2026</p>
+      <p className='text-sm mb-4 text-[#D9D9DE] font-semibold'>21/03/2026 - 30/03/2026</p>
       <p className='mb-8 text-[#D9D9DE] font-semibold'>
         Star sau vòng Tiên tri có thể dùng để đổi các phần thưởng dưới đây
       </p>
