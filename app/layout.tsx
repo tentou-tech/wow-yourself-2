@@ -6,6 +6,7 @@ import { Toaster } from '@/components/ui/sonner'
 import LoginCallback from '@/components/login-callback'
 import SignInDialog from '@/components/signin-dialog'
 import { Web3Providers } from '@/components/web3-providers'
+import { GoogleTagManager } from '@next/third-parties/google'
 
 const playpenSans = Playpen_Sans({
   variable: '--font-playpen-sans',
@@ -39,6 +40,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
+      <GoogleTagManager gtmId='GTM-TP4FLJKZ' />
       <body className={`${playpenSans.className} ${grenze.variable} ${paytone.variable} antialiased`}>
         <Suspense>
           <Web3Providers>
