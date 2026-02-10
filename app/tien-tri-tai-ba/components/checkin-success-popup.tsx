@@ -3,6 +3,8 @@
 
 import Image from 'next/image';
 import a13 from '@/assets/advisors/Advisor_13_Mascot.png';
+import { getRewardAmount } from '../utils'
+
 import ModalBorder from './modal-border';
 
 interface CheckinSuccessPopupProps {
@@ -23,7 +25,7 @@ const CheckinSuccessPopup = ({ isOpen, onClose }: CheckinSuccessPopupProps) => {
           <div className='w-32 h-32 relative mx-auto mb-4'>
             <Image src={a13} alt='Success' layout='fill' objectFit='contain' />
           </div>
-          <p className='mb-6 text-lg font-bold text-gray-700'>+10 Star</p>
+          <p className='mb-6 text-lg font-bold text-gray-700'>+{getRewardAmount()} Star</p>
           <button
             onClick={onClose}
             className='bg-[#D73930] text-white px-8 py-3 rounded-md font-paytone-one text-lg w-full'>

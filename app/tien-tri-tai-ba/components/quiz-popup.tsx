@@ -8,6 +8,7 @@ import { Spinner } from '@/components/ui/spinner'
 import a13 from '@/assets/advisors/Advisor_13_Mascot.png'
 import { answerQuiz, claimQuest, getRequestLog, Quest } from '@/services/tttb'
 import { toast } from 'sonner'
+import { getRewardAmount } from '../utils'
 
 interface QuizPopupProps {
   isOpen: boolean
@@ -122,7 +123,7 @@ const QuizPopup = ({ isOpen, onClose, quizQuest, callback }: QuizPopupProps) => 
             <div className='w-32 h-32 relative mx-auto mb-4'>
               <Image src={a13} alt='Success' layout='fill' objectFit='contain' />
             </div>
-            <p className='mb-6 text-lg font-bold text-gray-700'>+10 Star</p>
+            <p className='mb-6 text-lg font-bold text-gray-700'>+{getRewardAmount()} Star</p>
             <button
               onClick={handleClose}
               className='bg-[#D73930] text-white px-8 py-3 rounded-md font-paytone-one text-lg w-full'>

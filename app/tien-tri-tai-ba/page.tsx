@@ -26,6 +26,7 @@ import QuizPopup from './components/quiz-popup'
 import RewardRedemption from './components/reward-redemption'
 import useSWR from 'swr'
 import { AlertCircle } from 'lucide-react'
+import { getRewardAmount } from './utils'
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Page() {
@@ -192,7 +193,7 @@ export default function Page() {
                 <div className='rounded-sm p-4 md:h-23.5 flex flex-col md:flex-row md:justify-between md:items-center bg-[#D73930] gap-4'>
                   <div className='flex items-center gap-4'>
                     <div className='w-16 h-16 flex flex-col items-center justify-center text-[#FFFF7C]'>
-                      <div className='font-bold text-3xl'>10</div>
+                      <div className='font-bold text-3xl'>{getRewardAmount()}</div>
                       <div className='font-semibold text-sm'>Star</div>
                     </div>
                     <div className='space-y-1'>
@@ -206,7 +207,7 @@ export default function Page() {
                     className={cn(
                       ' rounded-sm h-10 w-full md:w-fit px-3.5 font-paytone-one text-lg font-semibold cursor-pointer flex items-center justify-center gap-2',
                       checkinQuest?.reward_status == 'CLAIMED' ? 'bg-[#F5BC41]/50 pointer-events-none' : 'bg-[#F5BC41]',
-                      isCheckinLoading && 'opacity-50'
+                      isCheckinLoading && 'opacity-50',
                     )}>
                     {isCheckinLoading && <Spinner className='w-4 h-4' />}
                     {checkinQuest?.reward_status == 'CLAIMED' ? 'Đã điểm danh' : 'Điểm danh'}
@@ -215,7 +216,7 @@ export default function Page() {
                 <div className='rounded-sm p-4 md:h-23.5 flex flex-col md:flex-row md:justify-between md:items-center bg-[#D73930] gap-4'>
                   <div className='flex items-center gap-4'>
                     <div className='w-16 h-16 flex flex-col items-center justify-center text-[#FFFF7C]'>
-                      <div className='font-bold text-3xl'>10</div>
+                      <div className='font-bold text-3xl'>{getRewardAmount()}</div>
                       <div className='font-semibold text-sm'>Star</div>
                     </div>
                     <div className='space-y-1'>
@@ -233,7 +234,7 @@ export default function Page() {
                     }}
                     className={cn(
                       ' rounded-sm h-10 w-full md:w-fit px-3.5 grid place-items-center font-paytone-one text-lg font-semibold cursor-pointer',
-                      quizQuest?.reward_status == 'CLAIMED' ? 'bg-[#F5BC41]/50 pointer-events-none' : 'bg-[#F5BC41]'
+                      quizQuest?.reward_status == 'CLAIMED' ? 'bg-[#F5BC41]/50 pointer-events-none' : 'bg-[#F5BC41]',
                     )}>
                     {quizQuest?.reward_status == 'CLAIMED' ? 'Xong' : 'Giải đố'}
                   </button>
