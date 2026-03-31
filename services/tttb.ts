@@ -90,6 +90,18 @@ export const answerQuiz = async (questId: number, answer: string) => {
   })
   return res.data
 }
+export const redeemReward = async (data: {
+  reward_type: string
+  name: string
+  phone: string
+  email: string
+  address: string
+  size?: string
+}) => {
+  const res = await axiosInstance.post('/reward-redeem', data)
+  return res.data
+}
+
 export const getDistributionRankings = async (): Promise<
   {
     users: number

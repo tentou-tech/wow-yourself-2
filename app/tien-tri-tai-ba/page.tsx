@@ -202,15 +202,9 @@ export default function Page() {
                     </div>
                   </div>
                   <button
-                    onClick={checkInHandler}
-                    disabled={isCheckinLoading || checkinQuest?.reward_status == 'CLAIMED'}
-                    className={cn(
-                      ' rounded-sm h-10 w-full md:w-fit px-3.5 font-paytone-one text-lg font-semibold cursor-pointer flex items-center justify-center gap-2',
-                      checkinQuest?.reward_status == 'CLAIMED' ? 'bg-[#F5BC41]/50 pointer-events-none' : 'bg-[#F5BC41]',
-                      isCheckinLoading && 'opacity-50',
-                    )}>
-                    {isCheckinLoading && <Spinner className='w-4 h-4' />}
-                    {checkinQuest?.reward_status == 'CLAIMED' ? 'Đã điểm danh' : 'Điểm danh'}
+                    disabled
+                    className='rounded-sm h-10 w-full md:w-fit px-3.5 font-paytone-one text-lg font-semibold bg-[#BCBCBC] text-[#0A0A0B] cursor-not-allowed flex items-center justify-center gap-2'>
+                    Đã kết thúc
                   </button>
                 </div>
                 <div className='rounded-sm p-4 md:h-23.5 flex flex-col md:flex-row md:justify-between md:items-center bg-[#D73930] gap-4'>
@@ -225,18 +219,9 @@ export default function Page() {
                     </div>
                   </div>
                   <button
-                    onClick={() => {
-                      if (isLoggedIn) {
-                        openQuizPopup()
-                      } else {
-                        setOpenSignInDialog(true)
-                      }
-                    }}
-                    className={cn(
-                      ' rounded-sm h-10 w-full md:w-fit px-3.5 grid place-items-center font-paytone-one text-lg font-semibold cursor-pointer',
-                      quizQuest?.reward_status == 'CLAIMED' ? 'bg-[#F5BC41]/50 pointer-events-none' : 'bg-[#F5BC41]',
-                    )}>
-                    {quizQuest?.reward_status == 'CLAIMED' ? 'Xong' : 'Giải đố'}
+                    disabled
+                    className='rounded-sm h-10 w-full md:w-fit px-3.5 grid place-items-center font-paytone-one text-lg font-semibold bg-[#BCBCBC] text-[#0A0A0B] cursor-not-allowed'>
+                    Đã kết thúc
                   </button>
                 </div>
               </div>
@@ -258,7 +243,7 @@ export default function Page() {
               <Chart />
             </div>
             <div className='py-4 space-y-4 px-3'>
-              <RewardRedemption />
+              <RewardRedemption userStars={userRank?.dream} onRedeemSuccess={() => mutate()} />
             </div>
           </div>
           <CommunityPrize refreshUserRankData={mutate} />
