@@ -3,7 +3,7 @@
 # -------------------------
 # Builder
 # -------------------------
-FROM node:23-alpine AS builder
+FROM node:22.23.4-alpine AS builder
 WORKDIR /app
 
 # Enable pnpm
@@ -24,7 +24,7 @@ RUN pnpm build
 # -------------------------
 # Runner (ultra slim)
 # -------------------------
-FROM node:23-alpine AS runner
+FROM node:22.23.4-alpine AS runner
 WORKDIR /app
 
 ENV NODE_ENV=production
