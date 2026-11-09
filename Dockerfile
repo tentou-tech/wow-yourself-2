@@ -7,7 +7,7 @@ FROM node:22.23.4-alpine AS builder
 WORKDIR /app
 
 # Enable pnpm
-RUN corepack enable
+RUN corepack enable && corepack prepare pnpm@10.33.3 --activate
 
 # Copy only dependency files first (better cache)
 COPY package.json pnpm-lock.yaml ./
